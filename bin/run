@@ -1,0 +1,67 @@
+#! /bin/bash
+
+# DESCRIPTION
+# Executes the command line interface.
+
+# USAGE
+# ./run.sh OPTION
+
+# LIBRARY
+source lib/installers.sh
+source lib/options.sh
+source lib/reinstallers.sh
+source lib/restorers.sh
+source lib/settings.sh
+source lib/uninstallers.sh
+source lib/utilities.sh
+source lib/verifiers.sh
+
+if [[ -e "$MAC_OS_CONFIG_PATH" ]]; then
+  source "$MAC_OS_CONFIG_PATH/lib/settings.sh"
+else
+  printf "ERROR: Unable to load macOS configuration: $MAC_OS_CONFIG_PATH.\n\n"
+  printf "Please check the following before continuing:\n"
+  printf "  • Download the default macOS configuration here: https://github.com/bkuhlmann/mac_os-config.\n"
+  printf "  • Customize as necessary for your setup or fork the project and make your own configuration.\n"
+  printf "  • When finished, your folder structure should look like this:\n"
+  printf "    • <root path>/mac_os:\n"
+  printf "    • <root path>/mac_os-config:\n"
+  exit 1
+fi
+
+# EXECUTION
+while true; do
+  if [[ $# == 0 ]]; then
+    printf "\nUsage: run OPTION\n"
+    printf "\nOSX Options:\n"
+    printf "  Boot:\n"
+    printf "    B:  Create boot disk.\n"
+    printf "  Install:\n"
+    printf "    b:  Apply basic settings.\n"
+    printf "    t:  Install development tools.\n"
+    printf "    h:  Install Homebrew software.\n"
+    printf "    a:  Install application software.\n"
+    printf "    x:  Install application software extensions.\n"
+    printf "    d:  Apply default settings.\n"
+    printf "    s:  Setup installed software.\n"
+    printf "    i:  Install everything (i.e. executes all install options).\n"
+    printf "  Restore:\n"
+    printf "    R:  Restore settings from backup.\n"
+    printf "  Manage:\n"
+    printf "    c:  Check status of managed software.\n"
+    printf "    C:  Caffeinate machine.\n"
+    printf "    ua: Uninstall application software.\n"
+    printf "    ux: Uninstall application software extension.\n"
+    printf "    ra: Reinstall application software.\n"
+    printf "    rx: Reinstall application software extension.\n"
+    printf "    w:  Clean work (temp) directory.\n"
+    printf "    q:  Quit/Exit.\n\n"
+    read -p "Enter selection: " response
+    printf "\n"
+    process_option $response
+  else
+    process_option $1
+  fi
+
+  break
+done
