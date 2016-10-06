@@ -2,9 +2,20 @@
 
 [![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
-Shell scripts for automated macOS machine setup. This project provides the foundational tooling for
-automated macOS machine setup. To customize further see the companion
-[macOS Config](https://github.com/bkuhlmann/mac_os-config) project for details.
+Shell scripts for automated macOS machine setup.
+
+This project is a framework for automating the setup of a macOS machine. In order to illustrate the
+potential of what this project can do, please see the companion
+[macOS Config](https://github.com/bkuhlmann/mac_os-config) project for details. The macOS Config project is an opinionated
+configuration which meets the needs of my development environment but is also meant to serve as an
+example and guide for building your own personalized setup. Here is how the two projects are meant
+to be used:
+
+- **macOS** (this project) - Foundation and framework for building customizated macOS machine
+  setups.
+- **[macOS Config](https://github.com/bkuhlmann/mac_os-config)** - The layer on top of this *macOS*
+  project which defines a customized machine setup. The project is meant to be forked for as many
+  customized machine setups as you need.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -26,18 +37,20 @@ automated macOS machine setup. To customize further see the companion
 
 # Features
 
-- Provides a command line interface for installation and management of macOS software.
+- Provides a command line interface, written in Bash with no additional dependencies, for
+  installation and management of a macOS machine.
 - Downloads and installs development tooling (required by Homebrew):
     - [Xcode Command Line Tools](https://developer.apple.com/xcode)
     - [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - Downloads, installs, and configures [Homebrew](http://brew.sh) command line software.
 - Downloads, installs, and configures software applications generally not in the
   [App Store](http://www.apple.com/macosx/whats-new/app-store.html).
-- Downloads, installs, and configures software extensions.
+- Downloads, installs, and configures software application extensions.
+- Sets up and configures installed software for use.
 
 # Requirements
 
-0. [macOS](https://www.apple.com/macos) (with latest software updates applied)
+0. [macOS Sierra](https://www.apple.com/macos) (with latest software updates applied)
 0. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
 
 # Setup
@@ -108,9 +121,9 @@ Global settings can be configured via the following script:
 
 All script programs can be found in the `bin` folder:
 
-- `bin/create_boot_disk` = Creates macOS boot disk.
-- `bin/install_dev_tools` = Installs macOS development tools required by Homebrew.
-- `bin/run` - The main script and interface for macOS setup.
+- `bin/create_boot_disk`: Creates macOS boot disk.
+- `bin/install_dev_tools`: Installs macOS development tools required by Homebrew.
+- `bin/run`: The main script and interface for macOS setup.
 
 The `lib` folder provides foundational functions for installing, re-installing, and uninstalling
 software. Everything provided via the [macOS Config](https://github.com/bkuhlmann/mac_os-config)
