@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # DESCRIPTION
 # Defines command line prompt options.

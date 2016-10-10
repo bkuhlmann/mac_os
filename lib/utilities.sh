@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # DESCRIPTION
 # Defines general utility functions.

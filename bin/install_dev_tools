@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # DESCRIPTION
 # Installs development tooling requirements.
