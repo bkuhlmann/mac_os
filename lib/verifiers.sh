@@ -39,7 +39,7 @@ verify_homebrews() {
 
       verify_homebrew "$application" "${applications[*]}"
     fi
-  done < "$PWD/scripts/homebrew.sh"
+  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew"
 
   printf "Homebrew check complete.\n"
 }
