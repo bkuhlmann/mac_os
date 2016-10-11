@@ -16,6 +16,8 @@ process_option() {
       bin/install_dev_tools;;
     'h')
       "$MAC_OS_CONFIG_PATH/bin/install_homebrew";;
+    'm')
+      "$MAC_OS_CONFIG_PATH/bin/install_app_store";;
     'a')
       "$MAC_OS_CONFIG_PATH/bin/install_applications";;
     'x')
@@ -29,6 +31,7 @@ process_option() {
       "$MAC_OS_CONFIG_PATH/bin/apply_basic_settings"
       bin/install_dev_tools
       "$MAC_OS_CONFIG_PATH/bin/install_homebrew"
+      "$MAC_OS_CONFIG_PATH/bin/install_app_store"
       "$MAC_OS_CONFIG_PATH/bin/install_applications"
       "$MAC_OS_CONFIG_PATH/bin/install_extensions"
       "$MAC_OS_CONFIG_PATH/bin/apply_default_settings"

@@ -40,6 +40,7 @@ while true; do
     printf "    b:  Apply basic settings.\n"
     printf "    t:  Install development tools.\n"
     printf "    h:  Install Homebrew software.\n"
+    printf "    m:  Install Mac App Store software.\n"
     printf "    a:  Install application software.\n"
     printf "    x:  Install application software extensions.\n"
     printf "    d:  Apply default settings.\n"
