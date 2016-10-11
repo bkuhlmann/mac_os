@@ -6,16 +6,16 @@ Shell scripts for automated macOS machine setup.
 
 This project is a framework for automating the setup of a macOS machine. In order to illustrate the
 potential of what this project can do, please see the companion
-[macOS Config](https://github.com/bkuhlmann/mac_os-config) project for details. The macOS Config project is an opinionated
-configuration which meets the needs of my development environment but is also meant to serve as an
-example and guide for building your own personalized setup. Here is how the two projects are meant
-to be used:
+[macOS Config](https://github.com/bkuhlmann/mac_os-config) project for details. The *macOS Config*
+project is an opinionated configuration which meets the needs of my development environment but is
+also meant to serve as an example and guide for building your own personalized setup. Here is how
+the two projects are meant to be used:
 
 - **macOS** (this project) - Foundation and framework for building customizated macOS machine
   setups.
 - **[macOS Config](https://github.com/bkuhlmann/mac_os-config)** - The layer on top of this *macOS*
-  project which defines a customized machine setup. The project is meant to be forked for as many
-  customized machine setups as you need.
+  project which defines a custom machine setup and base implementation. The project is meant to be
+  forked for as many custom machine setups as needed.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -39,14 +39,19 @@ to be used:
 
 - Provides a command line interface, written in Bash with no additional dependencies, for
   installation and management of a macOS machine.
-- Downloads and installs development tooling (required by Homebrew):
+- Supports macOS boot disk creation for setting up a machine with a fresh install of the operation
+  system.
+- Downloads and installs development tools (required by Homebrew):
     - [Xcode Command Line Tools](https://developer.apple.com/xcode)
     - [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - Downloads, installs, and configures [Homebrew](http://brew.sh) command line software.
-- Downloads, installs, and configures software applications generally not in the
-  [App Store](http://www.apple.com/macosx/whats-new/app-store.html).
+- Downloads, installs, and configures
+  [App Store](http://www.apple.com/macosx/whats-new/app-store.html) software.
+- Downloads, installs, and configures non-App Store software applications.
 - Downloads, installs, and configures software application extensions.
+- Applies basic and default software settings.
 - Sets up and configures installed software for use.
+- Supports restoration of machine backups.
 
 # Requirements
 
@@ -62,7 +67,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout v1.0.0
+    git checkout v1.1.0
 
 Master Version (unstable):
 
@@ -80,12 +85,13 @@ You will be presented with the following options:
     Boot:
       B:  Create boot disk.
     Install:
-      b:  Apply basic system settings.
+      b:  Apply basic settings.
       t:  Install development tools.
       h:  Install Homebrew software.
+      m:  Install Mac App Store software.
       a:  Install application software.
       x:  Install application software extensions.
-      d:  Apply software defaults.
+      d:  Apply default settings.
       s:  Setup installed software.
       i:  Install everything (i.e. executes all install options).
     Restore:
@@ -104,8 +110,8 @@ Choose option `i` to run all install options or select a specific option to run 
 Each option is designed to be re-run if necessary. This can also be handy for performing upgrades,
 re-running a missing/failed install, etc.
 
-The option prompt can be skipped by passing the desired option directly to the run.sh script. For
-example, executing `./run.sh i` will execute the complete software install process.
+The option prompt can be skipped by passing the desired option directly to the `bin/run` script. For
+example, executing `bin/run i` will execute the complete software install process.
 
 The machine should be rebooted after all install tasks have completed to ensure all settings have
 been loaded.
@@ -115,20 +121,33 @@ in order to manage installed software and benefit from future upgrades.
 
 ## Customization
 
-Global settings can be configured via the following script:
+All executable scripts can be found in the `bin` folder:
 
-- `lib/settings.sh`
-
-All script programs can be found in the `bin` folder:
-
+- `bin/apply_basic_settings`: Applies basic, initial, settings for setting up a machine. *This is
+  meant to be customized.*
+- `bin/apply_default_settings`: Applies useful system and application defaults. *This is meant to be
+  customized.*
 - `bin/create_boot_disk`: Creates macOS boot disk.
+- `bin/install_app_store`: Installs macOS, GUI-based, App Store applications. *This is meant to be
+  customized.*
+- `bin/install_applications`: Installs macOS, GUI-based, non-App Store applications. *This is meant
+  to be customized.*
 - `bin/install_dev_tools`: Installs macOS development tools required by Homebrew.
+- `bin/install_extensions`: Installs macOS application extensions and add-ons. *This is meant to be
+  customized.*
+- `bin/install_homebrew`: Installs Homebrew managed software. *This is meant to be customized.*
+- `bin/restore_backup`: Restores system/application settings from backup image. *This is meant to be
+  customized.*
 - `bin/run`: The main script and interface for macOS setup.
+- `bin/setup_software`: Configures and launches (if necessary) installed software. *This is meant to
+  be customized.*
 
-The `lib` folder provides foundational functions for installing, re-installing, and uninstalling
+The `lib` folder provides the base framework for installing, re-installing, and uninstalling
 software. Everything provided via the [macOS Config](https://github.com/bkuhlmann/mac_os-config)
 project is built upon the functions found in the `lib` folder. See the
 [macOS Config](https://github.com/bkuhlmann/mac_os-config) project for further details.
+
+  - `lib/settings.sh`: Defines global settings for software applications, extensions, etc.
 
 # Versioning
 
