@@ -6,13 +6,13 @@
 # Reinstall application.
 reinstall_application() {
   uninstall_application
-  scripts/applications.sh
+  bin/install_applications
 }
 export -f reinstall_application
 
 # Reinstall extension.
 reinstall_extension() {
   uninstall_extension
-  scripts/extensions.sh
+  bin/install_extensions
 }
 export -f reinstall_extension
