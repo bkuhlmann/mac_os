@@ -22,6 +22,7 @@ the two projects are meant to be used:
 # Table of Contents
 
 - [Features](#features)
+- [Screencast](#screencast)
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
@@ -52,6 +53,10 @@ the two projects are meant to be used:
 - Applies basic and default software settings.
 - Sets up and configures installed software for use.
 - Supports restoration of machine backups.
+
+# Screencast
+
+[![asciicast](https://asciinema.org/a/88971.png)](https://asciinema.org/a/88971)
 
 # Requirements
 
