@@ -1,3 +1,8 @@
+# v1.3.0 (2017-01-01)
+
+- Updated README versioning documentation.
+- Removed CHANGELOG.md (use CHANGES.md instead).
+
 # v1.2.0 (2016-10-12)
 
 - Fixed reinstaller path issues with application and extension scripts.
