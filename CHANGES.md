@@ -1,3 +1,7 @@
+# v1.3.1 (2017-01-08)
+
+- Fixed install of zip app downloads with sub-directories.
+
 # v1.3.0 (2017-01-01)
 
 - Updated README versioning documentation.
