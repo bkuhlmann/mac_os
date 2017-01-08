@@ -191,6 +191,7 @@ install_zip_app() {
       printf "Preparing...\n"
       cd "$MAC_OS_WORK_PATH"
       unzip -q "$download_file"
+      find . -type d -name "$app_name" -print -exec cp -pR {} . > /dev/null 2>&1 \;
     )
 
     install_app "$MAC_OS_WORK_PATH" "$app_name"
