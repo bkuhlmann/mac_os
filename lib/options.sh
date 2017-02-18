@@ -14,8 +14,8 @@ process_option() {
       bin/apply_basic_settings;;
     't')
       bin/install_dev_tools;;
-    'h')
-      bin/install_homebrew;;
+    'hf')
+      bin/install_homebrew_formulas;;
     'm')
       bin/install_app_store;;
     'a')
