@@ -1,3 +1,10 @@
+# v2.0.0 (2017-04-09)
+
+- Added Homebrew Casks install script.
+- Updated README semantic versioning order.
+- Updated contributing documentation.
+- Refactored Homebrew software as Homebrew Formulas.
+
 # v1.3.1 (2017-01-08)
 
 - Fixed install of zip app downloads with sub-directories.

@@ -45,7 +45,8 @@ the two projects are meant to be used:
 - Downloads and installs development tools (required by Homebrew):
     - [Xcode Command Line Tools](https://developer.apple.com/xcode)
     - [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- Downloads, installs, and configures [Homebrew](http://brew.sh) command line software.
+- Downloads, installs, and configures [Homebrew Formulas](http://brew.sh).
+- Downloads, installs, and configures [Homebrew Casks](https://caskroom.github.io).
 - Downloads, installs, and configures
   [App Store](http://www.apple.com/macosx/whats-new/app-store.html) software.
 - Downloads, installs, and configures non-App Store software applications.
@@ -72,7 +73,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout v1.3.1
+    git checkout v2.0.0
 
 Master Version (unstable):
 
@@ -88,28 +89,29 @@ Run the following script:
 You will be presented with the following options:
 
     Boot:
-      B:  Create boot disk.
+       B:  Create boot disk.
     Install:
-      b:  Apply basic settings.
-      t:  Install development tools.
-      h:  Install Homebrew software.
-      m:  Install Mac App Store software.
-      a:  Install application software.
-      x:  Install application software extensions.
-      d:  Apply default settings.
-      s:  Setup installed software.
-      i:  Install everything (i.e. executes all install options).
+       b:  Apply basic settings.
+       t:  Install development tools.
+      hf:  Install Homebrew Formulas.
+      hc:  Install Homebrew Casks.
+       m:  Install Mac App Store software.
+       a:  Install application software.
+       x:  Install application software extensions.
+       d:  Apply default settings.
+       s:  Setup installed software.
+       i:  Install everything (i.e. executes all install options).
     Restore:
-      R:  Restore settings from backup.
+       R:  Restore settings from backup.
     Manage:
-      c:  Check status of managed software.
-      C:  Caffeinate machine.
-      ua: Uninstall application software.
-      ux: Uninstall application software extension.
-      ra: Reinstall application software.
-      rx: Reinstall application software extension.
-      w:  Clean work (temp) directory.
-      q:  Quit/Exit.
+       c:  Check status of managed software.
+       C:  Caffeinate machine.
+      ua:  Uninstall application software.
+      ux:  Uninstall application software extension.
+      ra:  Reinstall application software.
+      rx:  Reinstall application software extension.
+       w:  Clean work (temp) directory.
+       q:  Quit/Exit.
 
 Choose option `i` to run all install options or select a specific option to run a single option.
 Each option is designed to be re-run if necessary. This can also be handy for performing upgrades,
@@ -140,7 +142,8 @@ All executable scripts can be found in the `bin` folder:
 - `bin/install_dev_tools`: Installs macOS development tools required by Homebrew.
 - `bin/install_extensions`: Installs macOS application extensions and add-ons. *This is meant to be
   customized.*
-- `bin/install_homebrew`: Installs Homebrew managed software. *This is meant to be customized.*
+- `bin/install_homebrew_casks`: Installs Homebrew Formulas. *This is meant to be customized.*
+- `bin/install_homebrew_formulas`: Installs Homebrew Casks. *This is meant to be customized.*
 - `bin/restore_backup`: Restores system/application settings from backup image. *This is meant to be
   customized.*
 - `bin/run`: The main script and interface for macOS setup.
