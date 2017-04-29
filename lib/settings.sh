@@ -18,5 +18,5 @@ export MAC_OS_WORK_PATH=/tmp/downloads
 export MAC_OS_CONFIG_PATH="../mac_os-config"
 
 # Java
-export JAVA_VOLUME_NAME="JDK 8 Update 101"
-export JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-macosx-x64.dmg"
+export JAVA_LABEL="Java SE Development Kit"
+export JAVA_DOWNLOAD_URL="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
