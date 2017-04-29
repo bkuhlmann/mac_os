@@ -32,7 +32,8 @@ process_option() {
       caffeinate_machine
       bin/apply_basic_settings
       bin/install_dev_tools
-      bin/install_homebrew
+      bin/install_homebrew_formulas
+      bin/install_homebrew_casks
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
