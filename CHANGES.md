@@ -1,3 +1,8 @@
+# v2.1.0 (2017-04-29)
+
+- Fixed Java SE Development Kit install.
+- Fixed install-all command
+
 # v2.0.0 (2017-04-09)
 
 - Added Homebrew Casks install script.
