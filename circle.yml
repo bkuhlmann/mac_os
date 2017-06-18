@@ -1,0 +1,7 @@
+dependencies:
+  pre:
+    - gem update --system
+    - gem update bundler
+test:
+  override:
+    - bundle exec rake
