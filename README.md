@@ -19,24 +19,24 @@ the two projects are meant to be used:
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
-# Table of Contents
+## Table of Contents
 
-- [Features](#features)
-- [Screencast](#screencast)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Customization](#customization)
-- [Versioning](#versioning)
-- [Code of Conduct](#code-of-conduct)
+  - [Features](#features)
+  - [Screencast](#screencast)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Usage](#usage)
+    - [Customization](#customization)
+  - [Versioning](#versioning)
+  - [Code of Conduct](#code-of-conduct)
 - [Contributions](#contributions)
-- [License](#license)
-- [History](#history)
-- [Credits](#credits)
+  - [License](#license)
+  - [History](#history)
+  - [Credits](#credits)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
 
-# Features
+## Features
 
 - Provides a command line interface, written in Bash with no additional dependencies, for
   installation and management of a macOS machine.
@@ -55,16 +55,16 @@ the two projects are meant to be used:
 - Sets up and configures installed software for use.
 - Supports restoration of machine backups.
 
-# Screencast
+## Screencast
 
 [![asciicast](https://asciinema.org/a/88971.png)](https://asciinema.org/a/88971)
 
-# Requirements
+## Requirements
 
 0. [macOS Sierra](https://www.apple.com/macos) (with latest software updates applied)
 0. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
 
-# Setup
+## Setup
 
 Open a terminal window and execute one of the following setup sequences depending on your version
 preference:
@@ -80,7 +80,7 @@ Master Version (unstable):
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
 
-# Usage
+## Usage
 
 Run the following script:
 
@@ -126,7 +126,7 @@ been loaded.
 It is recommended that the `mac_os` project directory not be deleted and kept on the local machine
 in order to manage installed software and benefit from future upgrades.
 
-## Customization
+### Customization
 
 All executable scripts can be found in the `bin` folder:
 
@@ -157,7 +157,7 @@ project is built upon the functions found in the `lib` folder. See the
 
   - `lib/settings.sh`: Defines global settings for software applications, extensions, etc.
 
-# Versioning
+## Versioning
 
 Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 
@@ -165,7 +165,7 @@ Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 - Minor (x.Y.z) - Incremented for new, backwards compatible, public API enhancements/fixes.
 - Patch (x.y.Z) - Incremented for small, backwards compatible, bug fixes.
 
-# Code of Conduct
+## Code of Conduct
 
 Please note that this project is released with a [CODE OF CONDUCT](CODE_OF_CONDUCT.md). By
 participating in this project you agree to abide by its terms.
@@ -174,17 +174,17 @@ participating in this project you agree to abide by its terms.
 
 Read [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-# License
+## License
 
 Copyright (c) 2016 [Alchemists](https://www.alchemists.io).
 Read [LICENSE](LICENSE.md) for details.
 
-# History
+## History
 
 Read [CHANGES](CHANGES.md) for details.
 Built with [Bashsmith](https://github.com/bkuhlmann/bashsmith).
 
-# Credits
+## Credits
 
 Developed by [Brooke Kuhlmann](https://www.alchemists.io) at
 [Alchemists](https://www.alchemists.io).
