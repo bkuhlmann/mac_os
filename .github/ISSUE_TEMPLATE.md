@@ -1,16 +1,11 @@
-## Expected Behavior
-<!-- Required. Describe, in detail, the behavior experienced. -->
-
-## Actual Behavior
-<!-- Required. Describe, in detail, what should be the correct behavior. -->
+## Overview
+<!-- Required. Describe, in detail, the behavior experienced and what is desired. -->
 
 ## Steps to Recreate
-<!-- Required. List the exact steps to the reproduce errant behavior. -->
+<!-- Optional. List exact steps (numbered list) to reproduce errant behavior. Delete if unused. -->
 
-0.
+## Screenshots/Screencasts
+<!-- Optional. Attach screenshot/screencast(s) that demo the behavior. Delete if unused. -->
 
 ## Environment
 <!-- Optional. What is your operating system, software version(s), etc. Delete if unused. -->
-
-## Screenshots/Screencasts
-<!-- Optional. Attach screenshots/screencasts that demo the behavior. Delete if unused. -->
