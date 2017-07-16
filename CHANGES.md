@@ -1,3 +1,11 @@
+# v2.2.0 (2017-07-16)
+
+- Added Git Cop support.
+- Updated CONTRIBUTING documentation.
+- Updated GitHub templates.
+- Updated README headers.
+- Updated gem dependencies.
+
 # v2.1.0 (2017-04-29)
 
 - Fixed Java SE Development Kit install.
