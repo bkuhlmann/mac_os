@@ -3,4 +3,4 @@
 source "https://rubygems.org"
 
 gem "rake", "~> 12.0"
-gem "git-cop", "~> 1.3"
+gem "git-cop", "~> 1.5"
