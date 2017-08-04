@@ -30,7 +30,7 @@ the two projects are meant to be used:
     - [Customization](#customization)
   - [Versioning](#versioning)
   - [Code of Conduct](#code-of-conduct)
-- [Contributions](#contributions)
+  - [Contributions](#contributions)
   - [License](#license)
   - [History](#history)
   - [Credits](#credits)
@@ -171,7 +171,7 @@ Read [Semantic Versioning](http://semver.org) for details. Briefly, it means:
 Please note that this project is released with a [CODE OF CONDUCT](CODE_OF_CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 
-# Contributions
+## Contributions
 
 Read [CONTRIBUTING](CONTRIBUTING.md) for details.
 
