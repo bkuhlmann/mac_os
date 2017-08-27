@@ -21,7 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  git-cop (~> 1.5)
+  git-cop (~> 1.6)
   rake (~> 12.0)
 
 BUNDLED WITH
