@@ -1,3 +1,11 @@
+# v3.0.0 (2017-10-01)
+
+- Fixed table of contents.
+- Updated boot disk creation to use macOS High Sierra.
+- Updated gem dependencies.
+- Updated to Git Cop 1.6.0.
+- Updated to Ruby 2.4.2.
+
 # v2.2.0 (2017-07-16)
 
 - Added Git Cop support.

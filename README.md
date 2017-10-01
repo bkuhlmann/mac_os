@@ -62,7 +62,7 @@ the two projects are meant to be used:
 
 ## Requirements
 
-0. [macOS Sierra](https://www.apple.com/macos) (with latest software updates applied)
+0. [macOS High Sierra](https://www.apple.com/macos) (with latest software updates applied)
 0. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
 
 ## Setup
@@ -74,7 +74,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout v2.2.0
+    git checkout v3.0.0
 
 Master Version (unstable):
 
