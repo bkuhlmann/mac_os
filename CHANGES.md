@@ -1,3 +1,12 @@
+# v3.1.0 (2017-11-26)
+
+- Updated Gemfile.lock file.
+- Updated boot disk documenation to mention APFS.
+- Updated to Bundler 1.16.0.
+- Updated to Git Cop 1.7.0.
+- Updated to Rake 12.3.0.
+- Updated to Rubocop 0.51.0.
+
 # v3.0.0 (2017-10-01)
 
 - Fixed table of contents.
