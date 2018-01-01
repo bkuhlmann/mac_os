@@ -1,3 +1,10 @@
+# v4.0.0 (2018-01-01)
+
+- Added Gemfile.lock to .gitignore.
+- Updated to Apache 2.0 license.
+- Updated to Ruby 2.4.3.
+- Updated to Ruby 2.5.0.
+
 # v3.1.0 (2017-11-26)
 
 - Updated Gemfile.lock file.

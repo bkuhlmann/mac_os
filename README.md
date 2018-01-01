@@ -14,9 +14,9 @@ the two projects are meant to be used:
 
 - **macOS** (this project) - Foundation and framework for building customizated macOS machine
   setups.
-- **[macOS Config](https://github.com/bkuhlmann/mac_os-config)** - The layer on top of this *macOS*
-  project which defines a custom machine setup and base implementation. The project is meant to be
-  forked for as many custom machine setups as needed.
+- **[macOS Configuration](https://github.com/bkuhlmann/mac_os-config)** - The layer on top of this
+  *macOS* project which defines a custom machine setup and base implementation. The project is meant
+  to be forked for as many custom machine setups as needed.
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
@@ -74,7 +74,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout v3.1.0
+    git checkout v4.0.0
 
 Master Version (unstable):
 
