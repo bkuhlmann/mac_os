@@ -1,7 +1,6 @@
 # macOS
 
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/mac_os.svg?style=svg)](https://circleci.com/gh/bkuhlmann/mac_os)
-[![Patreon](https://img.shields.io/badge/patreon-donate-brightgreen.svg)](https://www.patreon.com/bkuhlmann)
 
 Shell scripts for automated macOS machine setup.
 
