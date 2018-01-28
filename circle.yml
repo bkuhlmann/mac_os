@@ -1,7 +1,33 @@
-dependencies:
-  pre:
-    - gem update --system
-    - gem update bundler
-test:
-  override:
-    - bundle exec rake
+version: 2
+jobs:
+  build:
+    working_directory: ~/project
+    docker:
+      - image: circleci/ruby:2.5.0
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          EDITOR: vim
+    steps:
+      - checkout
+
+      - type: cache-restore
+        name: Bundler Cache Restore
+        key: bundle-{{ checksum "Gemfile" }}
+
+      - run:
+          name: Bundler Install
+          command: |
+            gem update --system
+            bundle check || bundle install
+
+      - type: cache-save
+        name: Bundler Cache Store
+        key: bundle-{{ checksum "Gemfile" }}
+        paths:
+          - vendor/bundle
+
+      - run:
+          name: Rake Run
+          command: bundle exec rake
