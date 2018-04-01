@@ -1,3 +1,12 @@
+# v4.1.0 (2018-04-01)
+
+- Updated README license information.
+- Updated README screencast tutorial.
+- Updated to Circle CI 2.0.0 configuration.
+- Updated to Git Cop 2.2.0.
+- Updated to Ruby 2.5.1.
+- Removed Patreon badge from README.
+
 # v4.0.0 (2018-01-01)
 
 - Added Gemfile.lock to .gitignore.
