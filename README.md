@@ -61,8 +61,8 @@ the two projects are meant to be used:
 
 ## Requirements
 
-0. [macOS High Sierra](https://www.apple.com/macos) (with latest software updates applied)
-0. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
+1. [macOS High Sierra](https://www.apple.com/macos) (with latest software updates applied)
+1. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
 
 ## Setup
 
