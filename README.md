@@ -11,7 +11,7 @@ project is an opinionated configuration which meets the needs of my development 
 also meant to serve as an example and guide for building your own personalized setup. Here is how
 the two projects are meant to be used:
 
-- **macOS** (this project) - Foundation and framework for building customizated macOS machine
+- **macOS** (this project) - The foundation framework for building customizated macOS machine
   setups.
 - **[macOS Configuration](https://github.com/bkuhlmann/mac_os-config)** - The layer on top of this
   *macOS* project which defines a custom machine setup and base implementation. The project is meant
@@ -38,10 +38,9 @@ the two projects are meant to be used:
 
 ## Features
 
-- Provides a command line interface, written in Bash with no additional dependencies, for
+- Provides a command line interface, written in Bash, with no additional dependencies for
   installation and management of a macOS machine.
-- Supports macOS boot disk creation for setting up a machine with a fresh install of the operation
-  system.
+- Supports macOS boot disk creation for fresh install of operating system.
 - Downloads and installs development tools (required by Homebrew):
     - [Xcode Command Line Tools](https://developer.apple.com/xcode)
     - [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -130,25 +129,21 @@ in order to manage installed software and benefit from future upgrades.
 
 All executable scripts can be found in the `bin` folder:
 
-- `bin/apply_basic_settings`: Applies basic, initial, settings for setting up a machine. *This is
-  meant to be customized.*
-- `bin/apply_default_settings`: Applies useful system and application defaults. *This is meant to be
+- `bin/apply_basic_settings`: Applies basic, initial, settings for setting up a machine. *Can be
   customized.*
+- `bin/apply_default_settings`: Applies useful system and application defaults. *Can be customized.*
 - `bin/create_boot_disk`: Creates macOS boot disk.
-- `bin/install_app_store`: Installs macOS, GUI-based, App Store applications. *This is meant to be
+- `bin/install_app_store`: Installs macOS, GUI-based, App Store applications. *Can be customized.*
+- `bin/install_applications`: Installs macOS, GUI-based, non-App Store applications. *Can be
   customized.*
-- `bin/install_applications`: Installs macOS, GUI-based, non-App Store applications. *This is meant
-  to be customized.*
 - `bin/install_dev_tools`: Installs macOS development tools required by Homebrew.
-- `bin/install_extensions`: Installs macOS application extensions and add-ons. *This is meant to be
-  customized.*
-- `bin/install_homebrew_casks`: Installs Homebrew Formulas. *This is meant to be customized.*
-- `bin/install_homebrew_formulas`: Installs Homebrew Casks. *This is meant to be customized.*
-- `bin/restore_backup`: Restores system/application settings from backup image. *This is meant to be
-  customized.*
+- `bin/install_extensions`: Installs macOS application extensions and add-ons. *Can be customized.*
+- `bin/install_homebrew_casks`: Installs Homebrew Formulas. *Can be customized.*
+- `bin/install_homebrew_formulas`: Installs Homebrew Casks. *Can be customized.*
+- `bin/restore_backup`: Restores system/application settings from backup image. *Can be customized.*
 - `bin/run`: The main script and interface for macOS setup.
-- `bin/setup_software`: Configures and launches (if necessary) installed software. *This is meant to
-  be customized.*
+- `bin/setup_software`: Configures and launches (if necessary) installed software. *Can be
+  customized.*
 
 The `lib` folder provides the base framework for installing, re-installing, and uninstalling
 software. Everything provided via the [macOS Config](https://github.com/bkuhlmann/mac_os-config)
