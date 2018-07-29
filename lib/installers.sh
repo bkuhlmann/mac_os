@@ -3,24 +3,6 @@
 # DESCRIPTION
 # Defines software installer functions.
 
-# Installs Java.
-# Parameters: $1 (required) - URL, $2 (required) - Volume name.
-install_java() {
-  local url="$1"
-  local volume_path="/Volumes/$2"
-  local app_name="java"
-  local install_path="/usr/bin/$app_name"
-  local download_file="download.dmg"
-
-  download_installer "$url" "$download_file" "Cookie: oraclelicense=accept-securebackup-cookie"
-  mount_image "$MAC_OS_WORK_PATH/$download_file"
-  local package=$(sudo find "$volume_path" -maxdepth 1 -type f -name "*.pkg")
-  sudo installer -pkg "$package" -target /
-  unmount_image "$volume_path"
-  printf "Installed: $app_name.\n"
-}
-export -f install_java
-
 # Installs an application via a DMG file.
 # Parameters: $1 (required) - URL, $2 (required) - Mount path, $3 (required) - Application name.
 install_dmg_app() {
