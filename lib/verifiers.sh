@@ -16,9 +16,9 @@ verify_homebrew() {
 }
 export -f verify_homebrew
 
-# Checks for missing Homebrew software.
-verify_homebrews() {
-  printf "Checking Homebrew software...\n"
+# Checks for missing Homebrew formulas.
+verify_homebrew_formulas() {
+  printf "Checking Homebrew formulas...\n"
 
   local applications="$(brew list)"
 
@@ -39,11 +39,11 @@ verify_homebrews() {
 
       verify_homebrew "$application" "${applications[*]}"
     fi
-  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew"
+  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
 
   printf "Homebrew check complete.\n"
 }
-export -f verify_homebrews
+export -f verify_homebrew_formulas
 
 # Verifies application exists.
 # Parameters:

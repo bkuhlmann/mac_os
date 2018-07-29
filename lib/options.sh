@@ -43,7 +43,7 @@ process_option() {
     'R')
       bin/restore_backup;;
     'c')
-      verify_homebrews
+      verify_homebrew_formulas
       verify_applications
       verify_extensions;;
     'C')
