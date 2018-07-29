@@ -3,52 +3,6 @@
 # DESCRIPTION
 # Defines general utility functions.
 
-# Answers the file name.
-# Parameters:
-# $1 = The file path.
-get_file_name() {
-  printf "${1##*/}" # Answers file or directory name.
-}
-export -f get_file_name
-
-# Answers the file extension.
-# Parameters:
-# $1 = The file name.
-get_file_extension() {
-  local name=$(get_file_name "$1")
-  local extension="${1##*.}" # Excludes dot.
-
-  if [[ "$name" == "$extension" ]]; then
-    printf ''
-  else
-    printf "$extension"
-  fi
-}
-export -f get_file_extension
-
-# Answers the root install path for file name.
-# Parameters:
-# $1 = The file name.
-get_install_root() {
-  local file_name="$1"
-  local file_extension=$(get_file_extension "$file_name")
-
-  # Dynamically build the install path based on file extension.
-  case $file_extension in
-    '')
-      printf "/usr/local/bin";;
-    'app')
-      printf "/Applications";;
-    'prefPane')
-      printf "/Library/PreferencePanes";;
-    'qlgenerator')
-      printf "/Library/QuickLook";;
-    *)
-      printf "/tmp/unknown";;
-  esac
-}
-export -f get_install_root
-
 # Answers the full install path (including file name) for file name.
 # Parameters:
 # $1 = The file name.
@@ -77,3 +31,49 @@ caffeinate_machine() {
   fi
 }
 export -f caffeinate_machine
+
+# Answers the root install path for file name.
+# Parameters:
+# $1 = The file name.
+get_install_root() {
+  local file_name="$1"
+  local file_extension=$(get_file_extension "$file_name")
+
+  # Dynamically build the install path based on file extension.
+  case $file_extension in
+    '')
+      printf "/usr/local/bin";;
+    'app')
+      printf "/Applications";;
+    'prefPane')
+      printf "/Library/PreferencePanes";;
+    'qlgenerator')
+      printf "/Library/QuickLook";;
+    *)
+      printf "/tmp/unknown";;
+  esac
+}
+export -f get_install_root
+
+# Answers the file extension.
+# Parameters:
+# $1 = The file name.
+get_file_extension() {
+  local name=$(get_file_name "$1")
+  local extension="${1##*.}" # Excludes dot.
+
+  if [[ "$name" == "$extension" ]]; then
+    printf ''
+  else
+    printf "$extension"
+  fi
+}
+export -f get_file_extension
+
+# Answers the file name.
+# Parameters:
+# $1 = The file path.
+get_file_name() {
+  printf "${1##*/}" # Answers file or directory name.
+}
+export -f get_file_name

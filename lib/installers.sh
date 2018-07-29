@@ -3,112 +3,6 @@
 # DESCRIPTION
 # Defines software installer functions.
 
-# Mounts a disk image.
-# Parameters:
-# $1 = The image path.
-mount_image() {
-  printf "Mounting image...\n"
-  hdiutil attach -quiet -nobrowse -noautoopen "$1"
-}
-export -f mount_image
-
-# Unmounts a disk image.
-# Parameters:
-# $1 = The mount path.
-unmount_image() {
-  printf "Unmounting image...\n"
-  hdiutil detach -force "$1"
-}
-export -f unmount_image
-
-# Downloads an installer to local disk.
-# Parameters:
-# $1 = The URL.
-# $2 = The file name.
-# $3 = The HTTP header.
-download_installer() {
-  local url="$1"
-  local file_name="$2"
-  local http_header="$3"
-
-  printf "%s\n" "Downloading $1..."
-  clean_work_path
-  mkdir $MAC_OS_WORK_PATH
-  curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$MAC_OS_WORK_PATH/$file_name"
-}
-export -f download_installer
-
-# Downloads an installer to the $HOME/Downloads folder for manual use.
-# Parameters:
-# $1 = The URL.
-# $2 = The file name.
-download_only() {
-  if [[ -e "$HOME/Downloads/$2" ]]; then
-    printf "Downloaded: $2.\n"
-  else
-    printf "Downloading $1...\n"
-    download_installer "$1" "$2"
-    mv "$MAC_OS_WORK_PATH/$2" "$HOME/Downloads"
-  fi
-}
-export -f download_only
-
-# Installs a single file.
-# Parameters:
-# $1 = The URL.
-# $2 = The install path.
-install_file() {
-  local file_url="$1"
-  local file_name=$(get_file_name "$1")
-  local install_path="$2"
-
-  if [[ ! -e "$install_path" ]]; then
-    printf "Installing: $install_path...\n"
-    download_installer "$file_url" "$file_name"
-    mkdir -p $(dirname "$install_path")
-    mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
-    printf "Installed: $file_name.\n"
-    verify_path "$install_path"
-  fi
-}
-export -f install_file
-
-# Installs an application.
-# Parameters:
-# $1 = The application source path.
-# $2 = The application name.
-install_app() {
-  local install_root=$(get_install_root "$2")
-  local file_extension=$(get_file_extension "$2")
-
-  printf "Installing: $install_root/$2...\n"
-
-  case $file_extension in
-    'app')
-      cp -a "$1/$2" "$install_root";;
-    'prefPane')
-      sudo cp -pR "$1/$2" "$install_root";;
-    'qlgenerator')
-      sudo cp -pR "$1/$2" "$install_root" && qlmanage -r;;
-    *)
-      printf "ERROR: Unknown file extension: $file_extension.\n"
-  esac
-}
-export -f install_app
-
-# Installs a package.
-# Parameters:
-# $1 = The package source path.
-# $2 = The application name.
-install_pkg() {
-  local install_root=$(get_install_root "$2")
-
-  printf "Installing: $install_root/$2...\n"
-  local package=$(sudo find "$1" -maxdepth 1 -type f -name "*.pkg" -o -name "*.mpkg")
-  sudo installer -pkg "$package" -target /
-}
-export -f install_pkg
-
 # Installs Java.
 # Parameters:
 # $1 = The URL.
@@ -300,3 +194,109 @@ install_git_project() {
   rm -rf "$project_dir"
 }
 export -f install_git_project
+
+# Downloads an installer to local disk.
+# Parameters:
+# $1 = The URL.
+# $2 = The file name.
+# $3 = The HTTP header.
+download_installer() {
+  local url="$1"
+  local file_name="$2"
+  local http_header="$3"
+
+  printf "%s\n" "Downloading $1..."
+  clean_work_path
+  mkdir $MAC_OS_WORK_PATH
+  curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$MAC_OS_WORK_PATH/$file_name"
+}
+export -f download_installer
+
+# Downloads an installer to the $HOME/Downloads folder for manual use.
+# Parameters:
+# $1 = The URL.
+# $2 = The file name.
+download_only() {
+  if [[ -e "$HOME/Downloads/$2" ]]; then
+    printf "Downloaded: $2.\n"
+  else
+    printf "Downloading $1...\n"
+    download_installer "$1" "$2"
+    mv "$MAC_OS_WORK_PATH/$2" "$HOME/Downloads"
+  fi
+}
+export -f download_only
+
+# Installs a single file.
+# Parameters:
+# $1 = The URL.
+# $2 = The install path.
+install_file() {
+  local file_url="$1"
+  local file_name=$(get_file_name "$1")
+  local install_path="$2"
+
+  if [[ ! -e "$install_path" ]]; then
+    printf "Installing: $install_path...\n"
+    download_installer "$file_url" "$file_name"
+    mkdir -p $(dirname "$install_path")
+    mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
+    printf "Installed: $file_name.\n"
+    verify_path "$install_path"
+  fi
+}
+export -f install_file
+
+# Installs an application.
+# Parameters:
+# $1 = The application source path.
+# $2 = The application name.
+install_app() {
+  local install_root=$(get_install_root "$2")
+  local file_extension=$(get_file_extension "$2")
+
+  printf "Installing: $install_root/$2...\n"
+
+  case $file_extension in
+    'app')
+      cp -a "$1/$2" "$install_root";;
+    'prefPane')
+      sudo cp -pR "$1/$2" "$install_root";;
+    'qlgenerator')
+      sudo cp -pR "$1/$2" "$install_root" && qlmanage -r;;
+    *)
+      printf "ERROR: Unknown file extension: $file_extension.\n"
+  esac
+}
+export -f install_app
+
+# Installs a package.
+# Parameters:
+# $1 = The package source path.
+# $2 = The application name.
+install_pkg() {
+  local install_root=$(get_install_root "$2")
+
+  printf "Installing: $install_root/$2...\n"
+  local package=$(sudo find "$1" -maxdepth 1 -type f -name "*.pkg" -o -name "*.mpkg")
+  sudo installer -pkg "$package" -target /
+}
+export -f install_pkg
+
+# Mounts a disk image.
+# Parameters:
+# $1 = The image path.
+mount_image() {
+  printf "Mounting image...\n"
+  hdiutil attach -quiet -nobrowse -noautoopen "$1"
+}
+export -f mount_image
+
+# Unmounts a disk image.
+# Parameters:
+# $1 = The mount path.
+unmount_image() {
+  printf "Unmounting image...\n"
+  hdiutil detach -force "$1"
+}
+export -f unmount_image

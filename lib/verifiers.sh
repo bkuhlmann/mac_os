@@ -3,19 +3,6 @@
 # DESCRIPTION
 # Defines verification/validation functions.
 
-# Verifies Homebrew software exists.
-# Parameters:
-# $1 = The file name.
-verify_homebrew() {
-  local application="$1"
-  local applications="$2"
-
-  if [[ "${applications[*]}" != *"$application"* ]]; then
-    printf " - Missing: $application\n"
-  fi
-}
-export -f verify_homebrew
-
 # Checks for missing Homebrew formulas.
 verify_homebrew_formulas() {
   printf "Checking Homebrew formulas...\n"
@@ -45,20 +32,18 @@ verify_homebrew_formulas() {
 }
 export -f verify_homebrew_formulas
 
-# Verifies application exists.
+# Verifies Homebrew software exists.
 # Parameters:
 # $1 = The file name.
-verify_application() {
-  local file_name="$1"
+verify_homebrew() {
+  local application="$1"
+  local applications="$2"
 
-  # Display the missing install if not found.
-  local install_path=$(get_install_path "$file_name")
-
-  if [[ ! -e "$install_path" ]]; then
-    printf " - Missing: $file_name\n"
+  if [[ "${applications[*]}" != *"$application"* ]]; then
+    printf " - Missing: $application\n"
   fi
 }
-export -f verify_application
+export -f verify_homebrew
 
 # Checks for missing applications suffixed by "APP_NAME" as defined in settings.sh.
 verify_applications() {
@@ -77,18 +62,20 @@ verify_applications() {
 }
 export -f verify_applications
 
-# Verifies path exists.
+# Verifies application exists.
 # Parameters:
-# $1 = The path.
-verify_path() {
-  local path="$1"
+# $1 = The file name.
+verify_application() {
+  local file_name="$1"
 
-  # Display the missing path if not found.
-  if [[ ! -e "$path" ]]; then
-    printf " - Missing: $path\n"
+  # Display the missing install if not found.
+  local install_path=$(get_install_path "$file_name")
+
+  if [[ ! -e "$install_path" ]]; then
+    printf " - Missing: $file_name\n"
   fi
 }
-export -f verify_path
+export -f verify_application
 
 # Checks for missing extensions suffixed by "EXTENSION_PATH" as defined in settings.sh.
 verify_extensions() {
@@ -106,3 +93,16 @@ verify_extensions() {
   printf "Application extension check complete.\n"
 }
 export -f verify_extensions
+
+# Verifies path exists.
+# Parameters:
+# $1 = The path.
+verify_path() {
+  local path="$1"
+
+  # Display the missing path if not found.
+  if [[ ! -e "$path" ]]; then
+    printf " - Missing: $path\n"
+  fi
+}
+export -f verify_path
