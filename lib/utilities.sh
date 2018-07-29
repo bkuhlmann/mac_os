@@ -4,8 +4,7 @@
 # Defines general utility functions.
 
 # Answers the full install path (including file name) for file name.
-# Parameters:
-# $1 = The file name.
+# Parameters: $1 (required) - The file name.
 get_install_path() {
   local file_name="$1"
   local install_path=$(get_install_root "$file_name")
@@ -33,8 +32,7 @@ caffeinate_machine() {
 export -f caffeinate_machine
 
 # Answers the root install path for file name.
-# Parameters:
-# $1 = The file name.
+# Parameters: $1 (required) - The file name.
 get_install_root() {
   local file_name="$1"
   local file_extension=$(get_file_extension "$file_name")
@@ -56,8 +54,7 @@ get_install_root() {
 export -f get_install_root
 
 # Answers the file extension.
-# Parameters:
-# $1 = The file name.
+# Parameters: $1 (required) - The file name.
 get_file_extension() {
   local name=$(get_file_name "$1")
   local extension="${1##*.}" # Excludes dot.
@@ -71,8 +68,7 @@ get_file_extension() {
 export -f get_file_extension
 
 # Answers the file name.
-# Parameters:
-# $1 = The file path.
+# Parameters: $1 (required) - The file path.
 get_file_name() {
   printf "${1##*/}" # Answers file or directory name.
 }

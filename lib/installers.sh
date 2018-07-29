@@ -4,9 +4,7 @@
 # Defines software installer functions.
 
 # Installs Java.
-# Parameters:
-# $1 = The URL.
-# $2 = The volume name.
+# Parameters: $1 (required) - URL, $2 (required) - Volume name.
 install_java() {
   local url="$1"
   local volume_path="/Volumes/$2"
@@ -24,10 +22,7 @@ install_java() {
 export -f install_java
 
 # Installs an application via a DMG file.
-# Parameters:
-# $1 = The URL.
-# $2 = The mount path.
-# $3 = The application name.
+# Parameters: $1 (required) - URL, $2 (required) - Mount path, $3 (required) - Application name.
 install_dmg_app() {
   local url="$1"
   local mount_point="/Volumes/$2"
@@ -46,10 +41,7 @@ install_dmg_app() {
 export -f install_dmg_app
 
 # Installs a package via a DMG file.
-# Parameters:
-# $1 = The URL.
-# $2 = The mount path.
-# $3 = The application name.
+# Parameters: $1 (required) - URL, $2 (required) - Mount path, $3 (required) - Application name.
 install_dmg_pkg() {
   local url="$1"
   local mount_point="/Volumes/$2"
@@ -69,9 +61,7 @@ install_dmg_pkg() {
 export -f install_dmg_pkg
 
 # Installs an application via a zip file.
-# Parameters:
-# $1 = The URL.
-# $2 = The application name.
+# Parameters: $1 (required) - URL, $2 (required) - Application name.
 install_zip_app() {
   local url="$1"
   local app_name="$2"
@@ -96,10 +86,7 @@ install_zip_app() {
 export -f install_zip_app
 
 # Installs an application via a tar file.
-# Parameters:
-# $1 = The URL.
-# $2 = The application name.
-# $3 = The decompress options.
+# Parameters: $1 (required) - URL, $2 (required) - Application name, $3 (required) - Decompress options.
 install_tar_app() {
   local url="$1"
   local app_name="$2"
@@ -124,9 +111,7 @@ install_tar_app() {
 export -f install_tar_app
 
 # Installs a package via a zip file.
-# Parameters:
-# $1 = The URL.
-# $2 = The application name.
+# Parameters: $1 (required) - URL, $2 (required) - Application name.
 install_zip_pkg() {
   local url="$1"
   local app_name="$2"
@@ -150,10 +135,7 @@ install_zip_pkg() {
 export -f install_zip_pkg
 
 # Installs application code from a Git repository.
-# Parameters:
-# $1 = Repository URL.
-# $2 = Install path.
-# $3 = Git clone options (if any).
+# Parameters: $1 (required) - Repository URL, $2 (required) - Install path, $3 (optional) - Git clone options.
 install_git_app() {
   local repository_url="$1"
   local app_name=$(get_file_name "$2")
@@ -174,11 +156,7 @@ install_git_app() {
 export -f install_git_app
 
 # Installs settings from a Git repository.
-# Parameters:
-# $1 = The repository URL.
-# $2 = The repository version.
-# $3 = The project directory.
-# $4 = The script to run (including any arguments).
+# Parameters: $1 (required) - Repository URL, $2 (required) - Repository version, $3 (required) - Project directory, $4 (required) - Script to run (including any arguments).
 install_git_project() {
   local repo_url="$1"
   local repo_version="$2"
@@ -196,10 +174,7 @@ install_git_project() {
 export -f install_git_project
 
 # Downloads an installer to local disk.
-# Parameters:
-# $1 = The URL.
-# $2 = The file name.
-# $3 = The HTTP header.
+# Parameters: $1 (required) - URL, $2 (required) - File name, $3 (required) - HTTP header.
 download_installer() {
   local url="$1"
   local file_name="$2"
@@ -213,9 +188,7 @@ download_installer() {
 export -f download_installer
 
 # Downloads an installer to the $HOME/Downloads folder for manual use.
-# Parameters:
-# $1 = The URL.
-# $2 = The file name.
+# Parameters: $1 (required) - URL, $2 (required) - File name.
 download_only() {
   if [[ -e "$HOME/Downloads/$2" ]]; then
     printf "Downloaded: $2.\n"
@@ -228,9 +201,7 @@ download_only() {
 export -f download_only
 
 # Installs a single file.
-# Parameters:
-# $1 = The URL.
-# $2 = The install path.
+# Parameters: $1 (required) - URL, $2 (required) - Install path.
 install_file() {
   local file_url="$1"
   local file_name=$(get_file_name "$1")
@@ -248,9 +219,7 @@ install_file() {
 export -f install_file
 
 # Installs an application.
-# Parameters:
-# $1 = The application source path.
-# $2 = The application name.
+# Parameters: $1 (required) - Application source path, $2 (required) - Application name.
 install_app() {
   local install_root=$(get_install_root "$2")
   local file_extension=$(get_file_extension "$2")
@@ -271,9 +240,7 @@ install_app() {
 export -f install_app
 
 # Installs a package.
-# Parameters:
-# $1 = The package source path.
-# $2 = The application name.
+# Parameters: $1 (required) - Package source path, $2 (required) - Application name.
 install_pkg() {
   local install_root=$(get_install_root "$2")
 
@@ -284,8 +251,7 @@ install_pkg() {
 export -f install_pkg
 
 # Mounts a disk image.
-# Parameters:
-# $1 = The image path.
+# Parameters: $1 (required) - Image path.
 mount_image() {
   printf "Mounting image...\n"
   hdiutil attach -quiet -nobrowse -noautoopen "$1"
@@ -293,8 +259,7 @@ mount_image() {
 export -f mount_image
 
 # Unmounts a disk image.
-# Parameters:
-# $1 = The mount path.
+# Parameters: $1 (required) - Mount path.
 unmount_image() {
   printf "Unmounting image...\n"
   hdiutil detach -force "$1"
