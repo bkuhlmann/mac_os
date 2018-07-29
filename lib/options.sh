@@ -45,6 +45,7 @@ process_option() {
     'c')
       verify_homebrew_formulas
       verify_homebrew_casks
+      verify_app_store_applications
       verify_applications
       verify_extensions;;
     'C')

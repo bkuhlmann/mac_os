@@ -24,7 +24,7 @@ verify_homebrew_formulas() {
         application="mercurial"
       fi
 
-      verify_homebrew_application "$application" "${applications[*]}"
+      verify_listed_application "$application" "${applications[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
 
@@ -53,7 +53,7 @@ verify_homebrew_casks() {
         continue
       fi
 
-      verify_homebrew_application "$application" "${applications[*]}"
+      verify_listed_application "$application" "${applications[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_casks"
 
@@ -61,10 +61,27 @@ verify_homebrew_casks() {
 }
 export -f verify_homebrew_casks
 
-# Verifies Homebrew software exists.
-# Parameters:
-# $1 = The file name.
-verify_homebrew_application() {
+# Checks for missing App Store applications.
+verify_app_store_applications() {
+  printf "\nChecking App Store applications...\n"
+
+  local applications="$(mas list)"
+
+  while read line; do
+    # Skip blank or comment lines.
+    if [[ "$line" == "mas install"* ]]; then
+      local application=$(printf "$line" | awk '{print $3}')
+      verify_listed_application "$application" "${applications[*]}"
+    fi
+  done < "$MAC_OS_CONFIG_PATH/bin/install_app_store"
+
+  printf "App Store check complete.\n"
+}
+export -f verify_app_store_applications
+
+# Verifies listed application exists.
+# Parameters: $1 (required) - The current application, $2 (required) - The application list.
+verify_listed_application() {
   local application="$1"
   local applications="$2"
 
@@ -72,7 +89,7 @@ verify_homebrew_application() {
     printf " - Missing: $application\n"
   fi
 }
-export -f verify_homebrew_application
+export -f verify_listed_application
 
 # Checks for missing applications suffixed by "APP_NAME" as defined in settings.sh.
 verify_applications() {
@@ -92,8 +109,7 @@ verify_applications() {
 export -f verify_applications
 
 # Verifies application exists.
-# Parameters:
-# $1 = The file name.
+# Parameters: $1 (required) - The file name.
 verify_application() {
   local file_name="$1"
 
@@ -124,8 +140,7 @@ verify_extensions() {
 export -f verify_extensions
 
 # Verifies path exists.
-# Parameters:
-# $1 = The path.
+# Parameters: $1 (required) - The path.
 verify_path() {
   local path="$1"
 
