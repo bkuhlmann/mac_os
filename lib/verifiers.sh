@@ -24,18 +24,47 @@ verify_homebrew_formulas() {
         application="mercurial"
       fi
 
-      verify_homebrew "$application" "${applications[*]}"
+      verify_homebrew_application "$application" "${applications[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
 
-  printf "Homebrew check complete.\n"
+  printf "Homebrew formula check complete.\n"
 }
 export -f verify_homebrew_formulas
+
+# Checks for missing Homebrew casks.
+verify_homebrew_casks() {
+  printf "\nChecking Homebrew casks...\n"
+
+  local applications="$(brew cask list)"
+
+  while read line; do
+    # Skip blank or comment lines.
+    if [[ "$line" == "brew cask install"* ]]; then
+      local application=$(printf "$line" | awk '{print $4}')
+
+      # Skip: Only necessary for the purpose of licensing system preference.
+      if [[ "$application" == "witch" ]]; then
+        continue
+      fi
+
+      # Skip: Bug with Homebrew Cask as these apps never show up as installed.
+      if [[ "$application" == "skitch" || "$application" == "openemu" ]]; then
+        continue
+      fi
+
+      verify_homebrew_application "$application" "${applications[*]}"
+    fi
+  done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_casks"
+
+  printf "Homebrew cask check complete.\n"
+}
+export -f verify_homebrew_casks
 
 # Verifies Homebrew software exists.
 # Parameters:
 # $1 = The file name.
-verify_homebrew() {
+verify_homebrew_application() {
   local application="$1"
   local applications="$2"
 
@@ -43,7 +72,7 @@ verify_homebrew() {
     printf " - Missing: $application\n"
   fi
 }
-export -f verify_homebrew
+export -f verify_homebrew_application
 
 # Checks for missing applications suffixed by "APP_NAME" as defined in settings.sh.
 verify_applications() {

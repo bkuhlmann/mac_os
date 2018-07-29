@@ -44,6 +44,7 @@ process_option() {
       bin/restore_backup;;
     'c')
       verify_homebrew_formulas
+      verify_homebrew_casks
       verify_applications
       verify_extensions;;
     'C')
