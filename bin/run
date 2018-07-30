@@ -10,7 +10,6 @@
 source lib/installers.sh
 source lib/options.sh
 source lib/reinstallers.sh
-source lib/restorers.sh
 source lib/settings.sh
 source lib/uninstallers.sh
 source lib/utilities.sh
