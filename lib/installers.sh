@@ -148,7 +148,7 @@ install_git_project() {
   git clone "$repo_url"
   (
     cd "$project_dir"
-    git checkout "$repo_version"
+    git -c advice.detachedHead=false checkout "$repo_version"
     eval "$script"
   )
   rm -rf "$project_dir"
