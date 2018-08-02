@@ -72,7 +72,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout 4.1.0
+    git checkout 5.0.0
 
 Master Version (unstable):
 
@@ -81,11 +81,11 @@ Master Version (unstable):
 
 ## Usage
 
-Run the following script:
+Run the following:
 
     bin/run
 
-You will be presented with the following options:
+You will be presented with the following options (listed in order of use):
 
     Boot:
        B:  Create boot disk.
@@ -112,12 +112,12 @@ You will be presented with the following options:
        w:  Clean work (temp) directory.
        q:  Quit/Exit.
 
-Choose option `i` to run all install options or select a specific option to run a single option.
-Each option is designed to be re-run if necessary. This can also be handy for performing upgrades,
+Choose option `i` to run a full install or select a specific option to run a single action. Each
+option is designed to be re-run if necessary. This can also be handy for performing upgrades,
 re-running a missing/failed install, etc.
 
 The option prompt can be skipped by passing the desired option directly to the `bin/run` script. For
-example, executing `bin/run i` will execute the complete software install process.
+example, executing `bin/run i` will execute the full install process.
 
 The machine should be rebooted after all install tasks have completed to ensure all settings have
 been loaded.

@@ -1,3 +1,19 @@
+# 5.0.0 (2018-08-01)
+
+- Fixed Markdown ordered list numbering.
+- Fixed verification of Homebrew formulas.
+- Added App Store application verification.
+- Added Homebrew cask application verifier.
+- Updated Git checkout to silence detached head warnings.
+- Updated README documentation.
+- Updated Semantic Versioning links to be HTTPS.
+- Updated boot disk format documentation.
+- Updated project changes to use semantic versions.
+- Removed Java install support.
+- Removed restorer functions.
+- Refactored function parameter documentation.
+- Refactored library function order.
+
 # 4.1.0 (2018-04-01)
 
 - Updated README license information.
