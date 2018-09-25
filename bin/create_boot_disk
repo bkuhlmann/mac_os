@@ -24,8 +24,8 @@ printf "  5. Use the dialog options to launch Disk Utility, reinstall the system
 
 printf "\nCreating macOS boot disk...\n"
 
-if [[ ! -d "$MAC_OS_INSTALLER_PATH" ]]; then
-  printf "ERROR: macOS installer does not exist: $MAC_OS_INSTALLER_PATH. Use the App Store to download.\n"
+if [[ ! -e "$MAC_OS_BOOT_DISK_CREATOR" ]]; then
+  printf "ERROR: macOS installer does not exist: $MAC_OS_BOOT_DISK_CREATOR. Use App Store to download.\n"
   exit 1
 fi
 
@@ -34,4 +34,4 @@ if [[ ! -d "$MAC_OS_BOOT_DISK_PATH" ]]; then
   exit 1
 fi
 
-sudo "$MAC_OS_BOOT_DISK_CREATOR" --volume "$MAC_OS_BOOT_DISK_PATH" --applicationpath "$MAC_OS_INSTALLER_PATH" --nointeraction
+sudo "$MAC_OS_BOOT_DISK_CREATOR" --volume "$MAC_OS_BOOT_DISK_PATH" --downloadassets --nointeraction
