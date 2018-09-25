@@ -18,4 +18,4 @@ export MAC_OS_CONFIG_PATH="../mac_os-config"
 
 # Java
 export JAVA_LABEL="Java SE Development Kit"
-export JAVA_DOWNLOAD_URL="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
+export JAVA_DOWNLOAD_URL="https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html"
