@@ -6,6 +6,7 @@
 printf "Installing Xcode CLI tools...\n"
 xcode-select --install
 
+printf "%s\n" "💡 ALT+TAB to view and accept Xcode license window."
 read -p "Have you completed the Xcode CLI tools install (y/n)? " xcode_response
 if [[ "$xcode_response" != "y" ]]; then
   printf "ERROR: Xcode CLI tools must be installed before proceeding.\n"
