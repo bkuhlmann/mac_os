@@ -1,3 +1,10 @@
+# 6.0.0 (2018-10-01)
+
+- Added XCode install tip.
+- Updated boot disk creation to macOS Mojave.
+- Updated to Contributor Covenant Code of Conduct 1.4.1.
+- Updated to Java SE Development Kit 10.
+
 # 5.0.0 (2018-08-01)
 
 - Fixed Markdown ordered list numbering.
