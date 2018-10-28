@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Creates macOS boot disk.
 
-# EXECUTION
 printf "macOS Boot Disk Tips\n"
 printf "  - Use a USB drive (8GB or higher).\n"
 printf "  - Use Disk Utility to format the USB drive as \"Mac OS Extended (Journaled)\".\n"

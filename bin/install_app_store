@@ -1,16 +1,13 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Installs App Store software.
 
-# SETTINGS
 set -o nounset
 set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_app_store"
 
-# EXECUTION
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else

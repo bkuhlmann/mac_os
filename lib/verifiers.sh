@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Defines verification/validation functions.
 
 # Checks for missing Homebrew formulas.

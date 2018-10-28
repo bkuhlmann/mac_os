@@ -1,16 +1,13 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Performs restoration of backup data.
 
-# SETTINGS
 set -o nounset
 set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/restore_backup"
 
-# EXECUTION
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else

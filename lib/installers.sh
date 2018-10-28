@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Defines software installer functions.
 
 # Installs an application via a DMG file.

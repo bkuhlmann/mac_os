@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Installs development tooling requirements.
 
 printf "Installing Xcode CLI tools...\n"

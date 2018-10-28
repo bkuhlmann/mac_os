@@ -1,12 +1,7 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Executes the command line interface.
 
-# USAGE
-# ./run.sh OPTION
-
-# LIBRARY
 source lib/installers.sh
 source lib/options.sh
 source lib/reinstallers.sh
@@ -28,7 +23,6 @@ else
   exit 1
 fi
 
-# EXECUTION
 while true; do
   if [[ $# == 0 ]]; then
     printf "\nUsage: run OPTION\n"

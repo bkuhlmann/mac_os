@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Defines general utility functions.
 
 # Answers the full install path (including file name) for file name.

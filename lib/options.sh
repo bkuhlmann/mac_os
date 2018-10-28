@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Defines command line prompt options.
 
 # Process option selection.

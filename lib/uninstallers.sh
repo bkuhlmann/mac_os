@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-# DESCRIPTION
 # Defines uninstall functions.
 
 # Uninstalls selected application.
