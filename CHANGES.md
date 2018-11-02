@@ -1,3 +1,10 @@
+# 6.1.0 (2018-11-01)
+
+- Updated to Java SE Development Kit 11.
+- Updated to Ruby 2.5.2.
+- Updated to Ruby 2.5.3.
+- Removed unnecessary source code comments.
+
 # 6.0.0 (2018-10-01)
 
 - Added XCode install tip.
