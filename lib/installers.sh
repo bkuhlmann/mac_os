@@ -168,7 +168,7 @@ download_installer() {
 }
 export -f download_installer
 
-# Downloads an installer to the $HOME/Downloads folder for manual use.
+# Downloads installer to $HOME/Downloads folder for manual use.
 # Parameters: $1 (required) - URL, $2 (required) - File name.
 download_only() {
   if [[ -e "$HOME/Downloads/$2" ]]; then
@@ -208,6 +208,8 @@ install_app() {
   printf "Installing: $install_root/$2...\n"
 
   case $file_extension in
+    '')
+      cp -a "$1/$2" "$install_root";;
     'app')
       cp -a "$1/$2" "$install_root";;
     'prefPane')
