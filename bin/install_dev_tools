@@ -11,13 +11,3 @@ if [[ "$xcode_response" != "y" ]]; then
   printf "ERROR: Xcode CLI tools must be installed before proceeding.\n"
   exit 1
 fi
-
-printf "Installing $JAVA_LABEL...\n"
-printf "%s\n" "You must manually accept the license and download the $JAVA_LABEL: $JAVA_DOWNLOAD_URL."
-open $JAVA_DOWNLOAD_URL
-
-read -p "Have you completed the $JAVA_LABEL install (y/n)? " java_response
-if [[ "$java_response" != "y" ]]; then
-  printf "ERROR: $JAVA_LABEL must be installed before proceeding.\n"
-  exit 1
-fi
