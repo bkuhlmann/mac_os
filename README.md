@@ -26,6 +26,7 @@ the two projects are meant to be used:
   - [Requirements](#requirements)
   - [Setup](#setup)
   - [Usage](#usage)
+    - [Boot Disk](#boot-disk)
     - [Customization](#customization)
   - [Troubleshooting](#troubleshooting)
   - [Versioning](#versioning)
@@ -123,6 +124,31 @@ been loaded.
 
 It is recommended that the `mac_os` project directory not be deleted and kept on the local machine
 in order to manage installed software and benefit from future upgrades.
+
+### Boot Disk
+
+When attempting to create a boot disk via `bin/run B`, you'll be presented with the following
+documentation (provided here for reference):
+
+    macOS Boot Disk Tips
+      - Use a USB drive (8GB or higher).
+      - Use Disk Utility to format the USB drive as "Mac OS Extended (Journaled)".
+      - Use Disk Utility to label the USB drive as "Untitled".
+
+    macOS Boot Disk Usage:
+      1. Insert the USB boot disk into the machine to be upgraded.
+      2. Reboot the machine.
+      3. Hold down the OPTION key before the Apple logo appears.
+      4. Select the USB boot disk from the menu.
+      5. Use Disk Utility to format the machine's drive as "APFS (Encrypted)".
+      6. Install the new operating system.
+
+    macOS Reinstall:
+      1. Click the Apple icon from the operating system main menu.
+      2. Select the "Restart..." menu option.
+      3. Hold down the COMMAND+R keys before the Apple logo appears.
+      4. Wait for the macOS installer to load from the recovery partition.
+      5. Use the dialog options to launch Disk Utility, reinstall the system, etc.
 
 ### Customization
 
