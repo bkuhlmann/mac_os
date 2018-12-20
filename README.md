@@ -27,6 +27,7 @@ the two projects are meant to be used:
   - [Setup](#setup)
   - [Usage](#usage)
     - [Customization](#customization)
+  - [Troubleshooting](#troubleshooting)
   - [Versioning](#versioning)
   - [Code of Conduct](#code-of-conduct)
   - [Contributions](#contributions)
@@ -151,6 +152,16 @@ project is built upon the functions found in the `lib` folder. See the
 [macOS Config](https://github.com/bkuhlmann/mac_os-config) project for further details.
 
   - `lib/settings.sh`: Defines global settings for software applications, extensions, etc.
+
+## Troubleshooting
+
+When using the boot disk, you might experience a situation where you see a black screen with a white
+circle and diagonal line running through it. This means macOS lost or can't find the boot disk for
+some reason. To correct this, shut down the system and boot it up again while holding down the
+`OPTION+COMMAND+R+P` keys simultaneously. You might want to wait for the system boot sound to happen
+a few times before releasing the keys. This will clear the system NVRAM/PRAM. At this point you can
+shut down and restart the system following the boot disk instructions as recommended (the boot disk
+will be recognized now).
 
 ## Versioning
 
