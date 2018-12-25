@@ -13,6 +13,29 @@ jobs:
       - checkout
 
       - type: cache-restore
+        name: Ruby Restore
+        key: ruby
+
+      - run:
+          name: Ruby Install
+          command: |
+            curl https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0.tar.bz2 -o ../ruby-2.6.0.tar.gz
+            cd ..
+            tar --extract --bzip2 --verbose --file ruby-2.6.0.tar.gz
+            cd ruby-2.6.0
+            ./configure
+            make
+            make update-gems
+            make extract-gems
+            sudo make install
+
+      - type: cache-save
+        name: Ruby Store
+        key: ruby
+        paths:
+          - ../ruby-2.6.0
+
+      - type: cache-restore
         name: Bundler Cache Restore
         key: bundle-{{ checksum "Gemfile" }}
 
