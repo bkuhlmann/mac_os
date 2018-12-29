@@ -9,11 +9,11 @@ install_dmg_app() {
   local mount_point="/Volumes/$2"
   local app_name="$3"
   local install_path=$(get_install_path "$app_name")
-  local download_file="download.dmg"
+  local work_file="download.dmg"
 
   if [[ ! -e "$install_path" ]]; then
-    download_installer "$url" "$download_file"
-    mount_image "$MAC_OS_WORK_PATH/$download_file"
+    download_file "$url" "$work_file"
+    mount_image "$MAC_OS_WORK_PATH/$work_file"
     install_app "$mount_point" "$app_name"
     unmount_image "$mount_point"
     verify_application "$app_name"
@@ -28,11 +28,11 @@ install_dmg_pkg() {
   local mount_point="/Volumes/$2"
   local app_name="$3"
   local install_path=$(get_install_path "$app_name")
-  local download_file="download.dmg"
+  local work_file="download.dmg"
 
   if [[ ! -e "$install_path" ]]; then
-    download_installer "$url" "$download_file"
-    mount_image "$MAC_OS_WORK_PATH/$download_file"
+    download_file "$url" "$work_file"
+    mount_image "$MAC_OS_WORK_PATH/$work_file"
     install_pkg "$mount_point" "$app_name"
     unmount_image "$mount_point"
     printf "Installed: $app_name.\n"
@@ -47,15 +47,15 @@ install_zip_app() {
   local url="$1"
   local app_name="$2"
   local install_path=$(get_install_path "$app_name")
-  local download_file="download.zip"
+  local work_file="download.zip"
 
   if [[ ! -e "$install_path" ]]; then
-    download_installer "$url" "$download_file"
+    download_file "$url" "$work_file"
 
     (
       printf "Preparing...\n"
       cd "$MAC_OS_WORK_PATH"
-      unzip -q "$download_file"
+      unzip -q "$work_file"
       find . -type d -name "$app_name" -print -exec cp -pR {} . > /dev/null 2>&1 \;
     )
 
@@ -66,6 +66,30 @@ install_zip_app() {
 }
 export -f install_zip_app
 
+# Installs a package via a zip file.
+# Parameters: $1 (required) - URL, $2 (required) - Application name.
+install_zip_pkg() {
+  local url="$1"
+  local app_name="$2"
+  local install_path=$(get_install_path "$app_name")
+  local work_file="download.zip"
+
+  if [[ ! -e "$install_path" ]]; then
+    download_file "$url" "$work_file"
+
+    (
+      printf "Preparing...\n"
+      cd "$MAC_OS_WORK_PATH"
+      unzip -q "$work_file"
+    )
+
+    install_pkg "$MAC_OS_WORK_PATH" "$app_name"
+    printf "Installed: $app_name.\n"
+    verify_application "$app_name"
+  fi
+}
+export -f install_zip_pkg
+
 # Installs an application via a tar file.
 # Parameters: $1 (required) - URL, $2 (required) - Application name, $3 (required) - Decompress options.
 install_tar_app() {
@@ -73,15 +97,15 @@ install_tar_app() {
   local app_name="$2"
   local options="$3"
   local install_path=$(get_install_path "$app_name")
-  local download_file="download.tar"
+  local work_file="download.tar"
 
   if [[ ! -e "$install_path" ]]; then
-    download_installer "$url" "$download_file"
+    download_file "$url" "$work_file"
 
     (
       printf "Preparing...\n"
       cd "$MAC_OS_WORK_PATH"
-      tar "$options" "$download_file"
+      tar "$options" "$work_file"
     )
 
     install_app "$MAC_OS_WORK_PATH" "$app_name"
@@ -91,29 +115,23 @@ install_tar_app() {
 }
 export -f install_tar_app
 
-# Installs a package via a zip file.
-# Parameters: $1 (required) - URL, $2 (required) - Application name.
-install_zip_pkg() {
+# Installs program (single file).
+# Parameters: $1 (required) - URL, $2 (required) - Program name.
+install_program() {
   local url="$1"
-  local app_name="$2"
-  local install_path=$(get_install_path "$app_name")
-  local download_file="download.zip"
+  local program_name="$2"
+  local install_path=$(get_install_path "$program_name")
 
   if [[ ! -e "$install_path" ]]; then
-    download_installer "$url" "$download_file"
-
-    (
-      printf "Preparing...\n"
-      cd "$MAC_OS_WORK_PATH"
-      unzip -q "$download_file"
-    )
-
-    install_pkg "$MAC_OS_WORK_PATH" "$app_name"
-    printf "Installed: $app_name.\n"
-    verify_application "$app_name"
+    printf "Installing: $install_path...\n"
+    download_file "$url" "$program_name"
+    mv "$MAC_OS_WORK_PATH/$program_name" "$install_path"
+    chmod 755 "$install_path"
+    printf "Installed: $program_name.\n"
+    verify_application "$program_name"
   fi
 }
-export -f install_zip_pkg
+export -f install_program
 
 # Installs application code from a Git repository.
 # Parameters: $1 (required) - Repository URL, $2 (required) - Install path, $3 (optional) - Git clone options.
@@ -154,9 +172,9 @@ install_git_project() {
 }
 export -f install_git_project
 
-# Downloads an installer to local disk.
-# Parameters: $1 (required) - URL, $2 (required) - File name, $3 (required) - HTTP header.
-download_installer() {
+# Downloads remote file to local disk.
+# Parameters: $1 (required) - URL, $2 (required) - File name, $3 (optional) - HTTP header.
+download_file() {
   local url="$1"
   local file_name="$2"
   local http_header="$3"
@@ -166,7 +184,7 @@ download_installer() {
   mkdir $MAC_OS_WORK_PATH
   curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$MAC_OS_WORK_PATH/$file_name"
 }
-export -f download_installer
+export -f download_file
 
 # Downloads installer to $HOME/Downloads folder for manual use.
 # Parameters: $1 (required) - URL, $2 (required) - File name.
@@ -175,29 +193,11 @@ download_only() {
     printf "Downloaded: $2.\n"
   else
     printf "Downloading $1...\n"
-    download_installer "$1" "$2"
+    download_file "$1" "$2"
     mv "$MAC_OS_WORK_PATH/$2" "$HOME/Downloads"
   fi
 }
 export -f download_only
-
-# Installs a single file.
-# Parameters: $1 (required) - URL, $2 (required) - Install path.
-install_file() {
-  local file_url="$1"
-  local file_name=$(get_file_name "$1")
-  local install_path="$2"
-
-  if [[ ! -e "$install_path" ]]; then
-    printf "Installing: $install_path...\n"
-    download_installer "$file_url" "$file_name"
-    mkdir -p $(dirname "$install_path")
-    mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
-    printf "Installed: $file_name.\n"
-    verify_path "$install_path"
-  fi
-}
-export -f install_file
 
 # Installs an application.
 # Parameters: $1 (required) - Application source path, $2 (required) - Application name.
