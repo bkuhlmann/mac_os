@@ -186,19 +186,6 @@ download_file() {
 }
 export -f download_file
 
-# Downloads installer to $HOME/Downloads folder for manual use.
-# Parameters: $1 (required) - URL, $2 (required) - File name.
-download_only() {
-  if [[ -e "$HOME/Downloads/$2" ]]; then
-    printf "Downloaded: $2.\n"
-  else
-    printf "Downloading $1...\n"
-    download_file "$1" "$2"
-    mv "$MAC_OS_WORK_PATH/$2" "$HOME/Downloads"
-  fi
-}
-export -f download_only
-
 # Installs an application.
 # Parameters: $1 (required) - Application source path, $2 (required) - Application name.
 install_app() {
