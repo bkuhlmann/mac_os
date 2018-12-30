@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: circleci/ruby:2.5
+      - image: circleci/ruby
         environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -12,17 +12,22 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Environment Setup
+          command: |
+            printf "%s\n" 'export CI_RUBY_VERSION=$(cat ".ruby-version" | tr -d "\n")' >> $BASH_ENV
+
       - type: cache-restore
         name: Ruby Restore
-        key: ruby
+        key: ruby-{{checksum ".ruby-version"}}
 
       - run:
           name: Ruby Install
           command: |
-            curl https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0.tar.bz2 -o ../ruby-2.6.0.tar.gz
+            curl https://cache.ruby-lang.org/pub/ruby/${CI_RUBY_VERSION::-2}/ruby-$CI_RUBY_VERSION.tar.bz2 > ../ruby-$CI_RUBY_VERSION.tar.gz
             cd ..
-            tar --extract --bzip2 --verbose --file ruby-2.6.0.tar.gz
-            cd ruby-2.6.0
+            tar --extract --bzip2 --verbose --file ruby-$CI_RUBY_VERSION.tar.gz
+            cd ruby-$CI_RUBY_VERSION
             ./configure
             make
             make update-gems
@@ -31,9 +36,9 @@ jobs:
 
       - type: cache-save
         name: Ruby Store
-        key: ruby
+        key: ruby-{{checksum ".ruby-version"}}
         paths:
-          - ../ruby-2.6.0
+          - ../ruby-$CI_RUBY_VERSION
 
       - type: cache-restore
         name: Bundler Cache Restore
