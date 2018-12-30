@@ -41,18 +41,18 @@ jobs:
           - ../ruby-$CI_RUBY_VERSION
 
       - type: cache-restore
-        name: Bundler Cache Restore
-        key: bundle-{{ checksum "Gemfile" }}
+        name: Bundler Restore
+        key: bundler-{{checksum "Gemfile"}}
 
       - run:
           name: Bundler Install
           command: |
             gem update --system
-            bundle check || bundle install
+            bundle install --path vendor/bundle
 
       - type: cache-save
-        name: Bundler Cache Store
-        key: bundle-{{ checksum "Gemfile" }}
+        name: Bundler Store
+        key: bundler-{{checksum "Gemfile"}}
         paths:
           - vendor/bundle
 
