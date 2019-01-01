@@ -1,3 +1,16 @@
+# 7.0.0 (2019-01-01)
+
+- Fixed Circle CI cache for Ruby version.
+- Fixed installation of apps with no extension.
+- Fixed program installs.
+- Added Circle CI Bundler cache.
+- Added README boot disk documentation.
+- Added README troubleshooting section.
+- Updated to Git Cop 3.0.0.
+- Updated to Ruby 2.6.0.
+- Removed Java development tools from setup.
+- Removed download file function.
+
 # 6.1.0 (2018-11-01)
 
 - Updated to Java SE Development Kit 11.
