@@ -179,13 +179,20 @@ project is built upon the functions found in the `lib` folder. See the
 
 ## Troubleshooting
 
-When using the boot disk, you might experience a situation where you see a black screen with a white
-circle and diagonal line running through it. This means macOS lost or can't find the boot disk for
-some reason. To correct this, shut down and boot up the system again while holding down the
-`OPTION+COMMAND+R+P` keys simultaneously. You might want to wait for the system boot sound to happen
-a few times before releasing the keys. This will clear the system NVRAM/PRAM. At this point you can
-shut down and restart the system following the boot disk instructions (the boot disk will be
-recognized now).
+- When using the boot disk, you might experience a situation where you see a black screen with a
+  white circle and diagonal line running through it. This means macOS lost or can't find the boot
+  disk for some reason. To correct this, shut down and boot up the system again while holding down
+  the `OPTION+COMMAND+R+P` keys simultaneously. You might want to wait for the system boot sound to
+  happen a few times before releasing the keys. This will clear the system NVRAM/PRAM. At this point
+  you can shut down and restart the system following the boot disk instructions (the boot disk will
+  be recognized now).
+- Sometimes, when installing XCode development tools (i.e. the `t` option), not all of the macOS
+  headers will be installed. This can cause issues with compiling and building native packages. For
+  example: `fatal error: 'stdio.h' file not found`. This can happen due to an intermittent bug with
+  the XCode installer. To fix this, you'll need to install this package:
+  `/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg`. Depending on
+  your system, the version might differ, so look for a `*.pkg` in the
+  `/Library/Developer/CommandLineTools/Packages` folder.
 
 ## Versioning
 
