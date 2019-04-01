@@ -1,3 +1,9 @@
+# 7.1.0 (2019-04-01)
+
+- Added XCode installer fix to troubleshooting section.
+- Updated to Ruby 2.6.1.
+- Updated to Ruby 2.6.2.
+
 # 7.0.0 (2019-01-01)
 
 - Fixed Circle CI cache for Ruby version.
