@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="mac_os.png" alt="MacOS Icon"/>
+</p>
+
 # macOS
 
 [![Circle CI Status](https://circleci.com/gh/bkuhlmann/mac_os.svg?style=svg)](https://circleci.com/gh/bkuhlmann/mac_os)
