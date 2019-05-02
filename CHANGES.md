@@ -1,3 +1,8 @@
+# 7.1.1 (2019-05-01)
+
+- Added project icon to README.
+- Updated to Ruby 2.6.3.
+
 # 7.1.0 (2019-04-01)
 
 - Added XCode installer fix to troubleshooting section.
