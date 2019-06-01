@@ -1,3 +1,8 @@
+# 7.1.2 (2019-06-01)
+
+- Updated contributing documentation.
+- Updated to Git Cop 3.5.0.
+
 # 7.1.1 (2019-05-01)
 
 - Added project icon to README.

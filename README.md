@@ -76,7 +76,7 @@ Current Version (stable):
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
-    git checkout 7.1.1
+    git checkout 7.1.2
 
 Master Version (unstable):
 
