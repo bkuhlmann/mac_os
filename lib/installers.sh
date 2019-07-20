@@ -123,7 +123,6 @@ install_program() {
   local install_path=$(get_install_path "$program_name")
 
   if [[ ! -e "$install_path" ]]; then
-    printf "Installing: $install_path...\n"
     download_file "$url" "$program_name"
     mv "$MAC_OS_WORK_PATH/$program_name" "$install_path"
     chmod 755 "$install_path"
@@ -171,6 +170,23 @@ install_git_project() {
   rm -rf "$project_dir"
 }
 export -f install_git_project
+
+# Installs a single file.
+# Parameters: $1 (required) - URL, $2 (required) - Install path.
+install_file() {
+  local file_url="$1"
+  local file_name=$(get_file_name "$1")
+  local install_path="$2"
+
+  if [[ ! -e "$install_path" ]]; then
+    download_file "$file_url" "$file_name"
+    mkdir -p $(dirname "$install_path")
+    mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
+    printf "Installed: $file_name.\n"
+    verify_path "$install_path"
+  fi
+}
+export -f install_file
 
 # Downloads remote file to local disk.
 # Parameters: $1 (required) - URL, $2 (required) - File name, $3 (optional) - HTTP header.
