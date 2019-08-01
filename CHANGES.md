@@ -1,3 +1,7 @@
+# 7.2.0 (2019-08-01)
+
+- Added file install function.
+
 # 7.1.2 (2019-06-01)
 
 - Updated contributing documentation.
