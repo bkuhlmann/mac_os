@@ -1,3 +1,8 @@
+# 7.2.1 (2019-09-01)
+
+- Updated README screencast tutorial.
+- Updated to Ruby 2.6.4.
+
 # 7.2.0 (2019-08-01)
 
 - Added file install function.
