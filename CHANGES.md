@@ -1,3 +1,9 @@
+# 8.0.0 (2019-10-12)
+
+- Updated to Rake 13.0.0.
+- Updated to Ruby 2.6.5.
+- Updated to macOS Catalina.
+
 # 7.2.1 (2019-09-01)
 
 - Updated README screencast tutorial.
