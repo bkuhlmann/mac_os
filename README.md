@@ -64,7 +64,7 @@ the two projects are meant to be used:
 
 ## Requirements
 
-1. [macOS Mojave](https://www.apple.com/macos) (with latest software updates applied)
+1. [macOS Catalina](https://www.apple.com/macos/catalina) (with latest software updates applied)
 1. [Xcode](https://developer.apple.com/xcode) (with accepted license agreement)
 
 ## Setup

@@ -23,7 +23,7 @@ printf "  5. Use the dialog options to launch Disk Utility, reinstall the system
 printf "\nCreating macOS boot disk...\n"
 
 if [[ ! -e "$MAC_OS_BOOT_DISK_CREATOR" ]]; then
-  printf "ERROR: macOS installer does not exist: $MAC_OS_BOOT_DISK_CREATOR. Use App Store to download.\n"
+  printf "ERROR: macOS installer does not exist: $MAC_OS_BOOT_DISK_CREATOR. Use System Preferences → Software Update to download.\n"
   exit 1
 fi
 
