@@ -61,7 +61,7 @@ the two projects are meant to be used:
 
 ## Screencast
 
-[![asciicast](https://asciinema.org/a/263059.svg)](https://asciinema.org/a/263059)
+[![asciicast](https://asciinema.org/a/278158.svg)](https://asciinema.org/a/278158)
 
 ## Requirements
 
