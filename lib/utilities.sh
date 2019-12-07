@@ -19,7 +19,7 @@ export -f clean_work_path
 
 # Caffeinate machine.
 caffeinate_machine() {
-  local pid=$(ps aux | grep caffeinate | grep -v grep | awk '{print $2}')
+  local pid=$(pgrep -x caffeinate)
 
   if [[ -n "$pid" ]]; then
     printf "Whoa, tweaker, machine is already caffeinated!\n"
