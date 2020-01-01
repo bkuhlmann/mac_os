@@ -1,3 +1,10 @@
+# 8.0.1 (2020-01-01)
+
+- Added Startup Security Utility to README.
+- Updated README screencast.
+- Updated to Ruby 2.7.0.
+- Refactored caffeinate machine function to process grep.
+
 # 8.0.0 (2019-10-12)
 
 - Updated to Rake 13.0.0.
