@@ -29,6 +29,8 @@ the two projects are meant to be used:
   - [Screencast](#screencast)
   - [Requirements](#requirements)
   - [Setup](#setup)
+    - [Production](#production)
+    - [Development](#development)
   - [Usage](#usage)
     - [Boot Disk](#boot-disk)
     - [Startup Security Utility](#startup-security-utility)
@@ -70,16 +72,17 @@ the two projects are meant to be used:
 
 ## Setup
 
-Open a terminal window and execute one of the following setup sequences depending on your version
-preference:
+### Production
 
-Current Version (stable):
+To install, run:
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
     git checkout 8.0.1
 
-Master Version (unstable):
+### Development
+
+To contribute, run:
 
     git clone https://github.com/bkuhlmann/mac_os.git
     cd mac_os
