@@ -57,5 +57,5 @@ jobs:
           - vendor/bundle
 
       - run:
-          name: Rake Run
+          name: Build
           command: bundle exec rake
