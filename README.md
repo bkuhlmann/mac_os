@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="mac_os.png" alt="MacOS Icon"/>
+  <img src="https://www.alchemists.io/images/projects/mac_os/icon.png" alt="MacOS Icon"/>
 </p>
 
 # macOS
