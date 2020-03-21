@@ -1,0 +1,22 @@
+= Contributing
+
+Thanks for taking an interest in this open source project. Your support and involvement is greatly
+appreciated. The following details what you need to know in order to contribute.
+
+== Code
+
+. Read the project link:README.adoc[README] before starting.
+. Fork and clone the `master` branch of this repository locally.
+. Ensure there are no setup, usage, and/or test issues.
+. Add tests for new functionality and ensure they pass.
+. Submit a pull request, follow the instructions provided, and ensure the build passes.
+
+== Issues
+
+Submit an issue via the GitHub Issues tab (assuming one does not already exist) and follow the
+instructions provided.
+
+== Feedback
+
+* Expect a response within one to three business days.
+* Changes, alternatives, and/or improvements may be suggested upon review.
