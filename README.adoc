@@ -59,7 +59,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 8.0.1
+git checkout 8.1.0
 ----
 
 === Development
