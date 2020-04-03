@@ -248,4 +248,4 @@ Read link:CHANGES.adoc[CHANGES] for details.
 
 == Credits
 
-Engineered by link:https://www.alchemists.io/team/brooke_kuhlmann.html[Brooke Kuhlmann].
+Engineered by link:https://www.alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].
