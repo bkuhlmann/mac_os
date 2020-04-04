@@ -41,8 +41,8 @@ toc::[]
 
 == Screencast
 
-[link=https://www.alchemists.io/screencasts/mac_o_s]
-image::https://www.alchemists.io/images/screencasts/mac_o_s/cover-original.png[Screencast,role=focal_point]
+[link=https://www.alchemists.io/screencasts/mac_os]
+image::https://www.alchemists.io/images/screencasts/mac_os/cover-original.png[Screencast,role=focal_point]
 
 == Requirements
 
