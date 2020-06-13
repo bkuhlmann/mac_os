@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 begin
-  require "git/cop/rake/setup"
+  require "git/lint/rake/setup"
 rescue LoadError => error
   puts error.message
 end
 
-task default: :git_cop
+task default: :git_lint
