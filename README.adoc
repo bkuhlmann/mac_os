@@ -46,8 +46,8 @@ image::https://www.alchemists.io/images/screencasts/mac_os/cover-original.png[Sc
 
 == Requirements
 
-. https://www.apple.com/macos/catalina[macOS Catalina] (with latest software updates applied)
-. https://developer.apple.com/xcode[Xcode] (with accepted license agreement)
+. link:https://www.apple.com/macos/catalina[macOS]
+. link:https://developer.apple.com/xcode[Xcode]
 
 == Setup
 
