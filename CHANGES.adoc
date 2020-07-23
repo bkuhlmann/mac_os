@@ -1,15 +1,26 @@
 = Changes
 
+== 8.2.0 (2020-07-22)
+
+* Fixed project requirements
+* Fixed screencast image URL
+* Updated GitHub templates
+* Updated README credit URL
+* Updated README screencast URL
+* Updated README screencast cover to SVG format
+* Updated to Git Lint 1.0.0
+* Refactored Rakefile requirements
+
 == 8.1.0 (2020-04-01)
 
-- Added README production and development setup instructions
-- Updated Circle CI build label
-- Updated README screencast to use larger image
-- Updated documentation to ASCII Doc format
-- Updated to Code of Conduct 2.0.0
-- Updated to Git Cop 4.0.0
-- Updated to Ruby 2.7.1
-- Removed README images
+* Added README production and development setup instructions
+* Updated Circle CI build label
+* Updated README screencast to use larger image
+* Updated documentation to ASCII Doc format
+* Updated to Code of Conduct 2.0.0
+* Updated to Git Cop 4.0.0
+* Updated to Ruby 2.7.1
+* Removed README images
 
 == 8.0.1 (2020-01-01)
 
