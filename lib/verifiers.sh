@@ -18,11 +18,6 @@ verify_homebrew_formulas() {
         application="gnupg"
       fi
 
-      # Exception: "hg" is the binary but is listed as "mercurial".
-      if [[ "$application" == "hg" ]]; then
-        application="mercurial"
-      fi
-
       verify_listed_application "$application" "${applications[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
