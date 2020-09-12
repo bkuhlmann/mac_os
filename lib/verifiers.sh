@@ -35,23 +35,12 @@ export -f verify_homebrew_formulas
 verify_homebrew_casks() {
   printf "\nChecking Homebrew casks...\n"
 
-  local applications="$(brew cask list)"
+  local applications="$(brew list --cask)"
 
   while read line; do
     # Skip blank or comment lines.
     if [[ "$line" == "brew cask install"* ]]; then
       local application=$(printf "$line" | awk '{print $4}')
-
-      # Skip: Only necessary for the purpose of licensing system preference.
-      if [[ "$application" == "witch" ]]; then
-        continue
-      fi
-
-      # Skip: Bug with Homebrew Cask as these apps never show up as installed.
-      if [[ "$application" == "skitch" || "$application" == "openemu" ]]; then
-        continue
-      fi
-
       verify_listed_application "$application" "${applications[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_homebrew_casks"
