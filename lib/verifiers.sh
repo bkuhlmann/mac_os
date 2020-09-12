@@ -9,7 +9,6 @@ verify_homebrew_formulas() {
   local applications="$(brew list)"
 
   while read line; do
-    # Skip blank or comment lines.
     if [[ "$line" == "brew install"* ]]; then
       local application=$(printf "$line" | awk '{print $3}')
 
@@ -33,7 +32,6 @@ verify_homebrew_casks() {
   local applications="$(brew list --cask)"
 
   while read line; do
-    # Skip blank or comment lines.
     if [[ "$line" == "brew cask install"* ]]; then
       local application=$(printf "$line" | awk '{print $4}')
       verify_listed_application "$application" "${applications[*]}"
@@ -51,7 +49,6 @@ verify_app_store_applications() {
   local applications="$(mas list)"
 
   while read line; do
-    # Skip blank or comment lines.
     if [[ "$line" == "mas install"* ]]; then
       local application=$(printf "$line" | awk '{print $3}')
       verify_listed_application "$application" "${applications[*]}"
@@ -83,7 +80,6 @@ verify_applications() {
 
   # For each application name, check to see if the application is installed. Otherwise, skip.
   for name in $file_names; do
-    # Pass the key value to verfication.
     verify_application "${!name}"
   done
 
@@ -95,8 +91,6 @@ export -f verify_applications
 # Parameters: $1 (required) - The file name.
 verify_application() {
   local file_name="$1"
-
-  # Display the missing install if not found.
   local install_path=$(get_install_path "$file_name")
 
   if [[ ! -e "$install_path" ]]; then
@@ -127,7 +121,6 @@ export -f verify_extensions
 verify_path() {
   local path="$1"
 
-  # Display the missing path if not found.
   if [[ ! -e "$path" ]]; then
     printf " - Missing: $path\n"
   fi
