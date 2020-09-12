@@ -2,6 +2,19 @@
 
 # Defines general utility functions.
 
+# Caffeinate machine.
+caffeinate_machine() {
+  local pid=$(pgrep -x caffeinate)
+
+  if [[ -n "$pid" ]]; then
+    printf "Machine is already caffeinated!\n"
+  else
+    caffeinate -s -u -d -i -t 3153600000 > /dev/null &
+    printf "Machine caffeinated.\n"
+  fi
+}
+export -f caffeinate_machine
+
 # Answers the full install path (including file name) for file name.
 # Parameters: $1 (required) - The file name.
 get_install_path() {
@@ -17,24 +30,11 @@ clean_work_path() {
 }
 export -f clean_work_path
 
-# Caffeinate machine.
-caffeinate_machine() {
-  local pid=$(pgrep -x caffeinate)
-
-  if [[ -n "$pid" ]]; then
-    printf "Whoa, tweaker, machine is already caffeinated!\n"
-  else
-    caffeinate -s -u -d -i -t 3153600000 > /dev/null &
-    printf "Machine caffeinated.\n"
-  fi
-}
-export -f caffeinate_machine
-
 # Answers the root install path for file name.
 # Parameters: $1 (required) - The file name.
 get_install_root() {
   local file_name="$1"
-  local file_extension=$(get_file_extension "$file_name")
+  local file_extension=$(get_extension "$file_name")
 
   # Dynamically build the install path based on file extension.
   case $file_extension in
@@ -52,10 +52,17 @@ get_install_root() {
 }
 export -f get_install_root
 
+# Answers the file or directory basename.
+# Parameters: $1 (required) - The file path.
+get_basename() {
+  printf "${1##*/}" # Answers file or directory name.
+}
+export -f get_basename
+
 # Answers the file extension.
 # Parameters: $1 (required) - The file name.
-get_file_extension() {
-  local name=$(get_file_name "$1")
+get_extension() {
+  local name=$(get_basename "$1")
   local extension="${1##*.}" # Excludes dot.
 
   if [[ "$name" == "$extension" ]]; then
@@ -64,11 +71,4 @@ get_file_extension() {
     printf "$extension"
   fi
 }
-export -f get_file_extension
-
-# Answers the file name.
-# Parameters: $1 (required) - The file path.
-get_file_name() {
-  printf "${1##*/}" # Answers file or directory name.
-}
-export -f get_file_name
+export -f get_extension

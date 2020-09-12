@@ -136,7 +136,7 @@ export -f install_program
 # Parameters: $1 (required) - Repository URL, $2 (required) - Install path, $3 (optional) - Git clone options.
 install_git_app() {
   local repository_url="$1"
-  local app_name=$(get_file_name "$2")
+  local app_name=$(get_basename "$2")
   local install_path="$2"
   local options="--quiet"
 
@@ -175,7 +175,7 @@ export -f install_git_project
 # Parameters: $1 (required) - URL, $2 (required) - Install path.
 install_file() {
   local file_url="$1"
-  local file_name=$(get_file_name "$1")
+  local file_name=$(get_basename "$1")
   local install_path="$2"
 
   if [[ ! -e "$install_path" ]]; then
@@ -206,7 +206,7 @@ export -f download_file
 # Parameters: $1 (required) - Application source path, $2 (required) - Application name.
 install_app() {
   local install_root=$(get_install_root "$2")
-  local file_extension=$(get_file_extension "$2")
+  local file_extension=$(get_extension "$2")
 
   printf "Installing: $install_root/$2...\n"
 
