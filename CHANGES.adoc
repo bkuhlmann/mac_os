@@ -1,5 +1,12 @@
 = Changes
 
+== 9.0.0 (2020-09-12)
+
+* Fixed Homebrew cask verifier deprecation warning
+* Removed Homebrew Mecurial formula verification check
+* Removed unnecessary verifier code comments
+* Refactored utility basename and extension utilities
+
 == 8.2.0 (2020-07-22)
 
 * Fixed project requirements
