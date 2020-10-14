@@ -51,8 +51,6 @@ image::https://www.alchemists.io/images/screencasts/mac_os/cover.svg[Screencast,
 
 == Setup
 
-=== Production
-
 To install, run:
 
 [source,bash]
@@ -60,16 +58,6 @@ To install, run:
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
 git checkout 9.0.0
-----
-
-=== Development
-
-To contribute, run:
-
-[source,bash]
-----
-git clone https://github.com/bkuhlmann/mac_os.git
-cd mac_os
 ----
 
 == Usage
@@ -220,6 +208,16 @@ link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for 
   `/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg`. Depending on
   your system, the version might differ, so look for a `*.pkg` in the
   `/Library/Developer/CommandLineTools/Packages` folder.
+
+== Development
+
+To contribute, run:
+
+[source,bash]
+----
+git clone https://github.com/bkuhlmann/mac_os.git
+cd mac_os
+----
 
 == Versioning
 
