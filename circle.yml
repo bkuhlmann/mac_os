@@ -49,6 +49,7 @@ jobs:
           command: |
             gem update --system
             bundle config set path "vendor/bundle"
+            bundle install
 
       - type: cache-save
         name: Bundler Store
