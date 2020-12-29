@@ -24,9 +24,9 @@ jobs:
       - run:
           name: Ruby Install
           command: |
-            curl https://cache.ruby-lang.org/pub/ruby/${CI_RUBY_VERSION::-2}/ruby-$CI_RUBY_VERSION.tar.bz2 > ../ruby-$CI_RUBY_VERSION.tar.gz
             cd ..
-            tar --extract --bzip2 --verbose --file ruby-$CI_RUBY_VERSION.tar.gz
+            curl https://cache.ruby-lang.org/pub/ruby/${CI_RUBY_VERSION::-2}/ruby-$CI_RUBY_VERSION.tar.gz > ruby-$CI_RUBY_VERSION.tar.gz
+            tar --extract --gzip --verbose --file ruby-$CI_RUBY_VERSION.tar.gz
             cd ruby-$CI_RUBY_VERSION
             ./configure
             make
