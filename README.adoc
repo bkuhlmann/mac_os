@@ -128,8 +128,9 @@ macOS Boot Disk Usage:
   2. Reboot the machine.
   3. Hold down the OPTION key before the Apple logo appears.
   4. Select the USB boot disk from the menu.
-  5. Use Disk Utility to format the machine's drive as "APFS (Encrypted)".
-  6. Install the new operating system.
+  5. Use Disk Utility to delete and/or erase the hard drive including associated partitions.
+  6. Use Disk Utility to create a single "APFS" drive as a "GUID Partition Table".
+  7. Install the new operating system.
 
 macOS Reinstall:
   1. Click the Apple icon from the operating system main menu.
