@@ -39,6 +39,7 @@ process_option() {
       bin/setup_software
       clean_work_path;;
     'R')
+      caffeinate_machine
       bin/restore_backup;;
     'c')
       verify_homebrew_formulas
