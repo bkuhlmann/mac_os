@@ -1,5 +1,12 @@
 = Changes
 
+== 11.1.0 (2021-01-03)
+
+* Added caffeination to restore process - Brooke Kuhlmann
+* Updated boot disk instructions for main disk format - Brooke Kuhlmann
+* Updated troubleshooting documentation - Brooke Kuhlmann
+* Removed README Startup Security Utility documentation - Brooke Kuhlmann
+
 == 11.0.0 (2020-12-30)
 
 * Fixed Circle CI configuration for Bundler config path - Brooke Kuhlmann
