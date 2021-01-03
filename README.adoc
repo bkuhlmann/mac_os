@@ -140,32 +140,6 @@ macOS Reinstall:
   5. Use the dialog options to launch Disk Utility, reinstall the system, etc.
 ....
 
-Depending on your security settings, you might need to use the Startup
-Security Utility before using the Boot Disk (see below).
-
-=== https://support.apple.com/en-us/HT208198[Startup Security Utility]
-
-With newer hardware, you should be running with the Apple T2 Security Chip (found via  → About This
-Mac → Overview → System Report → Controller). In order to boot your machine using the Boot Disk,
-you’ll need to _temporarily_ disable the default security settings as follows:
-
-* Turn on or restart your Mac, then press and hold `COMMAND + R` immediately after seeing the Apple
-  logo.
-* Select Utilities → Startup Security Utility from the main menu.
-* Click _Turn Off Firmware Password_.
-* Select _Secure Boot: No Security_.
-* Select _External Boot: Allow booting from external media_.
-* Quit the utility and restart the machine.
-
-You’ll now be able to boot your system with the Boot Disk (see above).
-
-After the new operating system has been installed via the Boot Disk, _ensure you return to the
-Startup Security Utility and re-enable the following settings_:
-
-* Click _Turn On Firmware Password_.
-* Select _Secure Boot: Full Security_.
-* Select _External Boot: Disallow booting from external or removable media_.
-
 === Customization
 
 All executable scripts can be found in the `bin` folder:
