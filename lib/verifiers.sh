@@ -6,7 +6,7 @@
 verify_homebrew_formulas() {
   printf "Checking Homebrew formulas...\n"
 
-  local applications="$(brew list)"
+  local applications="$(brew list --formulae)"
 
   while read line; do
     if [[ "$line" == "brew install"* ]]; then
@@ -29,7 +29,7 @@ export -f verify_homebrew_formulas
 verify_homebrew_casks() {
   printf "\nChecking Homebrew casks...\n"
 
-  local applications="$(brew list --cask)"
+  local applications="$(brew list --casks)"
 
   while read line; do
     if [[ "$line" == "brew cask install"* ]]; then
