@@ -57,7 +57,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 11.1.0
+git checkout 11.1.1
 ----
 
 == Usage
@@ -168,12 +168,13 @@ link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for 
 
 == Troubleshooting
 
-* When using link:https://pi-hole.net[Pi-hole], make sure to temporarily disable prior to upgrading
-  as you might experience various errors with Apple not able to detect an internet connection which
-  prevents the installer from working.
+* When using link:https://pi-hole.net[Pi-hole], you might need to temporarily disable prior to
+  upgrading as you might experience various errors with Apple not being able to detect an internet
+  connection which prevents the installer from working.
 * When using the boot disk and the installer fails in some catestrophic manner, reboot the machine
   into recovery mode (i.e. `COMMAND + R`) to download and install the last operating system used.
-  You can also use `COMMAND + OPTION + R` to attemp to download the latest operating system.
+  Alternatively, you can also use `COMMAND + OPTION + R` to attemp to download the latest operating
+  system.
 * When using the boot disk, you might experience a situation where you see a black screen with a
   white circle and diagonal line running through it. This means macOS lost or can’t find the boot
   disk for some reason. To correct this, shut down and boot up the system again while holding down

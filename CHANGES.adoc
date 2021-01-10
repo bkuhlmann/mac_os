@@ -1,5 +1,10 @@
 = Changes
 
+== 11.1.1 (2021-01-10)
+
+* Fixed brew formulae list error - Brooke Kuhlmann
+* Updated boot disk recovery documentation - Brooke Kuhlmann
+
 == 11.1.0 (2021-01-03)
 
 * Added caffeination to restore process - Brooke Kuhlmann
