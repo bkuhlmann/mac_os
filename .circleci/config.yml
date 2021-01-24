@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/project
+    docker:
+      - image: bkuhlmann/ruby:latest
+    steps:
+      - checkout
+
+      - restore_cache:
+          name: Bundler Restore
+          keys:
+            - gem-cache-{{.Branch}}-{{checksum "Gemfile"}}
+            - gem-cache-
+
+      - run:
+          name: Bundler Install
+          command: |
+            gem update --system
+            bundle config set path "vendor/bundle"
+            bundle install
+
+      - save_cache:
+          name: Bundler Store
+          key: gem-cache-{{.Branch}}-{{checksum "Gemfile"}}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Build
+          command: bundle exec rake
