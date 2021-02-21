@@ -134,6 +134,15 @@ install_git_project() {
 }
 export -f install_git_project
 
+# Installs Homebrew.
+# Parameters: None.
+install_homebrew() {
+  if ! command -v brew > /dev/null; then
+    /bin/bash -c "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+}
+export -f install_homebrew
+
 # Installs a package.
 # Parameters: $1 (required) - Package source path, $2 (required) - Application name.
 install_pkg() {
