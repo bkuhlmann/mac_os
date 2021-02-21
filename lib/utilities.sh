@@ -49,6 +49,28 @@ get_extension() {
 }
 export -f get_extension
 
+# Answers Homebrew root path.
+# Parameters: None.
+get_homebrew_root() {
+  if [[ -n "$(get_cpu)" ]]; then
+    printf "%s" "/opt/homebrew"
+  else
+    printf "%s" "/usr/local/Homebrew"
+  fi
+}
+export -f get_homebrew_root
+
+# Answers Homebrew binary root path.
+# Parameters: None.
+get_homebrew_bin_root() {
+  if [[ -n "$(get_cpu)" ]]; then
+    printf "%s" "/opt/homebrew/bin"
+  else
+    printf "%s" "/usr/local/bin"
+  fi
+}
+export -f get_homebrew_bin_root
+
 # Answers the full install path (including file name) for file name.
 # Parameters: $1 (required) - The file name.
 get_install_path() {
@@ -67,7 +89,7 @@ get_install_root() {
   # Dynamically build the install path based on file extension.
   case $file_extension in
     '')
-      printf "/usr/local/bin";;
+      printf "$(get_homebrew_bin_root)";;
     'app')
       printf "/Applications";;
     'prefPane')
