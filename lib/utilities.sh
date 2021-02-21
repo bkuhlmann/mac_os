@@ -15,6 +15,33 @@ caffeinate_machine() {
 }
 export -f caffeinate_machine
 
+# Cleans work path for temporary processing of installs.
+clean_work_path() {
+  rm -rf "$MAC_OS_WORK_PATH"
+}
+export -f clean_work_path
+
+# Answers the file or directory basename.
+# Parameters: $1 (required) - The file path.
+get_basename() {
+  printf "${1##*/}" # Answers file or directory name.
+}
+export -f get_basename
+
+# Answers the file extension.
+# Parameters: $1 (required) - The file name.
+get_extension() {
+  local name=$(get_basename "$1")
+  local extension="${1##*.}" # Excludes dot.
+
+  if [[ "$name" == "$extension" ]]; then
+    printf ''
+  else
+    printf "$extension"
+  fi
+}
+export -f get_extension
+
 # Answers the full install path (including file name) for file name.
 # Parameters: $1 (required) - The file name.
 get_install_path() {
@@ -23,12 +50,6 @@ get_install_path() {
   printf "$install_path/$file_name"
 }
 export -f get_install_path
-
-# Cleans work path for temporary processing of installs.
-clean_work_path() {
-  rm -rf "$MAC_OS_WORK_PATH"
-}
-export -f clean_work_path
 
 # Answers the root install path for file name.
 # Parameters: $1 (required) - The file name.
@@ -51,24 +72,3 @@ get_install_root() {
   esac
 }
 export -f get_install_root
-
-# Answers the file or directory basename.
-# Parameters: $1 (required) - The file path.
-get_basename() {
-  printf "${1##*/}" # Answers file or directory name.
-}
-export -f get_basename
-
-# Answers the file extension.
-# Parameters: $1 (required) - The file name.
-get_extension() {
-  local name=$(get_basename "$1")
-  local extension="${1##*.}" # Excludes dot.
-
-  if [[ "$name" == "$extension" ]]; then
-    printf ''
-  else
-    printf "$extension"
-  fi
-}
-export -f get_extension
