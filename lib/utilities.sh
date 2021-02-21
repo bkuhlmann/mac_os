@@ -28,6 +28,13 @@ get_basename() {
 }
 export -f get_basename
 
+# Answers current CPU.
+# Parameters: None.
+get_cpu() {
+  printf "%s" "$(system_profiler SPHardwareDataType | awk '/Chip/ {print $3}')"
+}
+export -f get_cpu
+
 # Answers the file extension.
 # Parameters: $1 (required) - The file name.
 get_extension() {
