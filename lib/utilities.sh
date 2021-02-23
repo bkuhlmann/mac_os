@@ -101,3 +101,18 @@ get_install_root() {
   esac
 }
 export -f get_install_root
+
+# Configures shell for new machines and ensures PATH is properly configured for running scripts.
+# Parameters: None.
+configure_environment() {
+  if [[ ! -s "$HOME/.bash_profile" ]]; then
+    printf "%s\n" "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" > "$HOME/.bash_profile"
+  fi
+
+  if [[ ! -s "$HOME/.bashrc" ]]; then
+    printf "%s\n" 'export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"' > "$HOME/.bashrc"
+  fi
+
+  export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+}
+export -f configure_environment
