@@ -1,5 +1,19 @@
 = Changes
 
+== 11.2.0 (2021-02-27)
+
+* Added Apple Silicon instructions - Brooke Kuhlmann
+* Added CPU utility function - Brooke Kuhlmann
+* Added Homebrew install function - Brooke Kuhlmann
+* Added Homebrew utility path functions - Brooke Kuhlmann
+* Added Rosetta to development tools install script - Brooke Kuhlmann
+* Added environment configuration for scripts - Brooke Kuhlmann
+* Updated to Circle CI 2.1.0 - Brooke Kuhlmann
+* Updated to Docker Alpine Ruby image - Brooke Kuhlmann
+* Refactored installer functions to be alphabetically sorted - Brooke Kuhlmann
+* Refactored utility functions to be alphabetically sorted - Brooke Kuhlmann
+* Refactored verifier functions to be alphabetically sorted - Brooke Kuhlmann
+
 == 11.1.1 (2021-01-10)
 
 * Fixed brew formulae list error - Brooke Kuhlmann
