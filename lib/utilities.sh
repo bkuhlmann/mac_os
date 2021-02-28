@@ -28,13 +28,6 @@ get_basename() {
 }
 export -f get_basename
 
-# Answers current CPU.
-# Parameters: None.
-get_cpu() {
-  printf "%s" "$(system_profiler SPHardwareDataType | awk '/Chip/ {print $3}')"
-}
-export -f get_cpu
-
 # Answers the file extension.
 # Parameters: $1 (required) - The file name.
 get_extension() {
@@ -52,7 +45,7 @@ export -f get_extension
 # Answers Homebrew root path.
 # Parameters: None.
 get_homebrew_root() {
-  if [[ -n "$(get_cpu)" ]]; then
+  if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
     printf "%s" "/opt/homebrew"
   else
     printf "%s" "/usr/local/Homebrew"
@@ -63,7 +56,7 @@ export -f get_homebrew_root
 # Answers Homebrew binary root path.
 # Parameters: None.
 get_homebrew_bin_root() {
-  if [[ -n "$(get_cpu)" ]]; then
+  if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
     printf "%s" "/opt/homebrew/bin"
   else
     printf "%s" "/usr/local/bin"
