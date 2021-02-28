@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# Installs development tooling requirements.
+Installs development tooling requirements.
 
 printf "Installing Xcode CLI tools...\n"
 xcode-select --install
@@ -12,6 +12,6 @@ if [[ "$xcode_response" != "y" ]]; then
   exit 1
 fi
 
-if [[ -n "$(get_cpu)" ]]; then
-  softwareupdate --install-rosetta
+if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
+  softwareupdate --install-rosetta --agree-to-license
 fi
