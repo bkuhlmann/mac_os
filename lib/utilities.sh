@@ -121,8 +121,7 @@ configure_environment() {
 
   if [[ ! -s "$HOME/.bashrc" ]]; then
     printf "%s\n" 'export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"' > "$HOME/.bashrc"
+    source "$HOME/.bashrc"
   fi
-
-  export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 }
 export -f configure_environment
