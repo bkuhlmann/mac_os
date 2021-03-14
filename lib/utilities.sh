@@ -95,6 +95,17 @@ get_install_root() {
 }
 export -f get_install_root
 
+# Checks Mac App Store (mas) CLI has been installed and exits if otherwise.
+# Parameters: None.
+check_mas_install() {
+  if ! command -v mas > /dev/null; then
+    printf "%s\n" "ERROR: Mac App Store (mas) CLI can't be found."
+    printf "%s\n" "       Please ensure Homebrew and mas (i.e. brew install mas) have been installed."
+    exit 1
+  fi
+}
+export -f check_mas_install
+
 # Configures shell for new machines and ensures PATH is properly configured for running scripts.
 # Parameters: None.
 configure_environment() {
