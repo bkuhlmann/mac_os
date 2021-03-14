@@ -6,9 +6,11 @@ set -o nounset
 set -o errexit
 set -o pipefail
 IFS=$'\n\t'
+
 SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_homebrew_formulas"
 
 if [[ -x "$SCRIPT_PATH" ]]; then
+  install_homebrew
   "$SCRIPT_PATH"
 else
   printf "WARNING: Homebrew Formulas install script does not exist or is not executable.\n"
