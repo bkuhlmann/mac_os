@@ -22,6 +22,8 @@ process_option() {
       bin/install_applications;;
     'x')
       bin/install_extensions;;
+    'rg')
+      bin/install_ruby_gems;;
     'rc')
       bin/install_rust_crates;;
     'd')
@@ -37,6 +39,7 @@ process_option() {
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
+      bin/install_ruby_gems
       bin/install_rust_crates
       bin/apply_default_settings
       bin/setup_software
@@ -50,6 +53,7 @@ process_option() {
       verify_app_store_applications
       verify_applications
       verify_extensions
+      verify_ruby_gems
       verify_rust_crates;;
     'C')
       caffeinate_machine;;

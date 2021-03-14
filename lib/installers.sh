@@ -188,6 +188,19 @@ install_program() {
 }
 export -f install_program
 
+# Installs Ruby.
+# Parameters: None.
+install_ruby() {
+  local version="$(cat $HOME/.ruby-version | tr -d '\n')"
+
+  if [[ ! -x "$(command -v ruby)" && -n $(ruby --version | grep --quiet "$version") ]]; then
+    $(get_homebrew_bin_root)/ruby-install "ruby-$version"
+    chruby "$version"
+    gem update --system && gem update
+  fi
+}
+export -f install_ruby
+
 # Installs Rust.
 # Parameters: None.
 install_rust() {

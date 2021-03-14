@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+# Installs Ruby gems.
+
+set -o nounset
+set -o errexit
+set -o pipefail
+IFS=$'\n\t'
+
+SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_ruby_gems"
+
+if [[ -x "$SCRIPT_PATH" ]]; then
+  install_ruby
+  "$SCRIPT_PATH"
+else
+  printf "WARNING: Ruby gems install script does not exist or is not executable.\n"
+fi

@@ -127,6 +127,23 @@ verify_path() {
 }
 export -f verify_path
 
+# Checks for missing Ruby gems.
+verify_ruby_gems() {
+  local gems="$(gem list --no-versions)"
+
+  printf "\nChecking Ruby gems...\n"
+
+  while read line; do
+    if [[ "$line" == "gem install"* ]]; then
+      local gem=$(printf "$line" | awk '{print $3}')
+      verify_listed_application "$gem" "${gems[*]}"
+    fi
+  done < "$MAC_OS_CONFIG_PATH/bin/install_ruby_gems"
+
+  printf "Ruby gems check complete.\n"
+}
+export -f verify_ruby_gems
+
 # Checks for missing Rust crates.
 verify_rust_crates() {
   printf "\nChecking Rust crates...\n"
