@@ -143,6 +143,23 @@ install_homebrew() {
 }
 export -f install_homebrew
 
+# Installs a package via a zip file.
+# Parameters: $1 (required) - URL, $2 (required) - Application name.
+install_bare_pkg() {
+  local url="$1"
+  local app_name="$2"
+  local install_path=$(get_install_path "$app_name")
+  local work_file="$app_name.pkg"
+
+  if [[ ! -e "$install_path" ]]; then
+    download_file "$url" "$work_file"
+    install_pkg "$MAC_OS_WORK_PATH" "$app_name"
+    printf "Installed: $app_name.\n"
+    verify_application "$app_name"
+  fi
+}
+export -f install_bare_pkg
+
 # Installs a package.
 # Parameters: $1 (required) - Package source path, $2 (required) - Application name.
 install_pkg() {
