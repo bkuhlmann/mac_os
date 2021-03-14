@@ -22,6 +22,8 @@ process_option() {
       bin/install_applications;;
     'x')
       bin/install_extensions;;
+    'rc')
+      bin/install_rust_crates;;
     'd')
       bin/apply_default_settings;;
     's')
@@ -35,6 +37,7 @@ process_option() {
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
+      bin/install_rust_crates
       bin/apply_default_settings
       bin/setup_software
       clean_work_path;;
@@ -46,7 +49,8 @@ process_option() {
       verify_homebrew_casks
       verify_app_store_applications
       verify_applications
-      verify_extensions;;
+      verify_extensions
+      verify_rust_crates;;
     'C')
       caffeinate_machine;;
     'ua')

@@ -171,6 +171,15 @@ install_program() {
 }
 export -f install_program
 
+# Installs Rust.
+# Parameters: None.
+install_rust() {
+  if ! command -v cargo > /dev/null; then
+    curl --proto "=https" --tlsv1.2 --fail --silent --show-error https://sh.rustup.rs | sh
+  fi
+}
+export -f install_rust
+
 # Installs an application via a tar file.
 # Parameters: $1 (required) - URL, $2 (required) - Application name, $3 (required) - Decompress options.
 install_tar_app() {

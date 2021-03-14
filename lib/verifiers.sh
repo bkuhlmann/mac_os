@@ -126,3 +126,20 @@ verify_path() {
   fi
 }
 export -f verify_path
+
+# Checks for missing Rust crates.
+verify_rust_crates() {
+  printf "\nChecking Rust crates...\n"
+
+  local crates="$(ls -A1 $HOME/.cargo/bin)"
+
+  while read line; do
+    if [[ "$line" == "cargo install"* ]]; then
+      local crate=$(printf "$line" | awk '{print $3}')
+      verify_listed_application "$crate" "${crates[*]}"
+    fi
+  done < "$MAC_OS_CONFIG_PATH/bin/install_rust_crates"
+
+  printf "Rust crates check complete.\n"
+}
+export -f verify_rust_crates

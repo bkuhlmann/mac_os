@@ -39,6 +39,7 @@ while true; do
     printf "     m:  Install Mac App Store software.\n"
     printf "     a:  Install application software.\n"
     printf "     x:  Install application software extensions.\n"
+    printf "    rc:  Install Rust crates.\n"
     printf "     d:  Apply default settings.\n"
     printf "     s:  Setup installed software.\n"
     printf "     i:  Install everything (i.e. executes all install options).\n"

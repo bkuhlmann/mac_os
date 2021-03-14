@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+# Installs Rust crates.
+
+set -o nounset
+set -o errexit
+set -o pipefail
+IFS=$'\n\t'
+
+SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_rust_crates"
+
+if [[ -x "$SCRIPT_PATH" ]]; then
+  install_rust
+  "$SCRIPT_PATH"
+else
+  printf "WARNING: Rust crates install script does not exist or is not executable.\n"
+fi
