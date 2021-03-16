@@ -127,6 +127,23 @@ verify_path() {
 }
 export -f verify_path
 
+# Checks for missing Node packages.
+verify_node_packages() {
+  local packages=$(yarn global list --json | grep '"type":"info"')
+
+  printf "\nChecking Node packages...\n"
+
+  while read line; do
+    if [[ "$line" == "yarn global add"* ]]; then
+      local package=$(printf "$line" | awk '{print $4}')
+      verify_listed_application "$package" "${packages[*]}"
+    fi
+  done < "$MAC_OS_CONFIG_PATH/bin/install_node_packages"
+
+  printf "Node packages check complete.\n"
+}
+export -f verify_node_packages
+
 # Checks for missing Ruby gems.
 verify_ruby_gems() {
   local gems="$(gem list --no-versions)"

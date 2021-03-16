@@ -101,6 +101,16 @@ get_install_root() {
 }
 export -f get_install_root
 
+# Checks Yarn has been installed and exits if otherwise.
+# Parameters: None.
+check_yarn_install() {
+  if ! command -v yarn > /dev/null; then
+    printf "%s\n" "ERROR: Yarn can't be found. Please ensure Homebrew and Yarn have been installed."
+    exit 1
+  fi
+}
+export -f check_yarn_install
+
 # Checks Mac App Store (mas) CLI has been installed and exits if otherwise.
 # Parameters: None.
 check_mas_install() {

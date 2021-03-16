@@ -22,6 +22,8 @@ process_option() {
       bin/install_applications;;
     'x')
       bin/install_extensions;;
+    'np')
+      bin/install_node_packages;;
     'rg')
       bin/install_ruby_gems;;
     'rc')
@@ -39,6 +41,7 @@ process_option() {
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
+      bin/install_node_packages
       bin/install_ruby_gems
       bin/install_rust_crates
       bin/apply_default_settings
@@ -53,6 +56,7 @@ process_option() {
       verify_app_store_applications
       verify_applications
       verify_extensions
+      verify_node_packages
       verify_ruby_gems
       verify_rust_crates;;
     'C')
