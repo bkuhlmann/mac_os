@@ -1,5 +1,22 @@
 = Changes
 
+== 12.0.0 (2021-03-16)
+
+* Fixed environment configuration to source Bash resource - Brooke Kuhlmann
+* Added Homebrew installation to Homebrew sripts - Brooke Kuhlmann
+* Added Node packages script - Brooke Kuhlmann
+* Added Ruby gems script - Brooke Kuhlmann
+* Added Rust crates script - Brooke Kuhlmann
+* Added bare package installer - Brooke Kuhlmann
+* Added dotfiles script - Brooke Kuhlmann
+* Added mas check to App Store install script - Brooke Kuhlmann
+* Added version release notes - Brooke Kuhlmann
+* Updated dev tools installer to agree to Rosetta license - Brooke Kuhlmann
+* Updated install root detection to support Elm - Brooke Kuhlmann
+* Updated setup software as configure software script - Brooke Kuhlmann
+* Removed CPU detection in favor of architecture detection - Brooke Kuhlmann
+* Refactored install scripts to separate script paths - Brooke Kuhlmann
+
 == 11.2.0 (2021-02-27)
 
 * Added Apple Silicon instructions - Brooke Kuhlmann

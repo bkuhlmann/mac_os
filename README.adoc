@@ -28,15 +28,17 @@ toc::[]
 * Provides a command line interface, written in Bash, with no additional dependencies for
   installation and management of a macOS machine.
 * Supports macOS boot disk creation for fresh install of operating system.
-* Downloads and installs link:https://developer.apple.com/xcode[Xcode Command Line Tools].
-* Downloads, installs, and configures link:http://brew.sh[Homebrew Formulas].
-* Downloads, installs, and configures link:https://caskroom.github.io[Homebrew Casks].
-* Downloads, installs, and configures link:http://www.apple.com/macosx/whats-new/app-store.html[App
-  Store] software.
-* Downloads, installs, and configures non-App Store software applications.
-* Downloads, installs, and configures software application extensions.
-* Applies basic and default software settings.
-* Sets up and configures installed software for use.
+* Installs link:https://developer.apple.com/xcode[Xcode Command Line Tools].
+* Installs link:http://brew.sh[Homebrew] formulas and casks.
+* Installs link:http://www.apple.com/macosx/whats-new/app-store.html[App Store] software.
+* Installs non-App Store software applications.
+* Installs software application extensions.
+* Installs dotfiles.
+* Installs link:https://nodejs.org[Node] link:https://www.npmjs.com[packages].
+* Installs link:https://www.ruby-lang.org[Ruby] link:https://rubygems.org[gems].
+* Installs link:https://www.rust-lang.org[Rust] link:https://crates.io[crates].
+* Applies basic default software settings.
+* Configures installed software.
 * Supports restoration of machine backups.
 
 == Screencast
@@ -57,7 +59,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 11.2.0
+git checkout 12.0.0
 ----
 
 == Usage
@@ -83,9 +85,13 @@ Install:
    m:  Install Mac App Store software.
    a:  Install application software.
    x:  Install application software extensions.
+  df:  Install dotfiles.
+  np:  Install Node packages.
+  rg:  Install Ruby gems.
+  rc:  Install Rust crates.
    d:  Apply default settings.
-   s:  Setup installed software.
-   i:  Install everything (i.e. executes all install options).
+  cs:  Configure installed software.
+   i:  Install everything (i.e. executes all install options in order listed).
 Restore:
    R:  Restore settings from backup.
 Manage:
@@ -143,21 +149,30 @@ macOS Boot Disk Recovery:
 
 All executable scripts can be found in the `bin` folder:
 
-* `bin/apply_basic_settings`: Applies basic, initial, settings for setting up a machine. _Can be
-  customized._
-* `bin/apply_default_settings`: Applies useful system and application defaults. _Can be customized._
-* `bin/create_boot_disk`: Creates macOS boot disk.
-* `bin/install_app_store`: Installs macOS, GUI-based, App Store applications. _Can be customized._
-* `bin/install_applications`: Installs macOS, GUI-based, non-App Store applications. _Can be
-  customized._
-* `bin/install_dev_tools`: Installs macOS development tools required by Homebrew.
-* `bin/install_extensions`: Installs macOS application extensions and add-ons. _Can be customized._
-* `bin/install_homebrew_casks`: Installs Homebrew Formulas. _Can be customized._
-* `bin/install_homebrew_formulas`: Installs Homebrew Casks. _Can be customized._
-* `bin/restore_backup`: Restores system/application settings from backup image. _Can be customized._
-* `bin/run`: The main script and interface for macOS setup.
-* `bin/setup_software`: Configures and launches (if necessary) installed software. _Can be
-  customized._
+* `bin/apply_basic_settings` (optional, customizable): Applies basic and initial settings for
+  setting up a machine.
+* `bin/apply_default_settings` (optional, customizable): Applies bare minimum system and application
+  defaults.
+* `bin/configure_software` (optional, customizable): Configures installed software as part of the
+  post install process.
+* `bin/create_boot_disk` (optional): Creates a macOS boot disk.
+* `bin/install_app_store` (optional, customizable): Installs macOS, GUI-based, App Store
+  applications.
+* `bin/install_applications` (optional, customizable): Installs macOS, GUI-based, non-App Store
+  applications.
+* `bin/install_dev_tools` (required): Installs macOS development tools required by Homebrew.
+* `bin/install_dotfiles` (optional, customizable): Installs personal dotfiles so the system is
+  tailored to your workflow.
+* `bin/install_extensions` (optional, customizable): Installs macOS application extensions and
+  add-ons.
+* `bin/install_homebrew_casks` (optional, customizable): Installs Homebrew Formulas.
+* `bin/install_homebrew_formulas` (optional, customizable): Installs Homebrew Casks.
+* `bin/install_node_packages` (optional, customizable): Installs Node packages.
+* `bin/install_ruby_gems` (optional, customizable): Installs Ruby gems.
+* `bin/install_rust_crates` (optional, customizable): Installs Rust crates.
+* `bin/restore_backup` (optional, customizable): Restores system/application settings from backup
+  image.
+* `bin/run` (required): The main script and interface for macOS setup.
 
 The `lib` folder provides the base framework for installing, re-installing, and uninstalling
 software. Everything provided via the link:https://www.alchemists.io/projects/mac_os-config[macOS
