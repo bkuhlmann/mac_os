@@ -22,6 +22,8 @@ process_option() {
       bin/install_applications;;
     'x')
       bin/install_extensions;;
+    'df')
+      bin/install_dotfiles;;
     'np')
       bin/install_node_packages;;
     'rg')
@@ -41,6 +43,7 @@ process_option() {
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
+      bin/install_dotfiles
       bin/install_node_packages
       bin/install_ruby_gems
       bin/install_rust_crates

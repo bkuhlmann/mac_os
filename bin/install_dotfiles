@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+# Installs dotfiles.
+
+set -o nounset
+set -o errexit
+set -o pipefail
+IFS=$'\n\t'
+
+SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_dotfiles"
+
+if [[ -x "$SCRIPT_PATH" ]]; then
+  "$SCRIPT_PATH"
+else
+  printf "WARNING: Dotfiles install script does not exist or is not executable.\n"
+fi
