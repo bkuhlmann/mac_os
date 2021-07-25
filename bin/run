@@ -45,7 +45,7 @@ while true; do
     printf "    rc:  Install Rust crates.\n"
     printf "     d:  Apply default settings.\n"
     printf "    cs:  Configure installed software.\n"
-    printf "     i:  Install everything (i.e. executes all install options in order listed).\n"
+    printf "     i:  Install all (i.e. executes all of the above steps in order listed).\n"
     printf "  Restore:\n"
     printf "     R:  Restore settings from backup.\n"
     printf "  Manage:\n"
