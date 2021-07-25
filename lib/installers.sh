@@ -194,8 +194,8 @@ install_ruby() {
   local version="$(cat $HOME/.ruby-version | tr -d '\n')"
 
   if [[ ! -x "$(command -v ruby)" && -n $(ruby --version | grep --quiet "$version") ]]; then
-    $(get_homebrew_bin_root)/ruby-install "ruby-$version"
-    chruby "$version"
+    $(get_homebrew_bin_root)/frum install "$version"
+    $(get_homebrew_bin_root)/frum local "$version"
     gem update --system && gem update
   fi
 }
