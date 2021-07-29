@@ -129,13 +129,13 @@ export -f verify_path
 
 # Checks for missing Node packages.
 verify_node_packages() {
-  local packages=$(yarn global list --json | grep '"type":"info"')
-
   printf "\nChecking Node packages...\n"
 
   while read line; do
-    if [[ "$line" == "yarn global add"* ]]; then
+    if [[ "$line" == "npm "* ]]; then
       local package=$(printf "$line" | awk '{print $4}')
+      local packages=($(npm list --global --depth=0 | grep "$package"))
+
       verify_listed_application "$package" "${packages[*]}"
     fi
   done < "$MAC_OS_CONFIG_PATH/bin/install_node_packages"
