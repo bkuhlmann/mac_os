@@ -101,16 +101,6 @@ get_install_root() {
 }
 export -f get_install_root
 
-# Checks NPM has been installed and exits if otherwise.
-# Parameters: None.
-check_npm_install() {
-  if ! command -v npm > /dev/null; then
-    printf "%s\n" "ERROR: NPM can't be found. Please ensure Homebrew and NPM have been installed."
-    exit 1
-  fi
-}
-export -f check_npm_install
-
 # Checks Mac App Store (mas) CLI has been installed and exits if otherwise.
 # Parameters: None.
 check_mas_install() {
