@@ -48,7 +48,7 @@ image::https://www.alchemists.io/images/screencasts/mac_os/cover.svg[Screencast,
 
 == Requirements
 
-. link:https://www.apple.com/macos/big-sur[macOS Big Sur]
+. link:https://www.apple.com/macos/monterey[macOS Monterey]
 . link:https://developer.apple.com/xcode[Xcode]
 
 == Setup
