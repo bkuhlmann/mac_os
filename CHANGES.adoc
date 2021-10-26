@@ -1,5 +1,10 @@
 = Changes
 
+== 14.0.0 (2021-10-25)
+
+* Updated to macOS Monterey - Brooke Kuhlmann
+* Removed notes from pull request template - Brooke Kuhlmann
+
 == 13.0.0 (2021-08-01)
 
 * Added install Node function - Brooke Kuhlmann
