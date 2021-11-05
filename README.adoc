@@ -225,6 +225,11 @@ participating in this project you agree to abide by its terms.
 
 Read link:CONTRIBUTING.adoc[CONTRIBUTING] for details.
 
+== Community
+
+Feel free to link:https://www.alchemists.io/community[join the commmunity] for discussions related
+to this project and much more.
+
 == License
 
 Read link:LICENSE.adoc[LICENSE] for details.
