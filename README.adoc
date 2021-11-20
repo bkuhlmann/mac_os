@@ -234,7 +234,7 @@ to this project and much more.
 
 Read link:LICENSE.adoc[LICENSE] for details.
 
-== History
+== Changes
 
 Read link:CHANGES.adoc[CHANGES] for details.
 
