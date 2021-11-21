@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: Please use the following metadata when citing this project in your work.
+title: macOS
+abstract: Provides a shell based framework for automating the setup of a macOS machine.
+version: 14.0.0
+license: Hippocratic-3.0
+date-released: 2021-10-25
+authors:
+  - family-names: Kuhlmann
+    given-names: Brooke
+    affiliation: Alchemists
+    orcid: https://orcid.org/0000-0002-5810-6268
+keywords:
+ - bash
+ - shell
+ - scripts
+ - automation
+ - setup
+ - recovery
+repository-code: https://www.alchemists.io/projects/mac_os
+repository-artifact: https://www.alchemists.io/projects/mac_os
