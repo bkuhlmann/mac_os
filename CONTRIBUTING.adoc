@@ -1,12 +1,12 @@
 = Contributing
 
-Thanks for taking an interest in this open source project. Your support and involvement is greatly
-appreciated. The following details what you need to know in order to contribute.
+Thanks for taking an interest in this open source project. Your involvement and support is greatly
+appreciated. The following details what you must know to contribute.
 
 == Code
 
 . Read the project link:README.adoc[README] before starting.
-. Fork and clone the `master` branch of this repository locally.
+. Fork, clone, and create a feature branch this repository for local development.
 . Ensure there are no setup, usage, and/or test issues.
 . Add tests for new functionality and ensure they pass.
 . Submit a pull request, follow the instructions provided, and ensure the build passes.
