@@ -183,20 +183,31 @@ link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for 
 
 == Troubleshooting
 
-* When using link:https://pi-hole.net[Pi-hole], you might need to temporarily disable prior to
-  upgrading as you might experience various errors with Apple not being able to detect an internet
-  connection which prevents the installer from working.
-* When using the boot disk and the installer fails in some catestrophic manner, reboot the machine
-  into recovery mode -- `POWER` (Silicon) or `COMMAND + R` (Intel) buttons -- to download and
-  install the last operating system used. Alternatively, you can also use `COMMAND + OPTION + R`
-  (Intel) to attemp to download the latest operating system.
-* When using the boot disk, you might experience a situation where you see a black screen with a
-  white circle and diagonal line running through it. This means macOS lost or can’t find the boot
-  disk for some reason. To correct this, shut down and boot up the system again while holding down
-  the `OPTION + COMMAND + R + P` (Intel) keys simultaneously. You might want to wait for the system
-  boot sound to happen a few times before releasing the keys. This will clear the system NVRAM/PRAM.
-  At this point you can shut down and restart the system following the boot disk instructions (the
-  boot disk will be recognized now).
+* *Pi-hole*: When using link:https://pi-hole.net[Pi-hole], you might need to temporarily disable
+  prior to upgrading as you might experience various errors with Apple not being able to detect an
+  internet connection which prevents the installer from working.
+* *Recovery Mode*: When using the boot disk and the installer fails in some catastrophic manner,
+  reboot the machine into recovery mode -- pass:[<kbd>POWER</kbd>] (Silicon) or
+  pass:[<kbd>COMMAND</kbd>] + pass:[<kbd>r</kbd>] (Intel) buttons -- to download and install the
+  last operating system used. Alternatively, you can also use pass:[<kbd>COMMAND</kbd>] +
+  pass:[<kbd>OPTION</kbd>] + pass:[<kbd>r</kbd>] (Intel) to attempt to download the latest operating
+  system.
+* *NVRAM/PRAM Reset*: When using the boot disk, you might experience a situation where you see a
+  black screen with a white circle and diagonal line running through it. This means macOS lost or
+  can't find the boot disk for some reason. To correct this, shut down and boot up the system again
+  while holding down pass:[<kbd>OPTION</kbd>] + pass:[<kbd>COMMAND</kbd>] + pass:[<kbd>r</kbd>] +
+  pass:[<kbd>p</kbd>] (Intel) keys simultaneously. You might want to wait for the system boot sound
+  to happen a few times before releasing the keys. This will clear the system NVRAM/PRAM. At this
+  point you can shut down and restart the system following the boot disk instructions (the boot disk
+  will be recognized now).
+* *System Management Controller (SMC) Reset*: Sometimes it can help to reset the SMC to improve
+  system speed. To fix, follow these steps:
+** Shut down your Mac.
+** Hold down pass:[<kbd>CONTROL</kbd>] + pass:[<kbd>OPTION</kbd>] on the left side of the keyboard
+   and pass:[<kbd>SHIFT</kbd>] on the right side of the keyboard.
+** After seven seconds, hold down the Power button as well.
+** Release all keys after another seven seconds.
+** Turn on your Mac.
 
 == Development
 
