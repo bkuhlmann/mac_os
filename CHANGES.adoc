@@ -1,5 +1,19 @@
 = Changes
 
+== 15.0.0 (2021-12-27)
+
+* Fixed Hippocratic license structure - Brooke Kuhlmann
+* Fixed README changes and credits sections - Brooke Kuhlmann
+* Fixed Rubocop Bundler/OrderedGems issue - Brooke Kuhlmann
+* Fixed contributing documentation - Brooke Kuhlmann
+* Added README community link - Brooke Kuhlmann
+* Added README troubleshooting guide for SMC reset - Brooke Kuhlmann
+* Added project citation information - Brooke Kuhlmann
+* Updated GitHub issue template - Brooke Kuhlmann
+* Updated to Hippocratic License 3.0.0 - Brooke Kuhlmann
+* Updated to Ruby 3.0.3 - Brooke Kuhlmann
+* Updated to Ruby 3.1.0 - Brooke Kuhlmann
+
 == 14.0.0 (2021-10-25)
 
 * Updated to macOS Monterey - Brooke Kuhlmann
