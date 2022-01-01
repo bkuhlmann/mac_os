@@ -219,35 +219,17 @@ git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
 ----
 
-== Versioning
+== link:https://www.alchemists.io/policies/license[License]
 
-Read link:https://semver.org[Semantic Versioning] for details. Briefly, it means:
+== link:https://www.alchemists.io/policies/security[Security]
 
-* Major (X.y.z) - Incremented for any backwards incompatible public API changes.
-* Minor (x.Y.z) - Incremented for new, backwards compatible, public API enhancements/fixes.
-* Patch (x.y.Z) - Incremented for small, backwards compatible, bug fixes.
+== link:https://www.alchemists.io/policies/code_of_conduct[Code of Conduct]
 
-== Code of Conduct
+== link:https://www.alchemists.io/policies/contributions[Contributions]
 
-Please note that this project is released with a link:CODE_OF_CONDUCT.adoc[CODE OF CONDUCT]. By
-participating in this project you agree to abide by its terms.
+== link:https://www.alchemists.io/projects/mac_os/versions[Versions]
 
-== Contributions
-
-Read link:CONTRIBUTING.adoc[CONTRIBUTING] for details.
-
-== Community
-
-Feel free to link:https://www.alchemists.io/community[join the commmunity] for discussions related
-to this project and much more.
-
-== License
-
-Read link:LICENSE.adoc[LICENSE] for details.
-
-== Changes
-
-Read link:CHANGES.adoc[CHANGES] for details.
+== link:https://www.alchemists.io/community[Community]
 
 == Credits
 
