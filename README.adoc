@@ -4,9 +4,6 @@
 
 = macOS
 
-[link=https://circleci.com/gh/bkuhlmann/mac_os]
-image::https://circleci.com/gh/bkuhlmann/mac_os.svg?style=svg[Circle CI Status]
-
 Shell scripts for automated macOS machine setup.
 
 This project is a framework for automating the setup of a macOS machine. In order to illustrate the
