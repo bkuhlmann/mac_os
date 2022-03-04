@@ -1,5 +1,15 @@
 = Versions
 
+== 15.0.2 (2022-03-03)
+
+* Fixed Hippocratic License to be 2.1.0 version - Brooke Kuhlmann
+* Added Caliber gem - Brooke Kuhlmann
+* Added Ruby version to Gemfile - Brooke Kuhlmann
+* Updated default Rake task to include Git Lint and Rubocop - Brooke Kuhlmann
+* Updated to Git Lint 3.2.0 - Brooke Kuhlmann
+* Updated to Ruby 3.1.1 - Brooke Kuhlmann
+* Removed README badges - Brooke Kuhlmann
+
 == 15.0.1 (2022-01-01)
 
 * Updated README policy section links - Brooke Kuhlmann
