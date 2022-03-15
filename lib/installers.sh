@@ -139,6 +139,8 @@ export -f install_git_project
 install_homebrew() {
   if ! command -v brew > /dev/null; then
     /bin/bash -c "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "eval \"($(get_homebrew_bin_root)/brew shellenv)\"" > $HOME/.zprofile
+    eval "$($(get_homebrew_bin_root)/brew shellenv)"
   fi
 }
 export -f install_homebrew
