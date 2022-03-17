@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: Please use the following metadata when citing this project in your work.
 title: macOS
 abstract: Provides a shell based framework for automating the setup of a macOS machine.
-version: 15.0.2
+version: 15.0.3
 license: Hippocratic-2.1
-date-released: 2022-03-03
+date-released: 2022-03-16
 authors:
   - family-names: Kuhlmann
     given-names: Brooke
