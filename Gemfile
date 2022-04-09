@@ -4,6 +4,6 @@ ruby File.read(".ruby-version").strip
 
 source "https://rubygems.org"
 
-gem "caliber", "~> 0.4"
+gem "caliber", "~> 0.5"
 gem "git-lint", "~> 3.2"
 gem "rake", "~> 13.0"
