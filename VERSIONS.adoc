@@ -1,5 +1,13 @@
 = Versions
 
+== 15.0.4 (2022-04-17)
+
+* Added GitHub sponsorship configuration - Brooke Kuhlmann
+* Updated to Caliber 0.4.0 - Brooke Kuhlmann
+* Updated to Caliber 0.5.0 - Brooke Kuhlmann
+* Updated to Git Lint 4.0.0 - Brooke Kuhlmann
+* Updated to Ruby 3.1.2 - Brooke Kuhlmann
+
 == 15.0.3 (2022-03-16)
 
 * Fixed Homebrew install to initially default to ZSH - Brooke Kuhlmann
