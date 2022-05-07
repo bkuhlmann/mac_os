@@ -1,5 +1,11 @@
 = Versions
 
+== 15.0.5 (2022-05-07)
+
+* Updated to Caliber 0.6.0 - Brooke Kuhlmann
+* Updated to Caliber 0.7.0 - Brooke Kuhlmann
+* Updated to Caliber 0.8.0 - Brooke Kuhlmann
+
 == 15.0.4 (2022-04-17)
 
 * Added GitHub sponsorship configuration - Brooke Kuhlmann
