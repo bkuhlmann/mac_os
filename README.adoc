@@ -178,7 +178,7 @@ link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for 
 
 * `lib/settings.sh`: Defines global settings for software applications, extensions, etc.
 
-== Troubleshooting
+=== Troubleshooting
 
 * *Pi-hole*: When using link:https://pi-hole.net[Pi-hole], you might need to temporarily disable
   prior to upgrading as you might experience various errors with Apple not being able to detect an
