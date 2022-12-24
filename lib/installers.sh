@@ -218,7 +218,6 @@ install_ruby() {
                                             --enable-shared \
                                             --disable-silent-rules
     "$(get_homebrew_bin_root)"/frum local "$version"
-    gem update --system && gem update
   fi
 }
 export -f install_ruby
