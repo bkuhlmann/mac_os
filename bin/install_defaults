@@ -1,13 +1,13 @@
 #! /usr/bin/env bash
 
-# Applies default settings.
+# Installs system and application default settings.
 
 set -o nounset
 set -o errexit
 set -o pipefail
 IFS=$'\n\t'
 
-SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/apply_default_settings"
+SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_defaults"
 
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"

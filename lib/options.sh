@@ -9,7 +9,7 @@ process_option() {
     'B')
       bin/create_boot_disk;;
     'b')
-      bin/apply_basic_settings;;
+      bin/install_basics;;
     't')
       bin/install_dev_tools;;
     'hf')
@@ -31,10 +31,10 @@ process_option() {
     'rc')
       bin/install_rust_crates;;
     'd')
-      bin/apply_default_settings;;
+      bin/install_defaults;;
     'i')
       caffeinate_machine
-      bin/apply_basic_settings
+      bin/install_basics
       bin/install_dev_tools
       bin/install_homebrew_formulas
       bin/install_homebrew_casks
@@ -45,7 +45,7 @@ process_option() {
       bin/install_node_packages
       bin/install_ruby_gems
       bin/install_rust_crates
-      bin/apply_default_settings
+      bin/install_defaults
       clean_work_path;;
     'R')
       caffeinate_machine
