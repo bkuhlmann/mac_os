@@ -32,8 +32,6 @@ process_option() {
       bin/install_rust_crates;;
     'd')
       bin/apply_default_settings;;
-    'cs')
-      bin/configure_software;;
     'i')
       caffeinate_machine
       bin/apply_basic_settings
@@ -48,7 +46,6 @@ process_option() {
       bin/install_ruby_gems
       bin/install_rust_crates
       bin/apply_default_settings
-      bin/configure_software
       clean_work_path;;
     'R')
       caffeinate_machine
