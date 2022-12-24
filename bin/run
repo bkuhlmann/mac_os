@@ -4,9 +4,7 @@
 
 source lib/installers.sh
 source lib/options.sh
-source lib/reinstallers.sh
 source lib/settings.sh
-source lib/uninstallers.sh
 source lib/utilities.sh
 source lib/verifiers.sh
 
@@ -51,10 +49,6 @@ while true; do
     printf "  Manage:\n"
     printf "     c:  Check status of managed software.\n"
     printf "     C:  Caffeinate machine.\n"
-    printf "    ua:  Uninstall application software.\n"
-    printf "    ux:  Uninstall application software extension.\n"
-    printf "    ra:  Reinstall application software.\n"
-    printf "    rx:  Reinstall application software extension.\n"
     printf "     w:  Clean work (temp) directory.\n"
     printf "     q:  Quit/Exit.\n\n"
     read -p "Enter selection: " response

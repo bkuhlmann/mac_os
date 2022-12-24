@@ -64,14 +64,6 @@ process_option() {
       verify_rust_crates;;
     'C')
       caffeinate_machine;;
-    'ua')
-      uninstall_application;;
-    'ux')
-      uninstall_extension;;
-    'ra')
-      reinstall_application;;
-    'rx')
-      reinstall_extension;;
     'w')
       clean_work_path;;
     'q');;
