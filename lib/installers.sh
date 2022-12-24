@@ -11,8 +11,16 @@ download_file() {
 
   printf "%s\n" "Downloading $1..."
   clean_work_path
-  mkdir $MAC_OS_WORK_PATH
-  curl --header "$http_header" --location --retry 3 --retry-delay 5 --fail --silent --show-error "$url" >> "$MAC_OS_WORK_PATH/$file_name"
+  mkdir "$MAC_OS_WORK_PATH"
+
+  curl --header "$http_header" \
+       --location \
+       --retry 3 \
+       --retry-delay 5 \
+       --fail \
+       --silent \
+       --show-error \
+       "$url" >> "$MAC_OS_WORK_PATH/$file_name"
 }
 export -f download_file
 
