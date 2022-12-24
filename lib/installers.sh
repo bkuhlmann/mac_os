@@ -205,8 +205,11 @@ install_ruby() {
   local version="$(cat $HOME/.ruby-version | tr -d '\n')"
 
   if [[ ! -x "$(command -v ruby)" && -n $(ruby --version | grep --quiet "$version") ]]; then
-    $(get_homebrew_bin_root)/frum install "$version"
-    $(get_homebrew_bin_root)/frum local "$version"
+    "$(get_homebrew_bin_root)"/frum install "$version" \
+                                            --with-openssl-dir="$(brew --prefix openssl)" \
+                                            --enable-shared \
+                                            --disable-silent-rules
+    "$(get_homebrew_bin_root)"/frum local "$version"
     gem update --system && gem update
   fi
 }
