@@ -22,16 +22,12 @@ process_option() {
       bin/install_applications;;
     'x')
       bin/install_extensions;;
-    'df')
-      bin/install_dotfiles;;
-    'np')
-      bin/install_node_packages;;
-    'rg')
-      bin/install_ruby_gems;;
-    'rc')
-      bin/install_rust_crates;;
     'd')
       bin/install_defaults;;
+    's')
+      bin/install_shell;;
+    'r')
+      bin/restore_backup;;
     'i')
       caffeinate_machine
       bin/install_basics
@@ -41,16 +37,21 @@ process_option() {
       bin/install_app_store
       bin/install_applications
       bin/install_extensions
-      bin/install_dotfiles
+      bin/install_defaults
+      bin/install_shell
+      bin/restore_backup
+      clean_work_path;;
+    'np')
+      bin/install_node_packages;;
+    'rg')
+      bin/install_ruby_gems;;
+    'rc')
+      bin/install_rust_crates;;
+    'l')
       bin/install_node_packages
       bin/install_ruby_gems
-      bin/install_rust_crates
-      bin/install_defaults
-      clean_work_path;;
-    'R')
-      caffeinate_machine
-      bin/restore_backup;;
-    'c')
+      bin/install_rust_crates;;
+   'c')
       verify_homebrew_formulas
       verify_homebrew_casks
       verify_app_store_applications
