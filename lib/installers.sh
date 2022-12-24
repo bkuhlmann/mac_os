@@ -201,8 +201,8 @@ export -f install_program
 # Installs Node.
 # Parameters: None.
 install_node() {
-  if ! command -v fnm > /dev/null; then
-    $(get_homebrew_bin_root)/fnm install --lts
+  if [[ ! -x "$(command -v node)" ]]; then
+    "$(get_homebrew_bin_root)/fnm" install --latest
   fi
 }
 export -f install_node
