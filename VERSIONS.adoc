@@ -1,5 +1,23 @@
 = Versions
 
+== 16.0.0 (2022-12-25)
+
+* Fixed Node installer to detect Node and version - Brooke Kuhlmann
+* Fixed Ruby installer to pass configuration options - Brooke Kuhlmann
+* Updated README sections - Brooke Kuhlmann
+* Updated installs for basic, default, and shell scripts - Brooke Kuhlmann
+* Updated run script to distinquish between applications and libraries - Brooke Kuhlmann
+* Updated to Caliber 0.11.0 - Brooke Kuhlmann
+* Updated to Caliber 0.16.0 - Brooke Kuhlmann
+* Updated to Ruby 3.1.3 - Brooke Kuhlmann
+* Updated to Ruby 3.2.0 - Brooke Kuhlmann
+* Updated to macOS Ventura - Brooke Kuhlmann
+* Removed configure software script - Brooke Kuhlmann
+* Removed mention of Intel CPUs from boot disk instructions - Brooke Kuhlmann
+* Removed system update from Ruby install - Brooke Kuhlmann
+* Removed uninstallers and reinstallers - Brooke Kuhlmann
+* Refactored download file function to use multi-line curl command - Brooke Kuhlmann
+
 == 15.0.5 (2022-05-07)
 
 * Updated to Caliber 0.6.0 - Brooke Kuhlmann
