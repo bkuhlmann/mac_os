@@ -1,5 +1,12 @@
 = Versions
 
+== 16.0.1 (2023-02-05)
+
+* Added Rake binstub - Brooke Kuhlmann
+* Updated to Caliber 0.21.0 - Brooke Kuhlmann
+* Updated to Caliber 0.25.0 - Brooke Kuhlmann
+* Updated to Git Lint 5.0.0 - Brooke Kuhlmann
+
 == 16.0.0 (2022-12-25)
 
 * Fixed Node installer to detect Node and version - Brooke Kuhlmann
