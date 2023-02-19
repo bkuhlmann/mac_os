@@ -8,13 +8,13 @@ Shell scripts for automated macOS machine setup.
 
 This project is a framework for automating the setup of a macOS machine. In order to illustrate the
 potential of what this project can do, please see the companion
-link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for details. The _macOS
+link:https://alchemists.io/projects/mac_os-config[macOS Config] project for details. The _macOS
 Config_ project is an opinionated configuration which meets the needs of my development environment
 but is also meant to serve as an example and guide for building your own personalized setup. Here is
 how the two projects are meant to be used:
 
 * *macOS* (this project) - The foundational framework for building custom macOS machine setups.
-* *link:https://www.alchemists.io/projects/mac_os-config[macOS Configuration]* - The layer on top of
+* *link:https://alchemists.io/projects/mac_os-config[macOS Configuration]* - The layer on top of
   this _macOS_ project which defines a custom machine implementation. The project is meant to be
   forked for as many custom machine setups as needed.
 
@@ -40,8 +40,8 @@ toc::[]
 
 == Screencast
 
-[link=https://www.alchemists.io/screencasts/mac_os]
-image::https://www.alchemists.io/images/screencasts/mac_os/cover.svg[Screencast,600,240,role=focal_point]
+[link=https://alchemists.io/screencasts/mac_os]
+image::https://alchemists.io/images/screencasts/mac_os/cover.svg[Screencast,600,240,role=focal_point]
 
 == Requirements
 
@@ -172,9 +172,9 @@ All executable scripts can be found in the `bin` folder:
 * `bin/run` (required): The main script and interface for macOS setup.
 
 The `lib` folder provides the base framework for installing, re-installing, and uninstalling
-software. Everything provided via the link:https://www.alchemists.io/projects/mac_os-config[macOS
+software. Everything provided via the link:https://alchemists.io/projects/mac_os-config[macOS
 Config] project is built upon the functions found in the `lib` folder. See the
-link:https://www.alchemists.io/projects/mac_os-config[macOS Config] project for further details.
+link:https://alchemists.io/projects/mac_os-config[macOS Config] project for further details.
 
 * `lib/settings.sh`: Defines global settings for software applications, extensions, etc.
 
@@ -216,18 +216,18 @@ git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
 ----
 
-== link:https://www.alchemists.io/policies/license[License]
+== link:https://alchemists.io/policies/license[License]
 
-== link:https://www.alchemists.io/policies/security[Security]
+== link:https://alchemists.io/policies/security[Security]
 
-== link:https://www.alchemists.io/policies/code_of_conduct[Code of Conduct]
+== link:https://alchemists.io/policies/code_of_conduct[Code of Conduct]
 
-== link:https://www.alchemists.io/policies/contributions[Contributions]
+== link:https://alchemists.io/policies/contributions[Contributions]
 
-== link:https://www.alchemists.io/projects/mac_os/versions[Versions]
+== link:https://alchemists.io/projects/mac_os/versions[Versions]
 
-== link:https://www.alchemists.io/community[Community]
+== link:https://alchemists.io/community[Community]
 
 == Credits
 
-Engineered by link:https://www.alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].
+Engineered by link:https://alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].
