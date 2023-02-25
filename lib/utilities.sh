@@ -77,18 +77,10 @@ export -f get_install_path
 # Parameters: $1 (required) - The file name.
 get_install_root() {
   local file_name="$1"
-  local file_extension=$(get_extension "$file_name")
 
-  # Special cases not supported by Homebrew.
-  if [[ "$file_name" == "elm" ]]; then
-    printf "/usr/local/bin"
-    return
-  fi
-
-  # Dynamically build the install path based on file extension.
-  case $file_extension in
+  case $(get_extension "$file_name") in
     '')
-      printf "$(get_homebrew_bin_root)";;
+      printf "/usr/local/bin";;
     'app')
       printf "/Applications";;
     'prefPane')
