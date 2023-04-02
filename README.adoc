@@ -56,7 +56,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 16.0.1
+git checkout 16.0.2
 ----
 
 == Usage
