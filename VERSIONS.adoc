@@ -1,5 +1,9 @@
 = Versions
 
+== 16.0.3 (2023-05-18)
+
+* Updated to Caliber 0.30.0 - Brooke Kuhlmann
+
 == 16.0.2 (2023-04-02)
 
 * Fixed programs without extensions to install to user directory - Brooke Kuhlmann
