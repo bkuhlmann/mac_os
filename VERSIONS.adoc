@@ -1,5 +1,11 @@
 = Versions
 
+== 16.0.4 (2023-06-19)
+
+* Updated to Caliber 0.35.0 - Brooke Kuhlmann
+* Updated to Git Lint 6.0.0 - Brooke Kuhlmann
+* Updated to Refinements 11.0.0 - Brooke Kuhlmann
+
 == 16.0.3 (2023-05-18)
 
 * Updated to Caliber 0.30.0 - Brooke Kuhlmann
