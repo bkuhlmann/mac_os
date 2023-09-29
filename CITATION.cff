@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: Please use the following metadata when citing this project in your work.
 title: macOS
 abstract: Shell scripts for automated macOS machine setup.
-version: 16.0.4
+version: 17.0.0
 license: Hippocratic-2.1
-date-released: 2023-06-19
+date-released: 2023-09-28
 authors:
   - family-names: Kuhlmann
     given-names: Brooke

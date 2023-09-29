@@ -1,5 +1,10 @@
 = Versions
 
+== 17.0.0 (2023-09-28)
+
+* Added Debug gem - Brooke Kuhlmann
+* Updated to macOS Sonoma - Brooke Kuhlmann
+
 == 16.0.4 (2023-06-19)
 
 * Updated to Caliber 0.35.0 - Brooke Kuhlmann
