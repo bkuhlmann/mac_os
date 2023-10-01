@@ -1,11 +1,8 @@
-## Overview
-<!-- Required. Describe, briefly, the behavior experienced and desired. -->
+## Why
+<!-- Required. Describe, briefly, why this issue is important. -->
 
-## Screenshots/Screencasts
-<!-- Optional. Attach screenshot(s) and/or screencast(s) that demo the behavior. -->
+## How
+<!-- Optional. List exact steps (numbered) to implement or reproduce behavior. Screen shots/casts are welcome. -->
 
-## Steps to Recreate
-<!-- Required. List exact steps (numbered list) to reproduce errant behavior. -->
-
-## Environment
-<!-- Required. What is your operating system, software version(s), etc. -->
+## Notes
+<!-- Optional. Provide additional details (i.e operating system, software version(s), stack dump, etc.) -->
