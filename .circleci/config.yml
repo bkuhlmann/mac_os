@@ -8,24 +8,24 @@ jobs:
       - checkout
 
       - restore_cache:
-          name: Bundler Restore
+          name: Gems Restore
           keys:
             - gem-cache-{{.Branch}}-{{checksum "Gemfile"}}
             - gem-cache-
 
       - run:
-          name: Bundler Install
+          name: Gems Install
           command: |
             gem update --system
             bundle config set path "vendor/bundle"
             bundle install
 
       - save_cache:
-          name: Bundler Store
+          name: Gems Store
           key: gem-cache-{{.Branch}}-{{checksum "Gemfile"}}
           paths:
             - vendor/bundle
 
       - run:
-          name: Build
+          name: Rake
           command: bundle exec rake
