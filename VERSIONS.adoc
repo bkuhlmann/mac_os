@@ -1,5 +1,15 @@
 = Versions
 
+== 18.0.0 (2024-01-01)
+
+* Added Rakefile quality task - Brooke Kuhlmann
+* Updated Circle CI step names - Brooke Kuhlmann
+* Updated GitHub issue template with simplified sections - Brooke Kuhlmann
+* Updated gem dependencies - Brooke Kuhlmann
+* Updated to Caliber 0.42.0 - Brooke Kuhlmann
+* Updated to Ruby 3.3.0 - Brooke Kuhlmann
+* Refactored Gemfile to use ruby file syntax - Brooke Kuhlmann
+
 == 17.0.0 (2023-09-28)
 
 * Added Debug gem - Brooke Kuhlmann
