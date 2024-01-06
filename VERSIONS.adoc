@@ -1,6 +1,6 @@
 = Versions
 
-== 18.0.0 (2024-01-01)
+== 18.0.0 (2024-01-06)
 
 * Added Rakefile quality task - Brooke Kuhlmann
 * Updated Circle CI step names - Brooke Kuhlmann

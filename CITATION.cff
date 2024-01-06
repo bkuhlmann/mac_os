@@ -4,7 +4,7 @@ title: macOS
 abstract: Shell scripts for automated macOS machine setup.
 version: 18.0.0
 license: Hippocratic-2.1
-date-released: 2023-09-28
+date-released: 2024-01-06
 authors:
   - family-names: Kuhlmann
     given-names: Brooke
