@@ -2,8 +2,10 @@
 
 # Defines command line prompt options.
 
-# Process option selection.
-# Parameters: $1 (required) - The option to process.
+
+# Label: Process Option
+# Description: Run script based on selection.
+# Parameters: $1 (required): The option to process.
 process_option() {
   case $1 in
     'B')

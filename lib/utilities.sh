@@ -2,11 +2,10 @@
 
 # Defines general utility functions.
 
-# Caffeinate machine.
+# Label: Caffeinate Machine
+# Description: Keep machine running for a very long time.
 caffeinate_machine() {
-  local pid=$(pgrep -x caffeinate)
-
-  if [[ -n "$pid" ]]; then
+  if [[ -n "$(pgrep -x caffeinate)" ]]; then
     printf "Machine is already caffeinated!\n"
   else
     caffeinate -s -u -d -i -t 3153600000 > /dev/null &
@@ -15,35 +14,40 @@ caffeinate_machine() {
 }
 export -f caffeinate_machine
 
-# Cleans work path for temporary processing of installs.
+# Label: Clean Work Path
+# Description: Clean work path of artifacts.
 clean_work_path() {
   rm -rf "$MAC_OS_WORK_PATH"
 }
 export -f clean_work_path
 
-# Answers the file or directory basename.
-# Parameters: $1 (required) - The file path.
+# Label: Get Basename
+# Description: Answer file or directory basename.
+# Parameters: $1 (required): Path.
 get_basename() {
-  printf "${1##*/}" # Answers file or directory name.
+  printf "%s" "${1##*/}"
 }
 export -f get_basename
 
-# Answers the file extension.
-# Parameters: $1 (required) - The file name.
+# Label: Get Extension
+# Description: Answer file extension without dot prefix.
+# Parameters: $1 (required): Path.
 get_extension() {
-  local name=$(get_basename "$1")
-  local extension="${1##*.}" # Excludes dot.
+  local name=""
+  local extension="${1##*.}"
+
+  name=$(get_basename "$1")
 
   if [[ "$name" == "$extension" ]]; then
     printf ''
   else
-    printf "$extension"
+    printf "%s" "$extension"
   fi
 }
 export -f get_extension
 
-# Answers Homebrew root path.
-# Parameters: None.
+# Label: Get Homebrew Root
+# Description: Answer Homebrew root path.
 get_homebrew_root() {
   if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
     printf "%s" "/opt/homebrew"
@@ -53,8 +57,8 @@ get_homebrew_root() {
 }
 export -f get_homebrew_root
 
-# Answers Homebrew binary root path.
-# Parameters: None.
+# Label: Get Homebrew Bin Root
+# Description: Answer Homebrew binary root path.
 get_homebrew_bin_root() {
   if [[ "$(/usr/bin/arch)" == "arm64" ]]; then
     printf "%s" "/opt/homebrew/bin"
@@ -64,17 +68,22 @@ get_homebrew_bin_root() {
 }
 export -f get_homebrew_bin_root
 
-# Answers the full install path (including file name) for file name.
-# Parameters: $1 (required) - The file name.
+# Label: Get Install Path
+# Description: Answer full install path (including file name).
+# Parameters: $1 (required): Path.
 get_install_path() {
   local file_name="$1"
-  local install_path=$(get_install_root "$file_name")
-  printf "$install_path/$file_name"
+  local install_path=""
+
+  install_path=$(get_install_root "$file_name")
+
+  printf "%s" "$install_path/$file_name"
 }
 export -f get_install_path
 
-# Answers the root install path for file name.
-# Parameters: $1 (required) - The file name.
+# Label: Get Install Root
+# Description: Answer root install path.
+# Parameters: $1 (required): Path.
 get_install_root() {
   local file_name="$1"
 
@@ -93,19 +102,19 @@ get_install_root() {
 }
 export -f get_install_root
 
-# Checks Mac App Store (mas) CLI has been installed and exits if otherwise.
-# Parameters: None.
+# Label: Check Mac App Store Install
+# Description: Check Mac App Store (mas) CLI has been installed.
 check_mas_install() {
   if ! command -v mas > /dev/null; then
     printf "%s\n" "ERROR: Mac App Store (mas) CLI can't be found."
-    printf "%s\n" "       Please ensure Homebrew and mas (i.e. brew install mas) have been installed."
+    printf "%s\n" "       Please ensure mas (i.e. brew install mas) is installed."
     exit 1
   fi
 }
 export -f check_mas_install
 
-# Configures shell for new machines and ensures PATH is properly configured for running scripts.
-# Parameters: None.
+# Label: Configure Environment
+# Description: Configure shell and ensure PATH is properly configured.
 configure_environment() {
   if [[ ! -s "$HOME/.bash_profile" ]]; then
     printf "%s\n" "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" > "$HOME/.bash_profile"

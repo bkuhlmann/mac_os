@@ -2,8 +2,9 @@
 
 # Defines software installer functions.
 
-# Downloads remote file to local disk.
-# Parameters: $1 (required) - URL, $2 (required) - File name, $3 (optional) - HTTP header.
+# Label: Download File
+# Description: Download remote file to local disk.
+# Parameters: $1 (required): URL, $2 (required): File name, $3 (optional): HTTP header.
 download_file() {
   local url="$1"
   local file_name="$2"
@@ -24,37 +25,46 @@ download_file() {
 }
 export -f download_file
 
-# Installs an application.
-# Parameters: $1 (required) - Application source path, $2 (required) - Application name.
+# Label: Install Application
+# Description: Install an application.
+# Parameters: $1 (required): Install path, $2 (required): Name.
 install_app() {
-  local install_root=$(get_install_root "$2")
-  local file_extension=$(get_extension "$2")
+  local install_path="$1"
+  local name="$2"
+  local install_root=""
+  local file_extension=""
 
-  printf "Installing: $install_root/$2...\n"
+  install_root=$(get_install_root "$name")
+  file_extension=$(get_extension "$name")
+
+  printf "%s\n" "Installing: $install_root/$name..."
 
   case $file_extension in
     '')
-      cp -a "$1/$2" "$install_root";;
+      cp -a "$install_path/$name" "$install_root";;
     'app')
-      cp -a "$1/$2" "$install_root";;
+      cp -a "$install_path/$name" "$install_root";;
     'prefPane')
-      sudo cp -pR "$1/$2" "$install_root";;
+      sudo cp -pR "$install_path/$name" "$install_root";;
     'qlgenerator')
-      sudo cp -pR "$1/$2" "$install_root" && qlmanage -r;;
+      sudo cp -pR "$install_path/$name" "$install_root" && qlmanage -r;;
     *)
-      printf "ERROR: Unknown file extension: $file_extension.\n"
+      printf "%s\n" "ERROR: Unknown file extension: $file_extension."
   esac
 }
 export -f install_app
 
-# Installs an application via a DMG file.
-# Parameters: $1 (required) - URL, $2 (required) - Mount path, $3 (required) - Application name.
+# Label: Install DMG Application
+# Description: Install DMG application.
+# Parameters: $1 (required): URL, $2 (required): Mount path, $3 (required): Application name.
 install_dmg_app() {
   local url="$1"
   local mount_point="/Volumes/$2"
   local app_name="$3"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="download.dmg"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
@@ -66,66 +76,76 @@ install_dmg_app() {
 }
 export -f install_dmg_app
 
-# Installs a package via a DMG file.
-# Parameters: $1 (required) - URL, $2 (required) - Mount path, $3 (required) - Application name.
+# Label: Install DMG Package
+# Description: Install DMG application via a package file.
+# Parameters: $1 (required): URL, $2 (required): Mount path, $3 (required): Application name.
 install_dmg_pkg() {
   local url="$1"
   local mount_point="/Volumes/$2"
   local app_name="$3"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="download.dmg"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
     mount_image "$MAC_OS_WORK_PATH/$work_file"
     install_pkg "$mount_point" "$app_name"
     unmount_image "$mount_point"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installed: $app_name."
     verify_application "$app_name"
   fi
 }
 export -f install_dmg_pkg
 
-# Installs a single file.
-# Parameters: $1 (required) - URL, $2 (required) - Install path.
+# Label: Install File
+# Description: Install a single file.
+# Parameters: $1 (required): URL, $2 (required): Install path.
 install_file() {
   local file_url="$1"
-  local file_name=$(get_basename "$1")
+  local file_name=""
   local install_path="$2"
+
+  file_name=$(get_basename "$1")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$file_url" "$file_name"
     mkdir -p $(dirname "$install_path")
     mv "$MAC_OS_WORK_PATH/$file_name" "$install_path"
-    printf "Installed: $file_name.\n"
+    printf "%s\n" "Installed: $file_name."
     verify_path "$install_path"
   fi
 }
 export -f install_file
 
-# Installs application code from a Git repository.
-# Parameters: $1 (required) - Repository URL, $2 (required) - Install path, $3 (optional) - Git clone options.
+# Label: Install Git Application
+# Description: Install application from a Git repository.
+# Parameters: $1 (required): URL, $2 (required): Install path, $3 (optional): Git clone options.
 install_git_app() {
-  local repository_url="$1"
-  local app_name=$(get_basename "$2")
+  local url="$1"
   local install_path="$2"
+  local app_name=""
   local options="--quiet"
+
+  app_name="$(get_basename "$2")"
 
   if [[ -n "$3" ]]; then
     local options="$options $3"
   fi
 
   if [[ ! -e "$install_path" ]]; then
-    printf "Installing: $install_path/$app_name...\n"
-    git clone $options "$repository_url" "$install_path"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installing: $install_path..."
+    git clone $options "$url" "$install_path"
+    printf "%s\n" "Installed: $app_name."
     verify_path "$install_path"
   fi
 }
 export -f install_git_app
 
-# Installs settings from a Git repository.
-# Parameters: $1 (required) - Repository URL, $2 (required) - Repository version, $3 (required) - Project directory, $4 (required) - Script to run (including any arguments).
+# Label: Install Git Project
+# Description: Install Git project.
+# Parameters: $1 (required): URL, $2 (required): Version, $3 (required): Project directory, $4 (required): Script to run (including any arguments).
 install_git_project() {
   local repo_url="$1"
   local repo_version="$2"
@@ -142,64 +162,76 @@ install_git_project() {
 }
 export -f install_git_project
 
-# Installs Homebrew.
-# Parameters: None.
+# Label: Install Homebrew
+# Description: Install and setup Homebrew.
 install_homebrew() {
   if ! command -v brew > /dev/null; then
     /bin/bash -c "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo "eval \"($(get_homebrew_bin_root)/brew shellenv)\"" > $HOME/.zprofile
+    echo "eval \"($(get_homebrew_bin_root)/brew shellenv)\"" > "$HOME/.zprofile"
     eval "$($(get_homebrew_bin_root)/brew shellenv)"
   fi
 }
 export -f install_homebrew
 
-# Installs a package via a zip file.
-# Parameters: $1 (required) - URL, $2 (required) - Application name.
+# Label: Install Bare Package
+# Description: Install a bare package.
+# Parameters: $1 (required): URL, $2 (required): Application name.
 install_bare_pkg() {
   local url="$1"
   local app_name="$2"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="$app_name.pkg"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
     install_pkg "$MAC_OS_WORK_PATH" "$app_name"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installed: $app_name."
     verify_application "$app_name"
   fi
 }
 export -f install_bare_pkg
 
-# Installs a package.
-# Parameters: $1 (required) - Package source path, $2 (required) - Application name.
+# Label: Install Package
+# Description: Install local package.
+# Parameters: $1 (required): Package source path, $2 (required): Application name.
 install_pkg() {
-  local install_root=$(get_install_root "$2")
+  local source_path="$1"
+  local name="$2"
+  local install_root=""
+  local package=""
 
-  printf "Installing: $install_root/$2...\n"
-  local package=$(sudo find "$1" -maxdepth 1 -type f -name "*.pkg" -o -name "*.mpkg")
+  install_root=$(get_install_root "$name")
+  package=$(sudo find "$source_path" -maxdepth 1 -type f -name "*.pkg" -o -name "*.mpkg")
+
+  printf "%s\n" "Installing: $install_root/$name..."
   sudo installer -pkg "$package" -target /
 }
 export -f install_pkg
 
-# Installs program (single file).
-# Parameters: $1 (required) - URL, $2 (required) - Program name.
+# Label: Install Program
+# Description: Installs program without any packaging.
+# Parameters: $1 (required): URL, $2 (required): Name.
 install_program() {
   local url="$1"
   local program_name="$2"
-  local install_path=$(get_install_path "$program_name")
+  local install_path=""
+
+  install_path=$(get_install_path "$program_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$program_name"
     mv "$MAC_OS_WORK_PATH/$program_name" "$install_path"
     chmod 755 "$install_path"
-    printf "Installed: $program_name.\n"
+    printf "%s\n" "Installed: $program_name."
     verify_application "$program_name"
   fi
 }
 export -f install_program
 
-# Installs Node.
-# Parameters: None.
+# Label: Install Node
+# Description: Install and setup Node for local development.
 install_node() {
   if [[ ! -x "$(command -v node)" ]]; then
     "$(get_homebrew_bin_root)/fnm" install --latest
@@ -207,10 +239,12 @@ install_node() {
 }
 export -f install_node
 
-# Installs Ruby.
-# Parameters: None.
+# Label: Install Ruby
+# Description: Install and setup Ruby for local development.
 install_ruby() {
-  local version="$(cat $HOME/.ruby-version | tr -d '\n')"
+  local version=""
+
+  version="$(cat $HOME/.ruby-version | tr -d '\n')"
 
   if [[ ! -x "$(command -v ruby)" && -n $(ruby --version | grep --quiet "$version") ]]; then
     "$(get_homebrew_bin_root)"/frum install "$version" \
@@ -222,8 +256,8 @@ install_ruby() {
 }
 export -f install_ruby
 
-# Installs Rust.
-# Parameters: None.
+# Label: Install Rust
+# Description: Install and setup Rust for local development.
 install_rust() {
   if ! command -v cargo > /dev/null; then
     curl --proto "=https" --tlsv1.2 --fail --silent --show-error https://sh.rustup.rs | sh
@@ -231,14 +265,17 @@ install_rust() {
 }
 export -f install_rust
 
-# Installs an application via a tar file.
-# Parameters: $1 (required) - URL, $2 (required) - Application name, $3 (required) - Decompress options.
+# Label: Install Tar Application
+# Description: Install application from tar file.
+# Parameters: $1 (required): URL, $2 (required): Name, $3 (required): Decompress options.
 install_tar_app() {
   local url="$1"
   local app_name="$2"
   local options="$3"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="download.tar"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
@@ -250,19 +287,22 @@ install_tar_app() {
     )
 
     install_app "$MAC_OS_WORK_PATH" "$app_name"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installed: $app_name."
     verify_application "$app_name"
   fi
 }
 export -f install_tar_app
 
-# Installs an application via a zip file.
-# Parameters: $1 (required) - URL, $2 (required) - Application name.
+# Label: Install Zip Application
+# Description: Install application from zip file.
+# Parameters: $1 (required): URL, $2 (required): Name.
 install_zip_app() {
   local url="$1"
   local app_name="$2"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="download.zip"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
@@ -275,19 +315,22 @@ install_zip_app() {
     )
 
     install_app "$MAC_OS_WORK_PATH" "$app_name"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installed: $app_name."
     verify_application "$app_name"
   fi
 }
 export -f install_zip_app
 
-# Installs a package via a zip file.
-# Parameters: $1 (required) - URL, $2 (required) - Application name.
+# Label: Install Zip Package
+# Description: Install application from a package within a zip file.
+# Parameters: $1 (required): URL, $2 (required): Application name.
 install_zip_pkg() {
   local url="$1"
   local app_name="$2"
-  local install_path=$(get_install_path "$app_name")
+  local install_path=""
   local work_file="download.zip"
+
+  install_path=$(get_install_path "$app_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$work_file"
@@ -299,24 +342,26 @@ install_zip_pkg() {
     )
 
     install_pkg "$MAC_OS_WORK_PATH" "$app_name"
-    printf "Installed: $app_name.\n"
+    printf "%s\n" "Installed: $app_name."
     verify_application "$app_name"
   fi
 }
 export -f install_zip_pkg
 
-# Mounts a disk image.
-# Parameters: $1 (required) - Image path.
+# Label: Mount Image
+# Description: Mount disk image.
+# Parameters: $1 (required): Path.
 mount_image() {
-  printf "Mounting image...\n"
+  printf "%s\n" "Mounting image..."
   hdiutil attach -quiet -nobrowse -noautoopen "$1"
 }
 export -f mount_image
 
-# Unmounts a disk image.
-# Parameters: $1 (required) - Mount path.
+# Label: Unmount Image
+# Description: Unmount disk image.
+# Parameters: $1 (required): Path.
 unmount_image() {
-  printf "Unmounting image...\n"
+  printf "%s\n" "Unmounting image..."
   hdiutil detach -force "$1"
 }
 export -f unmount_image
