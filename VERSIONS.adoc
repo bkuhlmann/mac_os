@@ -1,5 +1,11 @@
 = Versions
 
+== 18.1.0 (2024-02-25)
+
+* 🔼 Updated to Caliber 0.50.0 - Brooke Kuhlmann
+* 🔁 Refactored bin script printing - Brooke Kuhlmann
+* 🔁 Refactored library functions - Brooke Kuhlmann
+
 == 18.0.0 (2024-01-06)
 
 * Added Rakefile quality task - Brooke Kuhlmann
