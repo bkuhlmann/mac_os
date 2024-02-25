@@ -12,5 +12,5 @@ SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_applications"
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Applications install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Applications install script does not exist or is not executable."
 fi

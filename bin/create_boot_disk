@@ -2,33 +2,33 @@
 
 # Creates macOS boot disk.
 
-printf "macOS Boot Disk Tips\n"
-printf "  - Use a USB drive (8GB or higher).\n"
-printf "  - Use Disk Utility to format the USB drive as \"APSF\".\n"
-printf "  - Use Disk Utility to label the USB drive as \"Untitled\".\n"
-printf "\nmacOS Boot Disk Usage:\n"
-printf "  1. Insert the USB boot disk into the machine to be upgraded.\n"
-printf "  2. Reboot the machine.\n"
-printf "  3. Press and hold the POWER key before the Apple logo appears.\n"
-printf "  4. Select the USB boot disk from the menu.\n"
-printf "  5. Use Disk Utility to delete and/or erase the hard drive including associated partitions.\n"
-printf "  6. Use Disk Utility to create a single \"APFS\" drive.\n"
-printf "  7. Install the new operating system.\n"
-printf "\nmacOS Boot Disk Recovery:\n"
-printf "  1. Start/restart the machine.\n"
-printf "  2. Press and hold the POWER key before the Apple logo appears.\n"
-printf "  3. Wait for the macOS installer to load from the recovery partition.\n"
-printf "  4. Use the dialog options to launch Disk Utility, reinstall the system, etc.\n"
+printf "%s\n" "macOS Boot Disk Tips"
+printf "%s\n" "  - Use a USB drive (8GB or higher)."
+printf "%s\n" "  - Use Disk Utility to format the USB drive as \"APSF\"."
+printf "%s\n" "  - Use Disk Utility to label the USB drive as \"Untitled\"."
+printf "\n%s\n" "macOS Boot Disk Usage:"
+printf "%s\n" "  1. Insert the USB boot disk into the machine to be upgraded."
+printf "%s\n" "  2. Reboot the machine."
+printf "%s\n" "  3. Press and hold the POWER key before the Apple logssssso appears."
+printf "%s\n" "  4. Select the USB boot disk from the menu."
+printf "%s\n" "  5. Use Disk Utility to delete and/or erase the hard drive including associated partitions."
+printf "%s\n" "  6. Use Disk Utility to create a single \"APFS\" drive."
+printf "%s\n" "  7. Install the new operating system."
+printf "\n%s\n" "macOS Boot Disk Recovery:"
+printf "%s\n" "  1. Start/restart the machine."
+printf "%s\n" "  2. Press and hold the POWER key before the Apple logo appears."
+printf "%s\n" "  3. Wait for the macOS installer to load from the recovery partition."
+printf "%s\n" "  4. Use the dialog options to launch Disk Utility, reinstall the system, etc."
 
-printf "\nCreating macOS boot disk...\n"
+printf "\n%s\n" "Creating macOS boot disk..."
 
 if [[ ! -e "$MAC_OS_BOOT_DISK_CREATOR" ]]; then
-  printf "ERROR: macOS installer does not exist: $MAC_OS_BOOT_DISK_CREATOR. Use System Preferences → Software Update to download.\n"
+  printf "%s\n" "ERROR: macOS installer does not exist: $MAC_OS_BOOT_DISK_CREATOR. Use System Preferences → Software Update to download."
   exit 1
 fi
 
 if [[ ! -d "$MAC_OS_BOOT_DISK_PATH" ]]; then
-  printf "ERROR: Boot disk must be mounted at: $MAC_OS_BOOT_DISK_PATH.\n"
+  printf "%s\n" "ERROR: Boot disk must be mounted at: $MAC_OS_BOOT_DISK_PATH."
   exit 1
 fi
 

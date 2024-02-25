@@ -13,5 +13,5 @@ if [[ -x "$SCRIPT_PATH" ]]; then
   check_mas_install
   "$SCRIPT_PATH"
 else
-  printf "WARNING: App Store install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: App Store install script does not exist or is not executable."
 fi

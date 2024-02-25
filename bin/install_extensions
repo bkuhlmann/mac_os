@@ -12,5 +12,5 @@ SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_extensions"
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Application extensions install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Application extensions install script does not exist or is not executable."
 fi

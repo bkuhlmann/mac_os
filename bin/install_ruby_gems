@@ -13,5 +13,5 @@ if [[ -x "$SCRIPT_PATH" ]]; then
   install_ruby
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Ruby gems install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Ruby gems install script does not exist or is not executable."
 fi

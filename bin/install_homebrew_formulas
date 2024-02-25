@@ -13,5 +13,5 @@ if [[ -x "$SCRIPT_PATH" ]]; then
   install_homebrew
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Homebrew Formulas install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Homebrew Formulas install script does not exist or is not executable."
 fi

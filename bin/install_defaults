@@ -12,5 +12,5 @@ SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/install_defaults"
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Default settings script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Default settings script does not exist or is not executable."
 fi

@@ -13,5 +13,5 @@ if [[ -x "$SCRIPT_PATH" ]]; then
   install_node
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Node packages install script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Node packages install script does not exist or is not executable."
 fi

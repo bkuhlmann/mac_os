@@ -12,5 +12,5 @@ SCRIPT_PATH="$MAC_OS_CONFIG_PATH/bin/restore_backup"
 if [[ -x "$SCRIPT_PATH" ]]; then
   "$SCRIPT_PATH"
 else
-  printf "WARNING: Restore backup script does not exist or is not executable.\n"
+  printf "%s\n" "WARNING: Restore backup script does not exist or is not executable."
 fi

@@ -11,13 +11,13 @@ source lib/verifiers.sh
 if [[ -e "$MAC_OS_CONFIG_PATH" ]]; then
   source "$MAC_OS_CONFIG_PATH/lib/settings.sh"
 else
-  printf "ERROR: Unable to load macOS configuration: $MAC_OS_CONFIG_PATH.\n\n"
-  printf "Please check the following before continuing:\n"
-  printf "  • Download the default macOS configuration here: https://github.com/bkuhlmann/mac_os-config.\n"
-  printf "  • Customize as necessary for your setup or fork the project and make your own configuration.\n"
-  printf "  • When finished, your folder structure should look like this:\n"
-  printf "    • <root path>/mac_os:\n"
-  printf "    • <root path>/mac_os-config:\n"
+  printf "%s\n\n" "ERROR: Unable to load macOS configuration: $MAC_OS_CONFIG_PATH."
+  printf "%s\n" "Please check the following before continuing:"
+  printf "%s\n" "  • Download the default macOS configuration here: https://github.com/bkuhlmann/mac_os-config."
+  printf "%s\n" "  • Customize as necessary for your setup or fork the project and make your own configuration."
+  printf "%s\n" "  • When finished, your folder structure should look like this:"
+  printf "%s\n" "    • <root path>/mac_os:"
+  printf "%s\n" "    • <root path>/mac_os-config:"
   exit 1
 fi
 
@@ -25,37 +25,37 @@ configure_environment
 
 while true; do
   if [[ $# == 0 ]]; then
-    printf "\nUsage: run OPTION\n"
-    printf "\nOSX Options:\n"
-    printf "  Boot:\n"
-    printf "     B:  Create boot disk.\n"
-    printf "  Install:\n"
-    printf "     b:  Install basics.\n"
-    printf "     t:  Install development tools.\n"
-    printf "    hf:  Install Homebrew Formulas.\n"
-    printf "    hc:  Install Homebrew Casks.\n"
-    printf "     m:  Install Mac App Store software.\n"
-    printf "     a:  Install application software.\n"
-    printf "     x:  Install application software extensions.\n"
-    printf "     d:  Install defaults.\n"
-    printf "     s:  Install shell.\n"
-    printf "     r:  Restore backups.\n"
-    printf "     i:  Install all (i.e. executes all of the above steps in order listed).\n"
-    printf "  Libraries:\n"
-    printf "    np:  Install Node packages.\n"
-    printf "    rg:  Install Ruby gems.\n"
-    printf "    rc:  Install Rust crates.\n"
-    printf "     l:  Install libraries (i.e. executes all of the above steps in order listed).\n"
-    printf "  Manage:\n"
-    printf "     c:  Check status of managed software.\n"
-    printf "     C:  Caffeinate machine.\n"
-    printf "     w:  Clean work (temp) directory.\n"
-    printf "     q:  Quit/Exit.\n\n"
+    printf "\n%s\n" "Usage: run OPTION"
+    printf "\n%s\n" "OSX Options:"
+    printf "%s\n" "  Boot:"
+    printf "%s\n" "     B:  Create boot disk."
+    printf "%s\n" "  Install:"
+    printf "%s\n" "     b:  Install basics."
+    printf "%s\n" "     t:  Install development tools."
+    printf "%s\n" "    hf:  Install Homebrew Formulas."
+    printf "%s\n" "    hc:  Install Homebrew Casks."
+    printf "%s\n" "     m:  Install Mac App Store software."
+    printf "%s\n" "     a:  Install application software."
+    printf "%s\n" "     x:  Install application software extensions."
+    printf "%s\n" "     d:  Install defaults."
+    printf "%s\n" "     s:  Install shell."
+    printf "%s\n" "     r:  Restore backups."
+    printf "%s\n" "     i:  Install all (i.e. executes all of the above steps in order listed)."
+    printf "%s\n" "  Libraries:"
+    printf "%s\n" "    np:  Install Node packages."
+    printf "%s\n" "    rg:  Install Ruby gems."
+    printf "%s\n" "    rc:  Install Rust crates."
+    printf "%s\n" "     l:  Install libraries (i.e. executes all of the above steps in order listed)."
+    printf "%s\n" "  Manage:"
+    printf "%s\n" "     c:  Check status of managed software."
+    printf "%s\n" "     C:  Caffeinate machine."
+    printf "%s\n" "     w:  Clean work (temp) directory."
+    printf "%s\n\n" "     q:  Quit/Exit."
     read -p "Enter selection: " response
     printf "\n"
-    process_option $response
+    process_option "$response"
   else
-    process_option $1
+    process_option "$1"
   fi
 
   break

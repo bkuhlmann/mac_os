@@ -1,14 +1,14 @@
 #! /usr/bin/env bash
 
-Installs development tooling requirements.
+# Installs development tooling requirements.
 
-printf "Installing Xcode CLI tools...\n"
+printf "%s\n" "Installing Xcode CLI tools..."
 xcode-select --install
 
 printf "%s\n" "💡 ALT+TAB to view and accept Xcode license window."
 read -p "Have you completed the Xcode CLI tools install (y/n)? " xcode_response
 if [[ "$xcode_response" != "y" ]]; then
-  printf "ERROR: Xcode CLI tools must be installed before proceeding.\n"
+  printf "%s\n" "ERROR: Xcode CLI tools must be installed before proceeding."
   exit 1
 fi
 
