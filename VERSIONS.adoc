@@ -1,5 +1,13 @@
 = Versions
 
+== 18.2.0 (2024-04-21)
+
+* 🔼 Updated RuboCop to use XDG local configuration - Brooke Kuhlmann
+* 🔼 Updated to Caliber 0.51.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 7.1.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 7.3.0 - Brooke Kuhlmann
+* 🔼 Updated to Rake 13.2.0 - Brooke Kuhlmann
+
 == 18.1.0 (2024-02-25)
 
 * 🔼 Updated to Caliber 0.50.0 - Brooke Kuhlmann
