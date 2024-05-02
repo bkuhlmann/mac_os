@@ -1,5 +1,9 @@
 = Versions
 
+== 18.2.1 (2024-05-02)
+
+* 🔼 Updated to Ruby 3.3.1 - Brooke Kuhlmann
+
 == 18.2.0 (2024-04-21)
 
 * 🔼 Updated RuboCop to use XDG local configuration - Brooke Kuhlmann

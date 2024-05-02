@@ -38,11 +38,6 @@ toc::[]
 * Configures installed software.
 * Supports restoration of machine backups.
 
-== Screencast
-
-[link=https://alchemists.io/screencasts/mac_os]
-image::https://alchemists.io/images/screencasts/mac_os/cover.svg[Screencast,600,240,role=focal_point]
-
 == Requirements
 
 . link:https://www.apple.com/macos/sonoma[macOS Sonoma]
