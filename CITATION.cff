@@ -17,5 +17,6 @@ keywords:
  - automation
  - setup
  - recovery
-repository-code: https://alchemists.io/projects/mac_os
+repository-code: https://github.com/bkuhlmann/mac_os
 repository-artifact: https://alchemists.io/projects/mac_os
+url: https://alchemists.io/projects/mac_os
