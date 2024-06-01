@@ -1,5 +1,10 @@
 = Versions
 
+== 18.2.2 (2024-06-01)
+
+* 🔼 Updated citation URLs - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.2 - Brooke Kuhlmann
+
 == 18.2.1 (2024-05-02)
 
 * 🔼 Updated to Ruby 3.3.1 - Brooke Kuhlmann

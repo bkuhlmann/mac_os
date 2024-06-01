@@ -51,7 +51,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 18.2.0
+git checkout 18.2.2
 ----
 
 == Usage
