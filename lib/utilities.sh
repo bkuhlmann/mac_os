@@ -89,7 +89,7 @@ get_install_root() {
 
   case $(get_extension "$file_name") in
     '')
-      printf "/usr/local/bin";;
+      printf "%s" "$HOME/.local/bin";;
     'app')
       printf "/Applications";;
     'prefPane')

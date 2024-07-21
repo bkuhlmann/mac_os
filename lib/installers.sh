@@ -216,12 +216,15 @@ export -f install_pkg
 install_program() {
   local url="$1"
   local program_name="$2"
+  local install_root=""
   local install_path=""
 
+  install_root=$(get_install_root "$program_name")
   install_path=$(get_install_path "$program_name")
 
   if [[ ! -e "$install_path" ]]; then
     download_file "$url" "$program_name"
+    mkdir -p "$install_root"
     mv "$MAC_OS_WORK_PATH/$program_name" "$install_path"
     chmod 755 "$install_path"
     printf "%s\n" "Installed: $program_name."
