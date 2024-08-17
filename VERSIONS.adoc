@@ -1,5 +1,9 @@
 = Versions
 
+== 18.3.1 (2024-08-17)
+
+* 🔼 Updated to Ruby 3.3.4 - Brooke Kuhlmann
+
 == 18.3.0 (2024-07-08)
 
 * 🔼 Updated to Caliber 0.58.0 - Brooke Kuhlmann
