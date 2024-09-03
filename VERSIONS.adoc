@@ -1,5 +1,10 @@
 = Versions
 
+== 18.3.2 (2024-09-03)
+
+* 🟢 Added README Developer Certificate of Origin documentation - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.5 - Brooke Kuhlmann
+
 == 18.3.1 (2024-08-17)
 
 * 🔼 Updated to Ruby 3.3.4 - Brooke Kuhlmann
