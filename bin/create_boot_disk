@@ -2,14 +2,16 @@
 
 # Creates macOS boot disk.
 
-printf "%s\n" "macOS Boot Disk Tips"
-printf "%s\n" "  - Use a USB drive (8GB or higher)."
-printf "%s\n" "  - Use Disk Utility to format the USB drive as \"APSF\"."
-printf "%s\n" "  - Use Disk Utility to label the USB drive as \"Untitled\"."
+printf "%s\n" "macOS Boot Disk Setup"
+printf "%s\n" "  1. Insert a USB drive (8GB or higher)."
+printf "%s\n" "  2. Use Disk Utility to format as \"Mac OS Extended (Journaled)\"."
+printf "%s\n" "  3. Use Disk Utility to set the schema, if available, as \"GUID Partition Map\"."
+printf "%s\n" "  4. Use Disk Utility to label as \"Untitled\"."
+printf "%s\n" "  5. Run this script to install the OS and create a bootable USB drive."
 printf "\n%s\n" "macOS Boot Disk Usage:"
-printf "%s\n" "  1. Insert the USB boot disk into the machine to be upgraded."
+printf "%s\n" "  1. Insert the USB drive, created above, into the machine to be upgraded."
 printf "%s\n" "  2. Reboot the machine."
-printf "%s\n" "  3. Press and hold the POWER key before the Apple logssssso appears."
+printf "%s\n" "  3. Press and hold the POWER key before the Apple logo appears."
 printf "%s\n" "  4. Select the USB boot disk from the menu."
 printf "%s\n" "  5. Use Disk Utility to delete and/or erase the hard drive including associated partitions."
 printf "%s\n" "  6. Use Disk Utility to create a single \"APFS\" drive."
