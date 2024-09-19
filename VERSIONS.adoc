@@ -1,5 +1,11 @@
 = Versions
 
+== 19.0.0 (2024-09-19)
+
+* 🟢 Added version release notes - Brooke Kuhlmann
+* 🔼 Updated install root to use XDG binary path - Brooke Kuhlmann
+* 🔼 Updated to macOS 15.0.0 (Sequoia) - Brooke Kuhlmann
+
 == 18.3.2 (2024-09-03)
 
 * 🟢 Added README Developer Certificate of Origin documentation - Brooke Kuhlmann

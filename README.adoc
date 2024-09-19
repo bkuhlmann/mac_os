@@ -40,7 +40,7 @@ toc::[]
 
 == Requirements
 
-. link:https://www.apple.com/macos/sonoma[macOS Sonoma]
+. link:https://www.apple.com/macos/macos-sequoia[macOS 15.0.0 (Sequoia)]
 . link:https://developer.apple.com/xcode[Xcode]
 
 == Setup
@@ -51,7 +51,7 @@ To install, run:
 ----
 git clone https://github.com/bkuhlmann/mac_os.git
 cd mac_os
-git checkout 18.3.2
+git checkout 19.0.0
 ----
 
 == Usage
@@ -116,23 +116,25 @@ When attempting to create a boot disk via `bin/run B`, you’ll be presented wit
 documentation (provided here for reference):
 
 ....
-macOS Boot Disk Tips
-  - Use a USB drive (8GB or higher).
-  - Use Disk Utility to format the USB drive as "Mac OS Extended (Journaled)".
-  - Use Disk Utility to label the USB drive as "Untitled".
+macOS Boot Disk Setup
+  1. Insert a USB drive (8GB or higher).
+  2. Use Disk Utility to format as "Mac OS Extended (Journaled)".
+  3. Use Disk Utility to set the schema, if available, as "GUID Partition Map".
+  4. Use Disk Utility to label as "Untitled".
+  5. Run this script to install the OS and create a bootable USB drive.
 
 macOS Boot Disk Usage:
-  1. Insert the USB boot disk into the machine to be upgraded.
+  1. Insert the USB drive, created above, into the machine to be upgraded.
   2. Reboot the machine.
-  3. Hold the POWER (Silicon) or OPTION (Intel) key before the Apple logo appears.
+  3. Press and hold the POWER key before the Apple logo appears.
   4. Select the USB boot disk from the menu.
   5. Use Disk Utility to delete and/or erase the hard drive including associated partitions.
-  6. Use Disk Utility to create a single "APFS" drive as a "GUID Partition Table".
+  6. Use Disk Utility to create a single "APFS" drive.
   7. Install the new operating system.
 
 macOS Boot Disk Recovery:
   1. Start/restart the machine.
-  2. Hold the POWER (Silicon) or COMMAND+R (Intel) keys before the Apple logo appears.
+  2. Press and hold the POWER key before the Apple logo appears.
   3. Wait for the macOS installer to load from the recovery partition.
   4. Use the dialog options to launch Disk Utility, reinstall the system, etc.
 ....
