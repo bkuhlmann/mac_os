@@ -2,6 +2,8 @@
 :toclevels: 5
 :figure-caption!:
 
+:mac_os_defaults_link: link:https://macos-defaults.com[macOS Defaults]
+
 = macOS
 
 Shell scripts for automated macOS machine setup.
@@ -34,7 +36,7 @@ toc::[]
 * Installs link:https://nodejs.org[Node] link:https://www.npmjs.com[packages].
 * Installs link:https://www.ruby-lang.org[Ruby] link:https://rubygems.org[gems].
 * Installs link:https://www.rust-lang.org[Rust] link:https://crates.io[crates].
-* Applies basic default software settings.
+* Applies {mac_os_defaults_link}.
 * Configures installed software.
 * Supports restoration of machine backups.
 
@@ -145,8 +147,7 @@ All executable scripts can be found in the `bin` folder:
 
 * `bin/apply_basic_settings` (optional, customizable): Applies basic and initial settings for
   setting up a machine.
-* `bin/apply_default_settings` (optional, customizable): Applies bare minimum system and application
-  defaults.
+* `bin/apply_default_settings` (optional, customizable): Applies {mac_os_defaults_link}.
 * `bin/configure_software` (optional, customizable): Configures installed software as part of the
   post install process.
 * `bin/create_boot_disk` (optional): Creates a macOS boot disk.
