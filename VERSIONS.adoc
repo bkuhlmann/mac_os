@@ -1,5 +1,10 @@
 = Versions
 
+== 19.0.1 (2024-11-05)
+
+* 🟢 Added macOS Defaults documentation link - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.6 - Brooke Kuhlmann
+
 == 19.0.0 (2024-09-19)
 
 * 🟢 Added version release notes - Brooke Kuhlmann
