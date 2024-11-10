@@ -50,9 +50,9 @@ process_option() {
     'rc')
       bin/install_rust_crates;;
     'l')
-      bin/install_node_packages
+      bin/install_rust_crates
       bin/install_ruby_gems
-      bin/install_rust_crates;;
+      bin/install_node_packages;;
    'c')
       verify_homebrew_formulas
       verify_homebrew_casks
