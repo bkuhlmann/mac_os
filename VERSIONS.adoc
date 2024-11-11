@@ -1,5 +1,9 @@
 = Versions
 
+== 19.1.1 (2024-11-11)
+
+* ✅ Fixed library install order - Brooke Kuhlmann
+
 == 19.1.0 (2024-11-09)
 
 * 🔼 Updated to Caliber 0.64.0 - Brooke Kuhlmann
