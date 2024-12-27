@@ -1,5 +1,11 @@
 = Versions
 
+== 20.0.0 (2024-12-27)
+
+* 🔼 Updated to Caliber 0.68.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 9.0.0 - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.4.0 - Brooke Kuhlmann
+
 == 19.1.1 (2024-11-11)
 
 * ✅ Fixed library install order - Brooke Kuhlmann
