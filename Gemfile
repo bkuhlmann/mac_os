@@ -6,5 +6,5 @@ source "https://rubygems.org"
 
 gem "caliber", "~> 0.68"
 gem "debug", "~> 1.9"
-gem "git-lint", "~> 8.7"
+gem "git-lint", "~> 9.0"
 gem "rake", "~> 13.2"
