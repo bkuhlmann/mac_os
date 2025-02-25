@@ -203,6 +203,7 @@ link:https://alchemists.io/projects/mac_os-config[macOS Config] project for furt
 ** After seven seconds, hold down the Power button as well.
 ** Release all keys after another seven seconds.
 ** Turn on your Mac.
+** For more troubleshooting tips, check out The Eclectic Light Company's link:https://eclecticlight.co/mac-troubleshooting-summary/[Mac Troubleshooting Summary].
 
 == Development
 
