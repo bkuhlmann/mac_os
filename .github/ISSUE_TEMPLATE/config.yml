@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Community
+    url: https://alchemists.io/community
+    about: Please ask questions or discuss specifics here.
+  - name: Security
+    url: https://alchemists.io/policies/security
+    about: Please report security vulnerabilities here.
