@@ -42,7 +42,7 @@ toc::[]
 
 == Requirements
 
-. link:https://www.apple.com/macos/macos-sequoia[macOS 15.0.0 (Sequoia)]
+. link:https://www.apple.com/os/macos[macOS 26.0.0 (Tahoe)]
 . link:https://developer.apple.com/xcode[Xcode]
 
 == Setup
@@ -140,6 +140,17 @@ macOS Boot Disk Recovery:
   3. Wait for the macOS installer to load from the recovery partition.
   4. Use the dialog options to launch Disk Utility, reinstall the system, etc.
 ....
+
+💡 You can ensure the right installer is downloaded and available for Boot Disk creation by running the following commands:
+
+[source,bash]
+----
+# Show which installers are available.
+softwareupdate --list-full-installers
+
+# Download desired version.
+sudo softwareupdate --fetch-full-installer --full-installer-version 26.0
+----
 
 === Customization
 
