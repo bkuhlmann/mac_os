@@ -4,7 +4,7 @@ ruby file: ".ruby-version"
 
 source "https://rubygems.org"
 
-gem "caliber", "~> 0.82"
+gem "caliber", "~> 0.87"
 gem "debug", "~> 1.11"
 gem "git-lint", "~> 10.0"
 gem "rake", "~> 13.3"
