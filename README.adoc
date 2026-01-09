@@ -156,28 +156,20 @@ sudo softwareupdate --fetch-full-installer --full-installer-version 26.0
 
 All executable scripts can be found in the `bin` folder:
 
-* `bin/apply_basic_settings` (optional, customizable): Applies basic and initial settings for
-  setting up a machine.
-* `bin/apply_default_settings` (optional, customizable): Applies {mac_os_defaults_link}.
-* `bin/configure_software` (optional, customizable): Configures installed software as part of the
-  post install process.
 * `bin/create_boot_disk` (optional): Creates a macOS boot disk.
-* `bin/install_app_store` (optional, customizable): Installs macOS, GUI-based, App Store
-  applications.
-* `bin/install_applications` (optional, customizable): Installs macOS, GUI-based, non-App Store
-  applications.
+* `bin/install_app_store` (optional, customizable): Installs macOS, GUI-based, App Store applications.
+* `bin/install_applications` (optional, customizable): Installs macOS, GUI-based, non-App Store applications.
+* `bin/install_basics` (optional, customizable): Applies basic settings for setting up a machine.
+* `bin/install_defaults` (optional, customizable): Applies {mac_os_defaults_link}.
 * `bin/install_dev_tools` (required): Installs macOS development tools required by Homebrew.
-* `bin/install_dotfiles` (optional, customizable): Installs personal dotfiles so the system is
-  tailored to your workflow.
-* `bin/install_extensions` (optional, customizable): Installs macOS application extensions and
-  add-ons.
+* `bin/install_extensions` (optional, customizable): Installs application extensions to any application that supports additional add-on, plugins, etc.
 * `bin/install_homebrew_casks` (optional, customizable): Installs Homebrew Formulas.
 * `bin/install_homebrew_formulas` (optional, customizable): Installs Homebrew Casks.
 * `bin/install_node_packages` (optional, customizable): Installs Node packages.
 * `bin/install_ruby_gems` (optional, customizable): Installs Ruby gems.
 * `bin/install_rust_crates` (optional, customizable): Installs Rust crates.
+* `bin/install_shell` (optional, customizable): Allows you to install and customize your preferred shell. Especially useful if you don't want the macOS default Z shell.
 * `bin/restore_backup` (optional, customizable): Restores system/application settings from backup
-  image.
 * `bin/run` (required): The main script and interface for macOS setup.
 
 The `lib` folder provides the base framework for installing, re-installing, and uninstalling
