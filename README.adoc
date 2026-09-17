@@ -42,7 +42,7 @@ toc::[]
 
 == Requirements
 
-. link:https://www.apple.com/os/macos[macOS 26.0.0 (Tahoe)]
+. link:https://www.apple.com/os/macos[macOS 27.0.0 (Golden Gate)]
 . link:https://developer.apple.com/xcode[Xcode]
 
 == Setup
@@ -149,7 +149,7 @@ macOS Boot Disk Recovery:
 softwareupdate --list-full-installers
 
 # Download desired version.
-sudo softwareupdate --fetch-full-installer --full-installer-version 26.0
+sudo softwareupdate --fetch-full-installer --full-installer-version 27.0
 ----
 
 === Customization
